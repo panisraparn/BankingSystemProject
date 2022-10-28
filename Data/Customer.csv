@@ -1,0 +1,7 @@
+ctm_id1,ctm_cid1,ctm_firstname1,ctm_lastname1,ctm_img1,ctm_sex1,ctm_tel1,ctm_address1,ctm_workplace1,ctm_bankaccount1
+ctm_id2,ctm_cid2,ctm_firstname2,ctm_lastname2,ctm_img2,ctm_sex2,ctm_tel2,ctm_address2,ctm_workplace2,ctm_bankaccount2
+7142500,id1,f1,l1,images/2022-10-29_1666980847708.jpg,1,phone1,add1,work1,bank1
+5205800,2,f2,l2,images/2022-10-29_1666980945368.jpg,1,phone2,add2,work2,bank2
+1684063,i3,f3,l3,images/2022-10-29_1666981063393.jpg,1,p3,a3,w3,b3
+6375769,i4,f4,l4,images/2022-10-29_1666981112931.jpg,1,p4,a4,w4,b4
+0754660,i5,f5,l5,images/2022-10-29_1666981173932.jpg,1,p5,a5,w5,b5

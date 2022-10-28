@@ -18,7 +18,7 @@ public class CustomerList {
     }
 
     // เรียกดู all customer
-    public ArrayList<Customer> getAllCustomers(){return  customers;}
+    public ArrayList<Customer> getAllCustomersList(){return  customers;}
 
 
     // check ctm_id isExits
@@ -30,19 +30,49 @@ public class CustomerList {
         }return false; // วน customers แล้วไม่เจอ ctm_id ที่ตรงกัน
     }
 
-
-    // check firstname and lastname
-    public boolean checkFirstAndLastNameIsExits(String firstname, String lastname){
+    //checkCtm_cid is exits
+    public boolean checkCtm_CidIsExits(String ctm_cid) {
         for(Customer customer: this.customers){
-            if(customer.isDuplicateFirstname(firstname) && customer.isDuplicateLastname(lastname)){
+            if (customer.isDuplicateCtm_cid(ctm_cid)){
                 return true;
             }
-        }return false; // วน customers แล้วไม่เจอ firstname and lastname ที่ตรงกัน
+        }return false; // วน customers แล้วไม่เจอ ctm_id ที่ตรงกั
+    }
 
 
+//    public  boolean checkFirstnameIsExits(String firstname){
+//        for(Customer customer: this.customers){
+//            if(customer.isDuplicateFirstname(firstname)){
+//                return true;
+//            }
+//        }return false; // วน customers แล้วไม่เจอ firstname and lastname ที่ตรงกัน
+//    }
+//
+//    public  boolean checkLastnameIsExits(String lastname){
+//        for(Customer customer: this.customers){
+//            if(customer.isDuplicateFirstname(lastname)){
+//                return true;
+//            }
+//        }return false; // วน customers แล้วไม่เจอ firstname and lastname ที่ตรงกัน
+//    }
 
 
+    // search ctm_id และให้ return customer ออกมา ถ้าไม่เจอ ctm_id ให้ return null
+    public Customer searchCtm_id(String ctm_id){
+        for(Customer customer:this.customers){
+            if(customer.isCtm_id(ctm_id)){
+                return customer;
+            }
+        }return null;
+    }
 
+
+    public String toCsv() {
+        String result = "";
+        for (Customer customer : this.customers){
+            result += customer.toCsv() + "\n";
+        }
+        return result;
     }
 
 
