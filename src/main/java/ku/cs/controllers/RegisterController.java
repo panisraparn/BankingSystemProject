@@ -14,7 +14,6 @@ import ku.cs.models.Customer;
 import ku.cs.models.CustomerList;
 import ku.cs.services.CustomerFileDataSource;
 import ku.cs.services.DataSource;
-import ku.cs.services.DatabaseConnection;
 
 import java.io.File;
 import java.io.IOException;
@@ -66,8 +65,8 @@ public class RegisterController {
         addressTextField.setText("");
         workplaceTextField.setText("");
         bankAccountNumberTextField.setText("");
-
     }
+
 
     @FXML
     void handleBackButton (ActionEvent event){
@@ -80,13 +79,13 @@ public class RegisterController {
         //กลับสู่หน้า home view
         // code เปลี่ยนหน้า --> ไปหน้า Menu
 
-        try {
-            System.out.println("menu");
-            FXRouter.goTo("menu");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า signup ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
+//        try {
+//            System.out.println("menu");
+//            FXRouter.goTo("menu");
+//        } catch (IOException e) {
+//            System.err.println("ไปที่หน้า signup ไม่ได้");
+//            System.err.println("ให้ตรวจสอบการกำหนด route");
+//        }
     }
 
 
@@ -104,6 +103,7 @@ public class RegisterController {
         // GET FILE FROM FILECHOOSER WITH JAVAFX COMPONENT WINDOW
         Node source = (Node) event.getSource();
         File file = chooser.showOpenDialog(source.getScene().getWindow());
+
         if (file != null) {
             try {
                 // CREATE FOLDER IF NOT EXIST
@@ -125,9 +125,9 @@ public class RegisterController {
                 this.ctmImageView.setImage(new Image(target.toUri().toString()));
 
                 //setImagePath
-                //productForSetImagePath = new Product("test","test","test",0,0,"test"); //local
-                Customer customerForSetImagePath = new Customer("0", "0", "0", "")
-                //System.out.println("Upload: "+accountForSetImagePath.getImagePath());
+                Customer customerForSetImagePath = new Customer("0", "0", "0", "0","0","0","0","0","0");
+                customerForSetImagePath.setCtmImagePath(destDir + "/" + filename);
+                this.customerForSetImagePath = customerForSetImagePath;
 
             }catch (IOException e) {
                 e.printStackTrace();
@@ -137,6 +137,7 @@ public class RegisterController {
 
     @FXML
     void handleFemaleCheckBox(ActionEvent event){
+        maleCheckBox.setSelected(false);
         if(femaleCheckBox.isSelected()){
             sexCheckBoxStr = "1"; //female = 1, male = 2
         }
@@ -144,6 +145,7 @@ public class RegisterController {
 
     @FXML
     void handleMaleCheckBox(ActionEvent event){
+        femaleCheckBox.setSelected(false); //เมื่อกด check ที่ maleCheckbox ต้อง setSelected(false) เพื่อให้ check ได้แค่กล่องเดียว
         if(maleCheckBox.isSelected()){
             sexCheckBoxStr = "2"; //female = 1, male = 2
         }
@@ -158,7 +160,10 @@ public class RegisterController {
         CustomerList customers = dataSource.readData();
 
         //--------------------------------------------------------------------------------------------------------------
-        ctm_idStr = randomCtm_id.randCtm_id(); //random ctm_id
+        randomCtm_id.setCtm_id(); //random ctm_id
+        ctm_idStr=randomCtm_id.getCtm_Id();
+
+
         String idNumberStr = IdNumberTextField.getText();
         String firstnameStr = firstnameTextField.getText();
         String lastnameStr = lastNameTextField.getText();
@@ -169,8 +174,7 @@ public class RegisterController {
         String addressStr = addressTextField.getText();
         String workplaceStr = workplaceTextField.getText();
 
-
-
+        //--------------------------------------------------------------------------------------------------------------
         //if text field มีช่องว่าง ให้ alert ถ้าไม่มีช่องว่าง (else) ให้ บันทึก
         if(firstnameStr.equals("") || lastnameStr.equals("") || idNumberStr.equals("") || sexCheckBoxStr.equals("")
                 || phoneNumStr.equals("") || bankAccNumStr.equals("") || addressStr.equals("") || workplaceStr.equals("") )
@@ -187,9 +191,10 @@ public class RegisterController {
         else if (customers.checkCtm_idIsExits(ctm_idStr)){
 
             while (customers.checkCtm_idIsExits(ctm_idStr)){
-                ctm_idStr = randomCtm_id.randCtm_id();
-            }//while true ให้ generate ctm_id จนกว่าจะไม่ซ้ำ
+                randomCtm_id.setCtm_id();
+                ctm_idStr=randomCtm_id.getCtm_Id();
 
+            }//while true ให้ generate ctm_id จนกว่าจะไม่ซ้ำ
         }
 
         //มีชื่อซ้ำ
@@ -200,24 +205,24 @@ public class RegisterController {
             alert.setContentText("ลูกค้าได้ลงทะเบียนลูกค้าไว้แล้ว");
 
             alert.showAndWait();
-
         }
-
         else{
-
-            //insert ข้อมูล ในตาราง customer
+            //insert ข้อมูล ในตาราง customer Database
             try{
+
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test_loansystem","root","");
 
+
                 pst = con.prepareStatement("insert into customer(Ctm_id, Ctm_cid, Ctm_firstname, Ctm_lastname, Ctm_img, " +
                         "Ctm_sex, Ctm_tel, Ctm_address, Ctm_workplace, Ctm_bankaccount VALUE (?,?,?,?,?,?,?,?,?,?))");
+
 
                 pst.setString(1, ctm_idStr);
                 pst.setString(2, idNumberStr);
                 pst.setString(3,firstnameStr);
                 pst.setString(4,lastnameStr);
-                pst.setString(5,Ctm_img);
+                pst.setString(5, customerForSetImagePath.getCtm_img());
                 pst.setString(6, sexCheckBoxStr);
                 pst.setString(7,phoneNumStr);
                 pst.setString(8,addressStr);
@@ -226,15 +231,24 @@ public class RegisterController {
 
                 int status = pst.executeUpdate();
 
-
                 //popup
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Error!!");
                 alert.setHeaderText(null);
 
-
                 if (status==1)
                 {
+                    //เมื่อบันทึกลงใน database สำเร็จ ให้ record ใน file csv
+                    customers.addCustomer(new Customer(ctm_idStr,idNumberStr,firstnameStr,lastnameStr, customerForSetImagePath.getCtm_img(), sexCheckBoxStr, phoneNumStr, addressStr, workplaceStr, bankAccNumStr));
+
+
+
+
+
+
+
+
+
                     // popup เเจ้งว่า บันทึกข้อมุูลสำเร็จ
                     alert.setContentText("บันทึกข้อมูลลูกค้าสำเร็จ");
 
@@ -252,6 +266,10 @@ public class RegisterController {
             }
 
 
+
+
+
+
             // code เปลี่ยนหน้า --> ไปหน้า Menu
             try {
                 System.out.println("menu");
@@ -260,8 +278,10 @@ public class RegisterController {
                 System.err.println("ไปที่หน้า signup ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
-        }
 
+
+
+        }
     }
 
 }

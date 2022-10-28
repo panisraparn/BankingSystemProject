@@ -14,30 +14,31 @@ public class Customer {
     private String ctm_workplace;
     private String ctm_bankAccount;
 
-    //new user
+    //ใช้ตอน test กับ setCtmImagePath ใน
     public Customer(String ctm_cid, String ctm_firstname, String ctm_lastname, String ctm_img, String ctm_sex,
                     String ctm_tel, String ctm_address, String ctm_workplace, String ctm_bankAccount)
     {
-        this.ctm_Id = randCtm_id();
         this.ctm_cid = ctm_cid;
         this.ctm_firstname = ctm_firstname;
         this.ctm_lastname = ctm_lastname;
-        this.ctm_img = ctm_img;
+        this.ctm_img = "images/Profile_icon.jpg" ;
         this.ctm_sex = ctm_sex;
         this.ctm_tel = ctm_tel;
         this.ctm_address = ctm_address;
         this.ctm_workplace = ctm_workplace;
         this.ctm_bankAccount = ctm_bankAccount;
-
-
+    }
+    //new user
+    public Customer(String ctm_idStr, String idNumberStr, String firstnameStr, String lastnameStr, String ctm_img, String sexCheckBoxStr, String phoneNumStr, String addressStr, String workplaceStr, String bankAccNumStr) {
     }
 
+
     //random Ctm_id 7 digits
-    public String randCtm_id(){
+    public void setCtm_id(){
         Random rand = new Random();
         int digit7 = rand.nextInt(9999999);
         String randCtm_idStr = String.format("%7d",digit7);
-        return randCtm_idStr;
+        this.ctm_Id =randCtm_idStr;
     }
 
     //check firstname ซ้ำ
@@ -55,13 +56,54 @@ public class Customer {
 
     //set รูป(imagePath) UserDefault กรณีที่ register แล้ว user ไม่ upload รูป
     public void setCtmImagePath () {
-        this.ctm_img = "images";
+        this.ctm_img = "images/Profile_icon.jpg";
     }
 
 
     //set รูป(imagePath) กรณีที่ user กดปุ่ม อัพโหลดรูป
     public  void setCtmImagePath(String imagePath){
         this.ctm_img = imagePath;
+    }
+
+
+    public String getCtm_Id() {
+        return ctm_Id;
+    }
+
+    public String getCtm_cid() {
+        return ctm_cid;
+    }
+
+    public String getCtm_firstname() {
+        return ctm_firstname;
+    }
+
+    public String getCtm_lastname() {
+        return ctm_lastname;
+    }
+
+    public String getCtm_img() {
+        return ctm_img;
+    }
+
+    public String getCtm_sex() {
+        return ctm_sex;
+    }
+
+    public String getCtm_tel() {
+        return ctm_tel;
+    }
+
+    public String getCtm_address() {
+        return ctm_address;
+    }
+
+    public String getCtm_workplace() {
+        return ctm_workplace;
+    }
+
+    public String getCtm_bankAccount() {
+        return ctm_bankAccount;
     }
 
     @Override
