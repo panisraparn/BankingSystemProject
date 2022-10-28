@@ -21,7 +21,12 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.sql.*;
 import java.time.LocalDate;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class RegisterController {
@@ -59,6 +64,26 @@ public class RegisterController {
     //-------------------------------------------------------------------------------------------------------------------------------------
     private String sexCheckBoxStr; //female = 1, male = 2
     private Customer ctmForSetImageView = new Customer("0");
+
+    //database connect
+    Connection conn = null;
+    Statement stmt = null;
+
+    //ต่อ database
+//    public void Connect(){
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            con  = DriverManager.getConnection("jdbc:mysql://localhost/test_loansystem","root","");
+//
+//
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null, ex);
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+
 
 
     @FXML
@@ -122,12 +147,15 @@ public class RegisterController {
     }
 
     @FXML
-    void handleRecordButton(ActionEvent event) {
+    void handleRecordButton(ActionEvent event) throws SQLException {
+
+//        Connect();
+
 
         //generate ctm_id
         Customer randomCtm_id = new Customer("0", "0", "0", "0", "0", "0", "0", "0", "0", "0");
         String ctm_idStr = randomCtm_id.generateCtm_id();
-                System.out.println("ctm_idStr1" + ctm_idStr);
+        System.out.println("ctm_idStr1" + ctm_idStr);
 
         //เขียนอ่านไฟล์ csv
         DataSource<CustomerList> dataSource = new CustomerFileDataSource();
@@ -143,9 +171,8 @@ public class RegisterController {
         String workplaceStr = workplaceTextField.getText();
 
 
-        if(firstnameStr.equals("") || lastnameStr.equals("") || idNumberStr.equals("") || sexCheckBoxStr.equals("")
-                || phoneNumStr.equals("") || bankAccNumStr.equals("") || addressStr.equals("") || workplaceStr.equals(""))
-        {
+        if (firstnameStr.equals("") || lastnameStr.equals("") || idNumberStr.equals("") || sexCheckBoxStr.equals("")
+                || phoneNumStr.equals("") || bankAccNumStr.equals("") || addressStr.equals("") || workplaceStr.equals("")) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error!!");
             alert.setHeaderText(null);
@@ -153,7 +180,7 @@ public class RegisterController {
 
             alert.showAndWait();
 
-        }else{
+        } else {
             //ถ้าไม่ได้ upload รูป ให้ alert ว่า ใส่รูปด้วย
             if (ctmForSetImageView.getCtm_img().equals("0")) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -162,17 +189,17 @@ public class RegisterController {
                 alert.setContentText("ใส่รูปของลูกค้าก่อนกดบันทึก");
                 alert.showAndWait();
 
-            }else{
+            } else {
                 //check ctm_id ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if ไม่ซ้ำ เข้า else
-                if (customers.checkCtm_idIsExits(ctm_idStr)){
+                if (customers.checkCtm_idIsExits(ctm_idStr)) {
                     System.out.println("เข้าแสดงว่า ctm _ id ซ้ำ");
-                    while (customers.checkCtm_idIsExits(ctm_idStr)){
+                    while (customers.checkCtm_idIsExits(ctm_idStr)) {
                         ctm_idStr = randomCtm_id.generateCtm_id();
                     }//while true ให้ generate ctm_id จนกว่าจะไม่ซ้ำ
 
-                }else{
+                } else {
                     //check ctm_cid ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if ไม่ซ้ำ เข้า else
-                    if(customers.checkCtm_CidIsExits(idNumberStr)){
+                    if (customers.checkCtm_CidIsExits(idNumberStr)) {
 
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Error!!");
@@ -180,12 +207,41 @@ public class RegisterController {
                         alert.setContentText("ระบบมีฐานข้อมูลของลูกค้ารายนี้แล้ว");
                         alert.showAndWait();
 
-                    }else{
-                        //insert in customer
+                    } else {
+                        try {
+
+                            
+                            try {
+                                Class.forName("com.mysql.cj.jdbc.Driver");
+                            } catch (Exception e) {
+                                System.out.println(e);
+                            }
+                            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/test_loansystem", "root", "");
+                            System.out.println("Connection is created successfully:");
+                            stmt = (Statement) conn.createStatement();
+                            String query1 = "INSERT INTO customer " + "VALUES ('"+ctm_idStr+"','"+idNumberStr+"','"+firstnameStr+"','"+lastnameStr+"','"+ctmForSetImageView.getCtm_img()+"','"+sexCheckBoxStr+"','"+phoneNumStr+"' ,'"+addressStr+"','"+workplaceStr+"','"+bankAccNumStr+"')";
+                            stmt.executeUpdate(query1);
+                            System.out.println("Record is inserted in the table successfully..................");
+                        } catch (Exception excep) {
+                            excep.printStackTrace();
+                        } finally {
+                            try {
+                                if (stmt != null)
+                                    conn.close();
+                            } catch (SQLException se) {}
+                            try {
+                                if (conn != null)
+                                    conn.close();
+                            } catch (SQLException se) {
+                                se.printStackTrace();
+                            }
+                        }
+                        System.out.println("Please check it in the MySQL Table......... ……..");
+                    }
 
                         //บันทึกข้อมูลลูกค้า ใน file csv
                         //new customer
-                        customers.addCustomer(new Customer(ctm_idStr, idNumberStr, firstnameStr,lastnameStr,ctmForSetImageView.getCtm_img(),sexCheckBoxStr,phoneNumStr,addressStr,workplaceStr,bankAccNumStr));
+                        customers.addCustomer(new Customer(ctm_idStr, idNumberStr, firstnameStr, lastnameStr, ctmForSetImageView.getCtm_img(), sexCheckBoxStr, phoneNumStr, addressStr, workplaceStr, bankAccNumStr));
                         //เขียนไฟล์
                         dataSource.writeData(customers);
 
@@ -201,14 +257,10 @@ public class RegisterController {
                             System.err.println("ไปที่หน้า menu ไม่ได้");
                             System.err.println("ให้ตรวจสอบการกำหนด route");
                         }
-
                     }
                 }
             }
         }
-
-
-    }
 
 
     @FXML
@@ -246,5 +298,4 @@ public class RegisterController {
         workplaceTextField.setText("");
         bankAccountNumberTextField.setText("");
     }
-
 }
