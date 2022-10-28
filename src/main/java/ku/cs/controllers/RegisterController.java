@@ -2,10 +2,13 @@ package ku.cs.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import ku.cs.FXRouter;
 import ku.cs.models.Customer;
 import ku.cs.models.CustomerList;
@@ -13,15 +16,22 @@ import ku.cs.services.CustomerFileDataSource;
 import ku.cs.services.DataSource;
 import ku.cs.services.DatabaseConnection;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class RegisterController {
+
     @FXML private TextField IdNumberTextField;
     @FXML private TextField firstnameTextField;
     @FXML private TextField lastNameTextField;
@@ -35,7 +45,10 @@ public class RegisterController {
 
     private String sexCheckBoxStr;
     private String ctm_idStr;
-    private Customer randomCtm_id;
+
+    //-------------------------------------------------
+    private Customer randomCtm_id; //for set ctm_id
+    private Customer customerForSetImagePath;
 
     //database connect
     Connection con;
@@ -58,12 +71,68 @@ public class RegisterController {
 
     @FXML
     void handleBackButton (ActionEvent event){
-        JOptionPane.showMessage
+        //ต้องการกลับไป Menu ใช่ไหม
+//        JOptionPane.showMessage
+
+        //if ไม่ใช่
+        // else ใช่ --> clear text field
+        clearTextField();
+        //กลับสู่หน้า home view
+        // code เปลี่ยนหน้า --> ไปหน้า Menu
+
+        try {
+            System.out.println("menu");
+            FXRouter.goTo("menu");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า signup ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
+
 
     @FXML
     void handleUploadImageButton(ActionEvent event) {
 
+        FileChooser chooser = new FileChooser();
+
+        // SET FILECHOOSER INITIAL DIRECTORY
+        chooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+
+        // DEFINE ACCEPTABLE FILE EXTENSION
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
+
+        // GET FILE FROM FILECHOOSER WITH JAVAFX COMPONENT WINDOW
+        Node source = (Node) event.getSource();
+        File file = chooser.showOpenDialog(source.getScene().getWindow());
+        if (file != null) {
+            try {
+                // CREATE FOLDER IF NOT EXIST
+                File destDir = new File("images");
+                if (!destDir.exists()) destDir.mkdirs();
+
+                // RENAME FILE
+                String[] fileSplit = file.getName().split("\\.");
+                String filename = LocalDate.now() + "_" + System.currentTimeMillis() + "."
+                        + fileSplit[fileSplit.length - 1];
+                Path target = FileSystems.getDefault().getPath(
+                        destDir.getAbsolutePath() + System.getProperty("file.separator") + filename
+                );
+
+                // COPY WITH FLAG REPLACE FILE IF FILE IS EXIST
+                Files.copy(file.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
+
+                // SET NEW FILE PATH TO IMAGE
+                this.ctmImageView.setImage(new Image(target.toUri().toString()));
+
+                //setImagePath
+                //productForSetImagePath = new Product("test","test","test",0,0,"test"); //local
+                Customer customerForSetImagePath = new Customer("0", "0", "0", "")
+                //System.out.println("Upload: "+accountForSetImagePath.getImagePath());
+
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML
@@ -163,11 +232,11 @@ public class RegisterController {
                 alert.setTitle("Error!!");
                 alert.setHeaderText(null);
 
+
                 if (status==1)
                 {
                     // popup เเจ้งว่า บันทึกข้อมุูลสำเร็จ
                     alert.setContentText("บันทึกข้อมูลลูกค้าสำเร็จ");
-
 
                 }else {
                     // popup เเจ้งว่า บันทึกข้อมุูลไม่สำเร็จ
@@ -181,8 +250,6 @@ public class RegisterController {
             } catch (SQLException ex){
                 Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null,ex);
             }
-
-
 
 
             // code เปลี่ยนหน้า --> ไปหน้า Menu

@@ -53,6 +53,17 @@ public class Customer {
         return this.ctm_Id.equals(ctm_Id);
     }
 
+    //set รูป(imagePath) UserDefault กรณีที่ register แล้ว user ไม่ upload รูป
+    public void setCtmImagePath () {
+        this.ctm_img = "images";
+    }
+
+
+    //set รูป(imagePath) กรณีที่ user กดปุ่ม อัพโหลดรูป
+    public  void setCtmImagePath(String imagePath){
+        this.ctm_img = imagePath;
+    }
+
     @Override
     public String toString(){
         return ctm_Id + "," + ctm_cid + "," + ctm_firstname + "," + ctm_lastname + ","+ ctm_img + ","
