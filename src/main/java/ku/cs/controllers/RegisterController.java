@@ -71,22 +71,6 @@ public class RegisterController {
     Connection conn = null;
     Statement stmt = null;
 
-    //ต่อ database
-//    public void Connect(){
-//        try {
-//            Class.forName("com.mysql.jdbc.Driver");
-//            con  = DriverManager.getConnection("jdbc:mysql://localhost/test_loansystem","root","");
-//
-//
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null, ex);
-//
-//        } catch (SQLException ex) {
-//            Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-
-
 
     @FXML
     void handleFemaleCheckBox(ActionEvent event) {
@@ -200,10 +184,10 @@ public class RegisterController {
                     }//while true ให้ generate ctm_id จนกว่าจะไม่ซ้ำ
 
                 } else {
-
-                    //check ctm_cid ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if ไม่ซ้ำ เข้า else
+                    //check ctm_cid ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if
+                    // ไม่ซ้ำ เข้า else
                     if (customers.checkCtm_CidIsExits(idNumberStr)) {
-
+                        clearTextField();
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Error!!");
                         alert.setHeaderText(null);
@@ -212,14 +196,12 @@ public class RegisterController {
 
                     } else {
                         try {
-
-
                             try {
                                 Class.forName("com.mysql.cj.jdbc.Driver");
                             } catch (Exception e) {
                                 System.out.println(e);
                             }
-                            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/test_loansystem", "root", "");
+                            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/test_loansystem", "root", "");
                             System.out.println("Connection is created successfully:");
                             stmt = (Statement) conn.createStatement();
                             String query1 = "INSERT INTO customer " + "VALUES ('"+ctm_idStr+"','"+idNumberStr+"','"+firstnameStr+"','"+lastnameStr+"','"+ctmForSetImageView.getCtm_img()+"','"+sexCheckBoxStr+"','"+phoneNumStr+"' ,'"+addressStr+"','"+workplaceStr+"','"+bankAccNumStr+"')";
@@ -255,7 +237,7 @@ public class RegisterController {
                         alert.showAndWait();
 
                         try {
-                            FXRouter.goTo("menu");
+                            FXRouter.goTo("emp_home");
                         } catch (IOException e) {
                             System.err.println("ไปที่หน้า menu ไม่ได้");
                             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -296,9 +278,14 @@ public class RegisterController {
         //capture the dialog result of ok or cancel
         Optional<ButtonType> result = alert.showAndWait();
         if(result.get() == ButtonType.OK){
-
+            clearTextField();
+            try {
+                FXRouter.goTo("emp_home");
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า menu ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
         }
-
 
     }
 

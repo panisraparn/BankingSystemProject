@@ -21,8 +21,9 @@ public class EmpHomeController {
         }
     }
 
+
     @FXML
-    public void clickToRegister(ActionEvent actionEvent) {
+    void clickToRegister(ActionEvent event) {
         try {
             FXRouter.goTo("emp_registration");
         } catch (IOException e) {
@@ -30,5 +31,12 @@ public class EmpHomeController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
+
+
+
+
+
+
 
 }

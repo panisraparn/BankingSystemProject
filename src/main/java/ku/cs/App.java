@@ -25,7 +25,7 @@ public class App extends Application {
     private void configRoute() {
         String packageStr = "ku/cs/";
         FXRouter.when("login", packageStr+"login.fxml");
-        FXRouter.when("emp_registration", packageStr+"emp_emp_registration.fxml");
+        FXRouter.when("emp_registration", packageStr+"emp_registration.fxml");
         FXRouter.when("testConnectDB", packageStr+"testConnectDB.fxml");
         FXRouter.when("menu",packageStr+"menu.fxml");
         FXRouter.when("emp_home",packageStr+"emp_home.fxml");
