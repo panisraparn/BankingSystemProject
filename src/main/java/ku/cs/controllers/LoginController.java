@@ -1,6 +1,7 @@
 package ku.cs.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.FXRouter;
@@ -77,32 +78,41 @@ public class LoginController {
         }
         System.out.println("Please check it in the MySQL Table......... ……..");
 
-        if(empLoginAccount.getEmp_jTitle().equals("1")){
-            try {
-                FXRouter.goTo("emp_home");
-            } catch (IOException e) {
-                System.err.println("ไปที่หน้า menu ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
-            }
-        }else {
-            if (empLoginAccount.getEmp_jTitle().equals("2")){
+        if(empLoginAccount == null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error!!");
+            alert.setHeaderText(null);
+            alert.setContentText("ข้อมูลไม่ถูกต้องโปรดตรวจสอบความถูกต้องในการเข้าสู่ระบบอีกครั้ง");
+            alert.showAndWait();
+        }else{
+            if(empLoginAccount.getEmp_jTitle().equals("1")){
                 try {
-                    FXRouter.goTo("manager_home");
+                    FXRouter.goTo("emp_home");
                 } catch (IOException e) {
                     System.err.println("ไปที่หน้า menu ไม่ได้");
                     System.err.println("ให้ตรวจสอบการกำหนด route");
                 }
-
             }else {
-                try {
-                    FXRouter.goTo("creditboard_home");
-                } catch (IOException e) {
-                    System.err.println("ไปที่หน้า menu ไม่ได้");
-                    System.err.println("ให้ตรวจสอบการกำหนด route");
-                }
-            }
+                if (empLoginAccount.getEmp_jTitle().equals("2")){
+                    try {
+                        FXRouter.goTo("manager_home");
+                    } catch (IOException e) {
+                        System.err.println("ไปที่หน้า menu ไม่ได้");
+                        System.err.println("ให้ตรวจสอบการกำหนด route");
+                    }
 
+                }else {
+                    try {
+                        FXRouter.goTo("creditboard_home");
+                    } catch (IOException e) {
+                        System.err.println("ไปที่หน้า menu ไม่ได้");
+                        System.err.println("ให้ตรวจสอบการกำหนด route");
+                    }
+                }
+
+            }
         }
+
 
 
 
