@@ -28,6 +28,10 @@ public class App extends Application {
         FXRouter.when("registration", packageStr+"registration.fxml");
         FXRouter.when("testConnectDB", packageStr+"testConnectDB.fxml");
         FXRouter.when("menu",packageStr+"menu.fxml");
+        FXRouter.when("emp_home",packageStr+"emp_home.fxml");
+        FXRouter.when("home",packageStr+"home.fxml");
+        FXRouter.when("creditboard_home",packageStr+"creditboard_home.fxml");
+
     }
 
     public static void setRoot(String fxml) throws IOException {

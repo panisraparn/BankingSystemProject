@@ -46,18 +46,18 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="206.0" fitWidth="241.0" layoutX="250.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="199.0" layoutX="51.0" layoutY="16.0">
+               <image>
+                  <Image url="@../../../../../images/c.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="199.0" layoutX="29.0">
                <image>
                   <Image url="@../../../../../images/—Pngtree—chinese%20style%20unilateral%20border%20pattern_4051152.png" />
                </image>
             </ImageView>
          </children></Pane>
-      <ImageView fitHeight="174.0" fitWidth="335.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../images/c.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="233.0" fitWidth="356.0" layoutX="-5.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="607.0" fitWidth="347.0" layoutX="-1.0">
          <image>
             <Image url="@../../../../../images/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
          </image>

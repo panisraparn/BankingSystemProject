@@ -1,28 +1,23 @@
 package ku.cs.controllers;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import ku.cs.FXRouter;
-
-import java.io.IOException;
+        import javafx.event.ActionEvent;
+        import javafx.fxml.FXML;
+        import javafx.scene.control.PasswordField;
+        import javafx.scene.control.TextField;
 
 public class LoginController {
 
+    @FXML
+    private TextField usernameTextField;
 
-    //Mouse event used for click label--> 1) set mouse Event in scene builder before
+    @FXML
+    private PasswordField passwordField;
 
-//    @FXML
-//    public void signUpLabel(MouseEvent event) {
-//        try {
-//            System.out.println("sign");
-//            FXRouter.goTo("registration");
-//        } catch (IOException e) {
-//            System.err.println("ไปที่หน้า signup ไม่ได้");
-//            System.err.println("ให้ตรวจสอบการกำหนด route");
-//        }
-//    }
+    @FXML
+    void handleLoginButton(ActionEvent event) {
 
-
+    }
 
 }
+
+
