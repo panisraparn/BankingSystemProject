@@ -19,7 +19,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "Loan System",800, 600);
         configRoute();
-        FXRouter.goTo("testConnectDB");
+        FXRouter.goTo("registration");
     }
 
     private void configRoute() {
@@ -27,6 +27,7 @@ public class App extends Application {
         FXRouter.when("login", packageStr+"login.fxml");
         FXRouter.when("registration", packageStr+"registration.fxml");
         FXRouter.when("testConnectDB", packageStr+"testConnectDB.fxml");
+        FXRouter.when("menu",packageStr+"menu.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {
