@@ -294,7 +294,10 @@ public class RegisterController {
         alert.setContentText("ต้องการกลับสู่เมนูหลัก?");
 
         //capture the dialog result of ok or cancel
-        Optional<ButtonType> result =
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.get() == ButtonType.OK){
+
+        }
 
 
     }
