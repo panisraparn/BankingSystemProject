@@ -16,4 +16,7 @@ public class Employee {
     }
 
 
+    public String toCsv() {
+        return emp_id + "," + emp_name + "," + emp_jTitle + ","  + emp_password;
+    }
 }
