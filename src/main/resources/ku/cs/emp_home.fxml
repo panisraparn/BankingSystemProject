@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.RegisterController">
+   <children>
+      <AnchorPane layoutY="60.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
+         <children>
+            <Button layoutX="124.0" layoutY="14.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="1.ลงทะเบียนลูกค้าใหม่">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="124.0" layoutY="112.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="2.บันทึกเอกสารรายได้">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="124.0" layoutY="213.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="3.อนุมัติเงินกู้">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="124.0" layoutY="319.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="4.บันทึกสัญญาเงินกู้">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="124.0" layoutY="424.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="5.มอบหมายการติดตามหนี้ให้พนักงาน">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="460.0" layoutY="14.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="6.ตรวจสอบรายชื่อลูกหนี้">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="460.0" layoutY="112.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="7.ออกใบแจ้งหนี้">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="460.0" layoutY="213.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="8.ติดตามหนี้">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="460.0" layoutY="319.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="9.หักชำระ">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="460.0" layoutY="424.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="10.ส่งผลรายงาน">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button layoutX="750.0" layoutY="2.0" mnemonicParsing="false" text="Button" />
+   </children>
+</AnchorPane>
