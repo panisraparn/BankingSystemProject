@@ -10,9 +10,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="721.0" style="-fx-background-color: #FF1493;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.RegisterController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.RegisterController">
    <children>
-      <AnchorPane layoutY="60.0" prefHeight="539.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
+      <AnchorPane layoutY="60.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
          <children>
             <AnchorPane layoutX="64.0" layoutY="125.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebd6d9;">
                <children>
@@ -39,19 +39,19 @@
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="firstnameTextField" layoutX="26.0" layoutY="75.0" prefHeight="25.0" prefWidth="145.0" promptText="Enter your name" />
+            <TextField fx:id="firstnameTextField" layoutX="26.0" layoutY="75.0" prefHeight="25.0" prefWidth="145.0" promptText="Enter name" />
             <Label layoutX="208.0" layoutY="38.0" prefHeight="28.0" prefWidth="84.0" text="Lastname" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="lastNameTextField" layoutX="208.0" layoutY="75.0" prefHeight="25.0" prefWidth="145.0" promptText="Enter your lastname" />
+            <TextField fx:id="lastNameTextField" layoutX="208.0" layoutY="75.0" prefHeight="25.0" prefWidth="145.0" promptText="Enter lastname" />
             <Label layoutX="21.0" layoutY="111.0" prefHeight="28.0" prefWidth="178.0" text="Identification Number" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="IdNumberTextField" layoutX="23.0" layoutY="139.0" prefHeight="25.0" prefWidth="168.0" promptText="Enter your Identification Number" />
+            <TextField fx:id="IdNumberTextField" layoutX="23.0" layoutY="139.0" prefHeight="25.0" prefWidth="168.0" promptText="Enter Identification Number" />
             <Button layoutX="58.0" layoutY="417.0" mnemonicParsing="false" onAction="#handleRecordButton" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="Record" textFill="#f2eded">
                <font>
                   <Font name="Cambria" size="24.0" />
@@ -79,30 +79,30 @@
                   <Font name="Cambria" size="12.0" />
                </font>
             </CheckBox>
-            <TextField fx:id="phoneNumberTextField" layoutX="22.0" layoutY="215.0" prefHeight="25.0" prefWidth="154.0" promptText="Enter your phone number" />
+            <TextField fx:id="phoneNumberTextField" layoutX="22.0" layoutY="215.0" prefHeight="25.0" prefWidth="154.0" promptText="Enter phone number" />
             <Label layoutX="24.0" layoutY="177.0" prefHeight="28.0" prefWidth="178.0" text="PhoneNumber" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="203.0" layoutY="177.0" prefHeight="28.0" prefWidth="178.0" text="Bankaccount Number" textFill="#4d4242">
+            <Label layoutX="203.0" layoutY="177.0" prefHeight="28.0" prefWidth="178.0" text="Bank account Number" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="bankAccountNumberTextField" layoutX="204.0" layoutY="215.0" prefHeight="25.0" prefWidth="178.0" promptText="Enter your phone number" />
-            <Label layoutX="24.0" layoutY="260.0" prefHeight="28.0" prefWidth="75.0" text="address" textFill="#4d4242">
+            <TextField fx:id="bankAccountNumberTextField" layoutX="204.0" layoutY="215.0" prefHeight="25.0" prefWidth="178.0" promptText="Enter Bank account Number" />
+            <Label layoutX="24.0" layoutY="260.0" prefHeight="28.0" prefWidth="75.0" text="Address" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="213.0" layoutY="260.0" prefHeight="28.0" prefWidth="91.0" text="workplace" textFill="#4d4242">
+            <Label layoutX="213.0" layoutY="260.0" prefHeight="28.0" prefWidth="91.0" text="Workplace" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="addressTextField" layoutX="22.0" layoutY="288.0" prefHeight="90.0" prefWidth="168.0" promptText="Enter your address" />
-            <TextField fx:id="workplaceTextField" layoutX="209.0" layoutY="288.0" prefHeight="90.0" prefWidth="178.0" promptText="Enter your workplace" />
+            <TextField fx:id="addressTextField" layoutX="22.0" layoutY="288.0" prefHeight="90.0" prefWidth="168.0" promptText="Enter address" />
+            <TextField fx:id="workplaceTextField" layoutX="209.0" layoutY="288.0" prefHeight="90.0" prefWidth="178.0" promptText="Enter workplace address" />
             <Button layoutX="310.0" layoutY="417.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="46.0" prefWidth="84.0" style="-fx-background-color: #545454; -fx-background-radius: 20;" text="Back" textFill="WHITE">
                <font>
                   <Font name="Cambria" size="24.0" />
