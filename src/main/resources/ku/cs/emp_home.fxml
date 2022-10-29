@@ -9,7 +9,7 @@
    <children>
       <AnchorPane layoutY="60.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
          <children>
-            <Button layoutX="125.0" layoutY="112.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="2.ลงทะเบียนลูกค้าใหม่">
+            <Button layoutX="125.0" layoutY="112.0" mnemonicParsing="false" onMouseClicked="#clickToRegister" prefHeight="82.0" prefWidth="219.0" text="2.ลงทะเบียนลูกค้าใหม่">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
