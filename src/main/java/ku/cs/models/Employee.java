@@ -15,6 +15,21 @@ public class Employee {
         this.emp_password = emp_password;
     }
 
+    public String getEmp_id() {
+        return emp_id;
+    }
+
+    public String getEmp_name() {
+        return emp_name;
+    }
+
+    public String getEmp_jTitle() {
+        return emp_jTitle;
+    }
+
+    public String getEmp_password() {
+        return emp_password;
+    }
 
     public String toCsv() {
         return emp_id + "," + emp_name + "," + emp_jTitle + ","  + emp_password;

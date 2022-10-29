@@ -1,0 +1,94 @@
+   @FXML
+    void handleLoginButton(ActionEvent event) {
+
+        String emp_IdLoginStr = usernameTextField.getText();
+        String emp_passwordStr = passwordField.getText();
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String connectQuery = "SELECT Emp_id, Emp_name, Emp_password FROM employee  WHERE Emp_id = '"+emp_IdLoginStr+"'";
+
+        try {
+            Statement statement = connectDB.createStatement();
+            ResultSet queryOutput = statement.executeQuery(connectQuery);
+
+            while (queryOutput.next()){
+//                String empID = queryOutput.getString("Emp_id");
+//                String empName = queryOutput.getString("Emp_name");
+//                String empJTitle = queryOutput.getString("Emp_jTitle");
+//                String empPassword = queryOutput.getString("Emp_password");
+//                this.empLoginAccount = new Employee (empID,empName,empJTitle,empPassword);
+//
+//                System.out.println(empLoginAccount.toCsv());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+----------------------------------------------------------------------------------------
+    String empNo;
+    Connection con;
+    Statement stmt;
+    ResultSet rs;
+    …
+    stmt = con.createStatement();     // Create a Statement object           1
+    rs = stmt.executeQuery("SELECT EMPNO FROM EMPLOYEE");                    2
+                                      // Get the result table from the query
+    while (rs.next()) {               // Position the cursor                 3
+     empNo = rs.getString(1);             // Retrieve only the first column value
+     System.out.println("Employee number = " + empNo);
+                                      // Print the column value
+    }
+    rs.close();                       // Close the ResultSet                 4
+    stmt.close();                     // Close the Statement
+---------------------------------------------------------------------------------------
+
+ @FXML
+    void handleLoginButton(ActionEvent event) {
+
+        String emp_IdLoginStr = usernameTextField.getText();
+        String emp_passwordStr = passwordField.getText();
+
+        try {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/test_loansystem", "root", "");
+            System.out.println("Connection is created successfully:");
+
+            stmt = (Statement) conn.createStatement();
+            rs = stmt.executeQuery("SELECT Emp_id, Emp_name,Emp_password FROM employee  WHERE Emp_id = '"+emp_IdLoginStr+"'");
+
+            while (rs.next()){
+                loginEmpId = rs.getString(1);
+                loginName = rs.getNString(2);
+                loginJtitle = rs.getString(3);
+                loginPassword = rs.getString(4);
+                this.empLoginAccount = new Employee (loginEmpId,loginName,loginJtitle,loginPassword);
+                System.out.println(empLoginAccount.toCsv());
+            }
+            System.out.println("Record is inserted in the table successfully..................");
+        } catch (Exception excep) {
+            excep.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+            } catch (SQLException se) {}
+            try {
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        System.out.println("Please check it in the MySQL Table......... ……..");
+
+
+    }
