@@ -23,7 +23,7 @@
                   <ColorAdjust brightness="1.0" contrast="1.0" hue="1.0" saturation="-1.0" />
                </effect></Label>
             <TextField fx:id="usernameTextField" layoutX="128.0" layoutY="257.0" prefHeight="30.0" prefWidth="193.0" promptText="Username" />
-            <Button fx:id="handleLoginButton" layoutX="317.0" layoutY="428.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="86.0" text="เข้าสู่ระบบ">
+            <Button layoutX="317.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="30.0" prefWidth="86.0" text="เข้าสู่ระบบ">
                <font>
                   <Font size="16.0" />
                </font></Button>
