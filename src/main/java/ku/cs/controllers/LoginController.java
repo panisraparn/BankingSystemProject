@@ -24,31 +24,31 @@ public class LoginController {
     public Employee empLoginAccount;
 
 
-
     @FXML
     void handleLoginButton(ActionEvent event) {
 
-        String emp_IdLoginStr = usernameTextField.getText();
-        String emp_passwordStr = passwordField.getText();
-
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDB = connectNow.getConnection();
-
-        String connectQuery = "SELECT Emp_id, Emp_name, Emp_password FROM employee WHERE Emp_id = '"+emp_IdLoginStr+"'";
-//        empLoginAccount = new (Emp_id);
-
-        try {
-            Statement statement = connectDB.createStatement();
-            ResultSet queryOutput = statement.executeQuery(connectQuery);
-
-            empLoginAccount = new(queryOutput.getString("Emp_id"), );
-
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+//        String emp_IdLoginStr = usernameTextField.getText();
+//        String emp_passwordStr = passwordField.getText();
+//
+//        DatabaseConnection connectNow = new DatabaseConnection();
+//        Connection connectDB = connectNow.getConnection();
+//
+//        String connectQuery = "SELECT Emp_id, Emp_name, Emp_password FROM employee WHERE Emp_id = '"+emp_IdLoginStr+"'";
+////        empLoginAccount = new (Emp_id);
+//
+//        try {
+//            Statement statement = connectDB.createStatement();
+//            ResultSet queryOutput = statement.executeQuery(connectQuery);
+//
+//            empLoginAccount = new(queryOutput.getString("Emp_id"), );
+//
+//
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
 
 
     }
+}
 
 
