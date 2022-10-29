@@ -3,7 +3,7 @@ module ku.cs {
     requires javafx.fxml;
     requires javafx.graphics;
     requires java.sql;
-
+    requires java.desktop;
 
 
     exports ku.cs;

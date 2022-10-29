@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -24,9 +25,10 @@ import java.nio.file.StandardCopyOption;
 import java.sql.*;
 import java.time.LocalDate;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Optional;
+
+import javax.swing.JOptionPane;
+import javax.swing.text.html.Option;
 
 
 public class RegisterController {
@@ -198,6 +200,7 @@ public class RegisterController {
                     }//while true ให้ generate ctm_id จนกว่าจะไม่ซ้ำ
 
                 } else {
+
                     //check ctm_cid ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if ไม่ซ้ำ เข้า else
                     if (customers.checkCtm_CidIsExits(idNumberStr)) {
 
@@ -210,7 +213,7 @@ public class RegisterController {
                     } else {
                         try {
 
-                            
+
                             try {
                                 Class.forName("com.mysql.cj.jdbc.Driver");
                             } catch (Exception e) {
@@ -269,21 +272,35 @@ public class RegisterController {
         //ต้องการกลับไป Menu ใช่ไหม
         //        JOptionPane.showMessage
 
-        //if ไม่ใช่
-        // else ใช่ --> clear text field
-        clearTextField();
-        //กลับสู่หน้า home view
-        // code เปลี่ยนหน้า --> ไปหน้า Menu
+        //if ใช--> clear text field
+        // else ไม่ใช่
 
-        try {
-            System.out.println("menu");
-            FXRouter.goTo("menu");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า signup ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
+
+        //jOptionPlane ใช้ภาษาไทยไม่ได้
+//        String[] options = {"confirm", "cancel"};
+//        var option = JOptionPane.showOptionDialog(null, "Do you want to go back the menu?","confirm",0,2,null,options,options[0]);
+//        if (option == 0){
+//            clearTextField();
+//            try {
+//                System.out.println("menu");
+//                FXRouter.goTo("menu");
+//            } catch (IOException e) {
+//                System.err.println("ไปที่หน้า signup ไม่ได้");
+//                System.err.println("ให้ตรวจสอบการกำหนด route");
+//            }
+//        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm");
+        alert.setContentText("ต้องการกลับสู่เมนูหลัก?");
+
+        //capture the dialog result of ok or cancel
+        Optional<ButtonType> result =
+
 
     }
+
+
+
 
     private void clearTextField() {
         ctmForSetImageView = null;
