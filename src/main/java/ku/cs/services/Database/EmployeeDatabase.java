@@ -1,5 +1,6 @@
 package ku.cs.services.Database;
 
+import ku.cs.models.Customer;
 import ku.cs.models.Employee;
 
 import java.sql.*;
@@ -19,12 +20,8 @@ public class EmployeeDatabase implements Database<Employee> {
 
     }
 
-
-
-    //ใช้หน้า login
     @Override
-    public Employee readDatabase(Employee employee) {
-
+    public Employee readDatabase(Employee employee, String query) {
         //prepare data
         String empId = employee.getEmp_id();
         String empName = employee.getEmp_name();
@@ -42,7 +39,7 @@ public class EmployeeDatabase implements Database<Employee> {
             System.out.println("Connection is created successfully:");
 
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM employee  WHERE Emp_id = '"+employee.getEmp_id()+"'  AND  Emp_password = '"+employee.getEmp_password()+"'  ");
+            rs = stmt.executeQuery(query);
 
             while (rs.next()){
                 empId = rs.getString(1);
@@ -73,8 +70,6 @@ public class EmployeeDatabase implements Database<Employee> {
 
         return employeeReadData;
     }
-
-
 
 
 

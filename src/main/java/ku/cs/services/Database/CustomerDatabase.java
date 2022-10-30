@@ -47,9 +47,10 @@ public class CustomerDatabase implements Database<Customer> {
     }
 
     @Override
-    public Customer readDatabase(Customer customer) {
+    public Customer readDatabase(Customer customer, String query) {
         return null;
     }
+
 
 
 

@@ -46,8 +46,9 @@ public class LoginController {
         employeeDB.setEmp_password(emp_passwordStr);
 
         // ใช้ Db
+        String query = "SELECT * FROM employee  WHERE Emp_id = '"+emp_IdLoginStr+"'  AND  Emp_password = '"+emp_passwordStr+"'";
         Database<Employee> database = new EmployeeDatabase();
-        empLoginAccount = database.readDatabase(employeeDB);
+        empLoginAccount = database.readDatabase(employeeDB,query);
 
         //for test login
         System.out.println("Employee Who login is "+empLoginAccount.getEmp_id()+":"+ empLoginAccount.getEmp_name());
