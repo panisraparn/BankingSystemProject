@@ -8,6 +8,6 @@ public interface Database<T> {
 
     //ใส่ Object ใส่ query return เป็น class object
     T readDatabase(T t,String query);
-    
+
 
 }
