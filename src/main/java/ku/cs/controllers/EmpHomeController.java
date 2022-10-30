@@ -57,7 +57,7 @@ public class EmpHomeController {
         try {
             FXRouter.goTo("emp_document");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า emp_registration ไม่ได้");
+            System.err.println("ไปที่หน้า emp_document ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
@@ -67,7 +67,7 @@ public class EmpHomeController {
         try {
             FXRouter.goTo("emp_document_loan");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า emp_registration ไม่ได้");
+            System.err.println("ไปที่หน้า emp_document_loan ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
