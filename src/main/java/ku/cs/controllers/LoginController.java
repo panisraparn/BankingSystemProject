@@ -30,10 +30,6 @@ public class LoginController {
     //emp database
     public Employee employeeDB = new Employee("0","0","0","0");
 
-    String loginEmpId;
-    String loginName;
-    String loginJtitle;
-    String loginPassword;
 
     //database connect
     Connection conn = null;
@@ -53,6 +49,8 @@ public class LoginController {
         Database<Employee> database = new EmployeeDatabase();
         empLoginAccount = database.readDatabase(employeeDB);
 
+        //for test login
+        System.out.println("Employee Who login is "+empLoginAccount.getEmp_id()+":"+ empLoginAccount.getEmp_name());
 
         if(empLoginAccount == null){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
