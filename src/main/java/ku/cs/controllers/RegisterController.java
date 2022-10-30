@@ -87,13 +87,10 @@ public class RegisterController {
     void handleUploadImageButton(ActionEvent event) {
 
         FileChooser chooser = new FileChooser();
-
         // SET FILECHOOSER INITIAL DIRECTORY
         chooser.setInitialDirectory(new File(System.getProperty("user.dir")));
-
         // DEFINE ACCEPTABLE FILE EXTENSION
         chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
-
         // GET FILE FROM FILECHOOSER WITH JAVAFX COMPONENT WINDOW
         Node source = (Node) event.getSource();
         File file = chooser.showOpenDialog(source.getScene().getWindow());
@@ -102,7 +99,6 @@ public class RegisterController {
                 // CREATE FOLDER IF NOT EXIST
                 File destDir = new File("images");
                 if (!destDir.exists()) destDir.mkdirs();
-
                 // RENAME FILE
                 String[] fileSplit = file.getName().split("\\.");
                 String filename = LocalDate.now() + "_" + System.currentTimeMillis() + "."
@@ -110,17 +106,13 @@ public class RegisterController {
                 Path target = FileSystems.getDefault().getPath(
                         destDir.getAbsolutePath() + System.getProperty("file.separator") + filename
                 );
-
                 // COPY WITH FLAG REPLACE FILE IF FILE IS EXIST
                 Files.copy(file.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
-
                 // SET NEW FILE PATH TO IMAGE
                 this.ctmImageView.setImage(new Image(target.toUri().toString()));
-
                 //setImagePath
                 ctmForSetImageView.setCtmImagePath(destDir + "/" + filename);
                 //System.out.println("Upload: "+accountForSetImagePath.getImagePath());
-
             }catch (IOException e) {
                 e.printStackTrace();
             }
@@ -130,13 +122,6 @@ public class RegisterController {
     @FXML
     void handleRecordButton(ActionEvent event) throws SQLException {
 
-
-//        //เขียนอ่านไฟล์ csv
-//        DataSource<CustomerList> dataSource = new CustomerFileDataSource();
-//        CustomerList customers = dataSource.readData();
-
-
-        //--------------------------------------------------------------------------------------------------------------
         String idNumberStr = IdNumberTextField.getText();
         String firstnameStr = firstnameTextField.getText();
         String lastnameStr = lastNameTextField.getText();
@@ -150,7 +135,7 @@ public class RegisterController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error!!");
             alert.setHeaderText(null);
-            alert.setContentText("Please check your information and try again.");
+            alert.setContentText("กรุณากรอกข้อมูลให้ครบถ้วน");
 
             alert.showAndWait();
 
@@ -193,7 +178,7 @@ public class RegisterController {
 
                 //check ctm_cid ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if / ไม่ซ้ำ เข้า else
                 Database<Customer> database1 = new CustomerDatabaseConnection();
-                String queryCheckCtm_cid = " SELECT Ctm_cid FROM customer  WHERE Ctm_cid = '"+idNumberStr+"' ";
+                String queryCheckCtm_cid = " SELECT * FROM customer  WHERE Ctm_cid = '"+idNumberStr+"' ";
                 tempCustomerForRegist1 = database1.readDatabase(tempCustomerForRegist1, queryCheckCtm_cid);
 
                 //มีซ้ำเข้า if (เจอ)
@@ -219,7 +204,6 @@ public class RegisterController {
                         System.err.println("ให้ตรวจสอบการกำหนด route");
                     }
 
-
                 }else{
                     clearTextField();
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -232,8 +216,6 @@ public class RegisterController {
             }
         }
     }
-
-
 
 
     @FXML
@@ -262,7 +244,6 @@ public class RegisterController {
     }
 
     private void clearTextField() {
-        ctmForSetImageView = null;
         IdNumberTextField.setText("");
         firstnameTextField.setText("");
         lastNameTextField.setText("");

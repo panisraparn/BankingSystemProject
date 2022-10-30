@@ -55,7 +55,7 @@ public class LoginController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error!!");
             alert.setHeaderText(null);
-            alert.setContentText("ข้อมูลไม่ถูกต้องโปรดตรวจสอบความถูกต้องในการเข้าสู่ระบบอีกครั้ง");
+            alert.setContentText("ตรวจสอบชื่อผู้ใช้งานกับรหัสผ่านอีกครั้งเนื่องจากข้อมูลไม่ถูกต้อง");
             alert.showAndWait();
         }else{
             if(empLoginAccount.getEmp_jTitle().equals("1")){
