@@ -1,4 +1,4 @@
-package ku.cs.services;
+package ku.cs.services.FileDataSources;
 
 public interface DataSource<T> {
 

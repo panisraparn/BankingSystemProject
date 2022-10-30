@@ -13,8 +13,8 @@ import javafx.stage.FileChooser;
 import ku.cs.FXRouter;
 import ku.cs.models.Customer;
 import ku.cs.models.CustomerList;
-import ku.cs.services.CustomerFileDataSource;
-import ku.cs.services.DataSource;
+import ku.cs.services.FileDataSources.CustomerFileDataSource;
+import ku.cs.services.FileDataSources.DataSource;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,9 +26,6 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.sql.Connection;
 import java.util.Optional;
-
-import javax.swing.JOptionPane;
-import javax.swing.text.html.Option;
 
 
 public class RegisterController {

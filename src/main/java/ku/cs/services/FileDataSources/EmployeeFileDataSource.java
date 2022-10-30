@@ -1,33 +1,28 @@
-package ku.cs.services;
+package ku.cs.services.FileDataSources;
 
-import ku.cs.models.Customer;
-import ku.cs.models.CustomerList;
+import ku.cs.models.Employee;
+import ku.cs.models.EmployeeList;
 
 import java.io.*;
 
-public class CustomerFileDataSource implements DataSource<CustomerList> {
+public class EmployeeFileDataSource implements DataSource<EmployeeList> {
 
     private String directoryName;
     private String filename;
 
-    private CustomerList customers = new CustomerList();
+    private EmployeeList employees = new EmployeeList();
 
-    public CustomerFileDataSource(){
-
-        //directoryName = "csv-data"; //directory จริง ชื่อว่า csv-data
-        //fileName = "weapon.csv"; //fileName ที่ทำงานกับ WeaponList
-        //มีoverload constructor --> ใช้ chain
-        //production file
-        this("Data","Customer.csv");
-    }
-
-    //for test
-    public CustomerFileDataSource(String directoryName, String filename){
-        this.directoryName =directoryName;
+    public EmployeeFileDataSource(String directoryName, String filename) {
+        this.directoryName = directoryName;
         this.filename = filename;
         initialFileNotExist();
-
     }
+
+    public EmployeeFileDataSource() {
+        this("Data","Employee.csv");
+    }
+
+
 
     private void initialFileNotExist() {
         File file = new File(directoryName);
@@ -49,8 +44,10 @@ public class CustomerFileDataSource implements DataSource<CustomerList> {
         }
     }
 
+
+
     @Override
-    public void writeData(CustomerList customerList) {
+    public void writeData(EmployeeList employeeList) {
         //วีธีการเขียน สมมติว่า รับ AccountList มา --> เราจะเขียนข้อมูลทั้งหมด ใน AccountList เลย
 
         String path = directoryName + File.separator + filename;
@@ -63,7 +60,7 @@ public class CustomerFileDataSource implements DataSource<CustomerList> {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
 
-            buffer.write(customerList.toCsv());
+            buffer.write(employeeList.toCsv());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,7 +75,7 @@ public class CustomerFileDataSource implements DataSource<CustomerList> {
     }
 
     @Override
-    public CustomerList readData() {
+    public EmployeeList readData() {
         String path = "Data"+File.separator+"Customer.csv";
         File file = new File(path);
 
@@ -93,18 +90,12 @@ public class CustomerFileDataSource implements DataSource<CustomerList> {
             while( (line = buffer.readLine()) != null){
 
                 String[] data = line.split(",");
-                if(data.length == 10){
-                    customers.addCustomer(new Customer(
+                if(data.length == 4){
+                    employees.addEmployee(new Employee(
                             data[0],
                             data[1],
                             data[2],
-                            data[3],
-                            data[4],
-                            data[5],
-                            data[6],
-                            data[7],
-                            data[8],
-                            data[9]
+                            data[3]
                     ));
                 }
             }
@@ -113,12 +104,6 @@ public class CustomerFileDataSource implements DataSource<CustomerList> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return customers;
+        return employees;
     }
-
-    public CustomerList getAllCustomerList(){
-        return customers;
-    }
-
-
 }
