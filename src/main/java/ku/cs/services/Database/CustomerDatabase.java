@@ -1,7 +1,6 @@
 package ku.cs.services.Database;
 
 import ku.cs.models.Customer;
-import ku.cs.models.CustomerList;
 import ku.cs.models.Employee;
 
 import java.sql.Connection;
@@ -12,6 +11,7 @@ import java.sql.Statement;
 public class CustomerDatabase implements Database<Customer> {
 
 
+    //ใช้หน้า emp_regis
     @Override
     public void insertDatabase(Customer customer) {
         //database connect
@@ -47,12 +47,9 @@ public class CustomerDatabase implements Database<Customer> {
     }
 
     @Override
-    public void readDatabase(Customer customer) {
-
-
-
+    public Customer readDatabase(Customer customer) {
+        return null;
     }
-
 
 
 

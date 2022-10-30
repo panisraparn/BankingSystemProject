@@ -6,7 +6,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.FXRouter;
+import ku.cs.models.Customer;
 import ku.cs.models.Employee;
+import ku.cs.services.Database.CustomerDatabase;
+import ku.cs.services.Database.Database;
+import ku.cs.services.Database.EmployeeDatabase;
 
 import java.io.IOException;
 import java.sql.*;
@@ -23,6 +27,9 @@ public class LoginController {
 
     //เป็น account ที่ไว้ใช้ login
     public Employee empLoginAccount;
+    //emp database
+    public Employee employeeDB = new Employee("0","0","0","0");
+
     String loginEmpId;
     String loginName;
     String loginJtitle;
@@ -39,43 +46,13 @@ public class LoginController {
         String emp_IdLoginStr = usernameTextField.getText();
         String emp_passwordStr = passwordField.getText();
 
-        //DB connect
-        try {
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/test_loansystem", "root", "");
-            System.out.println("Connection is created successfully:");
+        employeeDB.setEmp_id(emp_IdLoginStr);
+        employeeDB.setEmp_password(emp_passwordStr);
 
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT Emp_id,Emp_name, Emp_jTitle ,Emp_password FROM employee  WHERE Emp_id = '"+emp_IdLoginStr+"'  AND  Emp_password = '"+emp_passwordStr+"'  ");
+        // ใช้ Db
+        Database<Employee> database = new EmployeeDatabase();
+        empLoginAccount = database.readDatabase(employeeDB);
 
-            while (rs.next()){
-                loginEmpId = rs.getString(1);
-                loginName = rs.getNString(2);
-                loginJtitle = rs.getString(3);
-                loginPassword = rs.getString(4);
-                this.empLoginAccount = new Employee (loginEmpId,loginName,loginJtitle,loginPassword);
-                System.out.println(empLoginAccount.toCsv());
-            }
-            System.out.println("loginAccount can use from jdbc");
-        } catch (Exception excep) {
-            excep.printStackTrace();
-        } finally {
-            try {
-                if (stmt != null)
-                    conn.close();
-            } catch (SQLException se) {}
-            try {
-                if (conn != null)
-                    conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
-        }
-        System.out.println("Please check it in the MySQL Table......... ……..");
 
         if(empLoginAccount == null){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

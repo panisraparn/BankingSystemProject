@@ -15,6 +15,22 @@ public class Employee {
         this.emp_password = emp_password;
     }
 
+    public void setEmp_id(String emp_id) {
+        this.emp_id = emp_id;
+    }
+
+    public void setEmp_name(String emp_name) {
+        this.emp_name = emp_name;
+    }
+
+    public void setEmp_jTitle(String emp_jTitle) {
+        this.emp_jTitle = emp_jTitle;
+    }
+
+    public void setEmp_password(String emp_password) {
+        this.emp_password = emp_password;
+    }
+
     public String getEmp_id() {
         return emp_id;
     }
