@@ -120,7 +120,7 @@
       </AnchorPane>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../images/Government_Savings_bank.jpg" />
+            <Image url="@../../image/Government_Savings_bank.jpg" />
          </image>
       </ImageView>
       <Label layoutX="241.0" layoutY="11.0" text="ระบบลงทะเบียนลูกค้าใหม่" textFill="WHITE">
