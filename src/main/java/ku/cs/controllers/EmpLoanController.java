@@ -1,16 +1,17 @@
 package ku.cs.controllers;
 
-import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import ku.cs.FXRouter;
 
 import java.io.IOException;
 
+public class EmpLoanController {
+    
+    public void clickBackToLogin(MouseEvent event) {
+        
+    }
 
-public class EmpDocumentController {
-
-    @FXML
-    void clickBackToEmp_home(MouseEvent event) {
+    public void clickBackToEmp_home(MouseEvent event) {
         try {
             FXRouter.goTo("emp_home");
         } catch (IOException e) {
@@ -18,5 +19,4 @@ public class EmpDocumentController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
 }
