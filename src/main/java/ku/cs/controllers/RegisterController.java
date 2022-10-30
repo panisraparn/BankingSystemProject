@@ -12,11 +12,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import ku.cs.FXRouter;
 import ku.cs.models.Customer;
-import ku.cs.models.CustomerList;
-import ku.cs.services.Database.CustomerDatabase;
-import ku.cs.services.Database.Database;
-import ku.cs.services.FileDataSources.CustomerFileDataSource;
-import ku.cs.services.FileDataSources.DataSource;
+import ku.cs.servicesDB.CustomerDatabaseConnection;
+import ku.cs.servicesDB.Database;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +24,6 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.sql.*;
 import java.time.LocalDate;
-import java.sql.Connection;
 import java.util.Optional;
 
 
@@ -65,11 +62,9 @@ public class RegisterController {
     //-------------------------------------------------------------------------------------------------------------------------------------
     private String sexCheckBoxStr; //female = 1, male = 2
     private Customer ctmForSetImageView = new Customer("0");
-    private Customer ctmInsertCustomerToDB;
 
-    //database connect
-    Connection conn = null;
-    Statement stmt = null;
+
+    private Customer ctmInsertToDB;
 
 
     @FXML
@@ -135,19 +130,11 @@ public class RegisterController {
     @FXML
     void handleRecordButton(ActionEvent event) throws SQLException {
 
-//        Connect();
 
-        //generate ctm_id
-        Customer randomCtm_id = new Customer("0", "0", "0", "0", "0", "0", "0", "0", "0", "0");
-        String ctm_idStr = randomCtm_id.generateCtm_id();
-        System.out.println("ctm_idStr1" + ctm_idStr);
+//        //เขียนอ่านไฟล์ csv
+//        DataSource<CustomerList> dataSource = new CustomerFileDataSource();
+//        CustomerList customers = dataSource.readData();
 
-        //เขียนอ่านไฟล์ csv
-        DataSource<CustomerList> dataSource = new CustomerFileDataSource();
-        CustomerList customers = dataSource.readData();
-
-        // ใช้ Db
-        Database<Customer> database = new CustomerDatabase();
 
         //--------------------------------------------------------------------------------------------------------------
         String idNumberStr = IdNumberTextField.getText();
@@ -177,68 +164,92 @@ public class RegisterController {
                 alert.showAndWait();
 
             } else {
-                //check ctm_id ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if ไม่ซ้ำ เข้า else
-                if (customers.checkCtm_idIsExits(ctm_idStr)) {
-                    System.out.println("เข้าแสดงว่า ctm _ id ซ้ำ");
-                    while (customers.checkCtm_idIsExits(ctm_idStr)) {
-                        ctm_idStr = randomCtm_id.generateCtm_id();
-                    }//while true ให้ generate ctm_id จนกว่าจะไม่ซ้ำ
 
-                } else {
-                    //check ctm_cid ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if
-                    // ไม่ซ้ำ เข้า else
-                    if (customers.checkCtm_CidIsExits(idNumberStr)) {
-                        clearTextField();
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Error!!");
-                        alert.setHeaderText(null);
-                        alert.setContentText("ระบบมีฐานข้อมูลของลูกค้ารายนี้แล้ว");
-                        alert.showAndWait();
+                //prepare For generate ctm_id
+                Customer tempCustomerForRegist = new Customer("0", idNumberStr);
+                Customer tempCustomerForRegist1 = new Customer("0",idNumberStr);
 
-                    } else {
-                        ctmInsertCustomerToDB = new Customer(ctm_idStr,idNumberStr,firstnameStr,lastnameStr,ctmForSetImageView.getCtm_img(),sexCheckBoxStr,phoneNumStr,addressStr,workplaceStr,bankAccNumStr);
-                        database.insertDatabase(ctmInsertCustomerToDB);
+                String ctm_idStr = null;
+                String checkCtm_id = "0";
 
-                        //บันทึกข้อมูลลูกค้า ใน file csv
-                        //new customer
-                        customers.addCustomer(new Customer(ctm_idStr, idNumberStr, firstnameStr, lastnameStr, ctmForSetImageView.getCtm_img(), sexCheckBoxStr, phoneNumStr, addressStr, workplaceStr, bankAccNumStr));
-                        //เขียนไฟล์
-                        dataSource.writeData(customers);
 
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Error!!");
-                        alert.setHeaderText(null);
-                        alert.setContentText("ระบบบันทึกข้อมูลลูกค้าสำเร็จ");
-                        alert.showAndWait();
+                while (checkCtm_id.equals("0")){
+                    //random ctm_id 7 digit
+                    ctm_idStr = tempCustomerForRegist.generateCtm_id();
 
-                        try {
-                            FXRouter.goTo("emp_home");
-                        } catch (IOException e) {
-                            System.err.println("ไปที่หน้า menu ไม่ได้");
-                            System.err.println("ให้ตรวจสอบการกำหนด route");
-                        }
+                    // ใช้ Db
+                    Database<Customer> database = new CustomerDatabaseConnection();
+                    //หา Ctm_id ในตาราง customer ที่ตรงกับ ctm_idStr(เลขที่สุ่ม) ถ้า เจอ--> return account ไม่เจอ return null
+                    String queryCheckCtm_id = " SELECT * FROM customer  WHERE Ctm_id = '"+ctm_idStr+"' ";
+                    tempCustomerForRegist = database.readDatabase(tempCustomerForRegist,queryCheckCtm_id);
+
+                    if (tempCustomerForRegist == null){ //หาไม่เจอ
+                        checkCtm_id = "1";
+                    }else { //หาเจอ
+                        checkCtm_id = "0";
                     }
+                }//while true ให้ generate ctm_id จนกว่าจะไม่ซ้ำ
+
+
+                //check ctm_cid ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if / ไม่ซ้ำ เข้า else
+                Database<Customer> database1 = new CustomerDatabaseConnection();
+                String queryCheckCtm_cid = " SELECT Ctm_cid FROM customer  WHERE Ctm_cid = '"+idNumberStr+"' ";
+                tempCustomerForRegist1 = database1.readDatabase(tempCustomerForRegist1, queryCheckCtm_cid);
+
+                //มีซ้ำเข้า if (เจอ)
+                // ไม่ซ้ำ else (ไม่เจอ)
+
+                if (tempCustomerForRegist1 == null){
+
+                    // ใช้ Db
+                    Database<Customer> database2 = new CustomerDatabaseConnection();
+                    ctmInsertToDB = new Customer(ctm_idStr,idNumberStr,firstnameStr,lastnameStr,ctmForSetImageView.getCtm_img(),sexCheckBoxStr,phoneNumStr,addressStr,workplaceStr,bankAccNumStr);
+                    database2.insertDatabase(ctmInsertToDB);
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Error!!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("ระบบบันทึกข้อมูลลูกค้าสำเร็จ");
+                    alert.showAndWait();
+
+                    try {
+                        FXRouter.goTo("emp_home");
+                    } catch (IOException e) {
+                        System.err.println("ไปที่หน้า menu ไม่ได้");
+                        System.err.println("ให้ตรวจสอบการกำหนด route");
+                    }
+
+
+                }else{
+                    clearTextField();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Error!!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("ระบบมีฐานข้อมูลของลูกค้ารายนี้แล้ว");
+                    alert.showAndWait();
                 }
+
             }
         }
     }
+
+
 
 
     @FXML
     void handleBackButton(ActionEvent event) {
 
         //ต้องการกลับไป Menu ใช่ไหม
-        //        JOptionPane.showMessage
-
         //if ใช--> clear text field
         // else ไม่ใช่
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm");
         alert.setContentText("ต้องการกลับสู่เมนูหลัก?");
-
         //capture the dialog result of ok or cancel
         Optional<ButtonType> result = alert.showAndWait();
+
+
         if(result.get() == ButtonType.OK){
             clearTextField();
             try {

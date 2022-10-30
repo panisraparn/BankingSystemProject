@@ -18,6 +18,26 @@ public class LoanAgreement {
     private String loan_Emp2;
 
 
+    //constructor
+
+
+    public LoanAgreement(String loan_id, String loan_customerId, String loan_firstname, String loan_lastname, String loan_type, int loan_term, Date loan_date, int loan_balance, int loan_amount, String loan_witness1, String loan_witness2, String loan_Emp1, String loan_Emp2) {
+        this.loan_id = loan_id;
+        this.loan_customerId = loan_customerId;
+        this.loan_firstname = loan_firstname;
+        this.loan_lastname = loan_lastname;
+        this.loan_type = loan_type;
+        this.loan_term = loan_term;
+        this.loan_date = loan_date;
+        this.loan_balance = loan_balance;
+        this.loan_amount = loan_amount;
+        this.loan_witness1 = loan_witness1;
+        this.loan_witness2 = loan_witness2;
+        this.loan_Emp1 = loan_Emp1;
+        this.loan_Emp2 = loan_Emp2;
+    }
+
+
     //setter
 
     public void setLoan_id(String loan_id) {

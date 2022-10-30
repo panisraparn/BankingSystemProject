@@ -2,121 +2,6 @@ package ku.cs.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import ku.cs.FXRouter;
-import ku.cs.models.Employee;
-
-import java.io.IOException;
-import java.sql.*;
-
-public class LoginController {
-
-
-    @FXML
-    private TextField usernameTextField;
-
-    @FXML
-    private PasswordField passwordField;
-
-
-    //เป็น account ที่ไว้ใช้ login
-    public Employee empLoginAccount;
-    String loginEmpId;
-    String loginName;
-    String loginJtitle;
-    String loginPassword;
-
-    //database connect
-    Connection conn = null;
-    Statement stmt = null;
-    ResultSet rs = null;
-
-    @FXML
-    void handleLoginButton(ActionEvent event) {
-
-        String emp_IdLoginStr = usernameTextField.getText();
-        String emp_passwordStr = passwordField.getText();
-
-        //DB connect
-        try {
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/test_loansystem", "root", "");
-            System.out.println("Connection is created successfully:");
-
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT Emp_id,Emp_name, Emp_jTitle ,Emp_password FROM employee  WHERE Emp_id = '"+emp_IdLoginStr+"'  AND  Emp_password = '"+emp_passwordStr+"'  ");
-
-            while (rs.next()){
-                loginEmpId = rs.getString(1);
-                loginName = rs.getNString(2);
-                loginJtitle = rs.getString(3);
-                loginPassword = rs.getString(4);
-                this.empLoginAccount = new Employee (loginEmpId,loginName,loginJtitle,loginPassword);
-                System.out.println(empLoginAccount.toCsv());
-            }
-            System.out.println("loginAccount can use from jdbc");
-        } catch (Exception excep) {
-            excep.printStackTrace();
-        } finally {
-            try {
-                if (stmt != null)
-                    conn.close();
-            } catch (SQLException se) {}
-            try {
-                if (conn != null)
-                    conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
-        }
-        System.out.println("Please check it in the MySQL Table......... ……..");
-
-        if(empLoginAccount == null){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Error!!");
-            alert.setHeaderText(null);
-            alert.setContentText("ข้อมูลไม่ถูกต้องโปรดตรวจสอบความถูกต้องในการเข้าสู่ระบบอีกครั้ง");
-            alert.showAndWait();
-        }else{
-            if(empLoginAccount.getEmp_jTitle().equals("1")){
-                try {
-                    FXRouter.goTo("emp_home", empLoginAccount);
-                } catch (IOException e) {
-                    System.err.println("ไปที่หน้า emp_home ไม่ได้");
-                    System.err.println("ให้ตรวจสอบการกำหนด route");
-                }
-            }else {
-                if (empLoginAccount.getEmp_jTitle().equals("2")){
-                    try {
-                        FXRouter.goTo("manager_home", empLoginAccount);
-                    } catch (IOException e) {
-                        System.err.println("ไปที่หน้า manager_home ไม่ได้");
-                        System.err.println("ให้ตรวจสอบการกำหนด route");
-                    }
-                }else {
-                    try {
-                        FXRouter.goTo("creditboard_home", empLoginAccount);
-                    } catch (IOException e) {
-                        System.err.println("ไปที่หน้า creditboard_home ไม่ได้");
-                        System.err.println("ให้ตรวจสอบการกำหนด route");
-                    }
-                }
-            }
-        }
-    }
-}
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-package ku.cs.controllers;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -128,6 +13,8 @@ import javafx.stage.FileChooser;
 import ku.cs.FXRouter;
 import ku.cs.models.Customer;
 import ku.cs.models.CustomerDatabase;
+import CustomerDatabase;
+import Database;
 import ku.cs.services.FileDataSources.CustomerFileDataSource;
 import ku.cs.services.FileDataSources.DataSource;
 
@@ -141,9 +28,6 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.sql.Connection;
 import java.util.Optional;
-
-import javax.swing.JOptionPane;
-import javax.swing.text.html.Option;
 
 
 public class RegisterController {
@@ -181,10 +65,7 @@ public class RegisterController {
     //-------------------------------------------------------------------------------------------------------------------------------------
     private String sexCheckBoxStr; //female = 1, male = 2
     private Customer ctmForSetImageView = new Customer("0");
-
-    //database connect
-    Connection conn = null;
-    Statement stmt = null;
+    private Customer ctmInsertCustomerToDB;
 
 
     @FXML
@@ -250,17 +131,15 @@ public class RegisterController {
     @FXML
     void handleRecordButton(ActionEvent event) throws SQLException {
 
-//        Connect();
-
-
         //generate ctm_id
         Customer randomCtm_id = new Customer("0", "0", "0", "0", "0", "0", "0", "0", "0", "0");
         String ctm_idStr = randomCtm_id.generateCtm_id();
         System.out.println("ctm_idStr1" + ctm_idStr);
 
-        //เขียนอ่านไฟล์ csv
-        DataSource<CustomerList> dataSource = new CustomerFileDataSource();
-        CustomerList customers = dataSource.readData();
+//        //เขียนอ่านไฟล์ csv
+//        DataSource<CustomerList> dataSource = new CustomerFileDataSource();
+//        CustomerList customers = dataSource.readData();
+
 
         //--------------------------------------------------------------------------------------------------------------
         String idNumberStr = IdNumberTextField.getText();
@@ -270,7 +149,6 @@ public class RegisterController {
         String bankAccNumStr = bankAccountNumberTextField.getText();
         String addressStr = addressTextField.getText();
         String workplaceStr = workplaceTextField.getText();
-
 
         if (firstnameStr.equals("") || lastnameStr.equals("") || idNumberStr.equals("") || sexCheckBoxStr.equals("")
                 || phoneNumStr.equals("") || bankAccNumStr.equals("") || addressStr.equals("") || workplaceStr.equals("")) {
@@ -310,40 +188,12 @@ public class RegisterController {
                         alert.showAndWait();
 
                     } else {
-                        try {
-                            try {
-                                Class.forName("com.mysql.cj.jdbc.Driver");
-                            } catch (Exception e) {
-                                System.out.println(e);
-                            }
-                            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/test_loansystem", "root", "");
-                            System.out.println("Connection is created successfully:");
-                            stmt = (Statement) conn.createStatement();
-                            String query1 = "INSERT INTO customer " + "VALUES ('"+ctm_idStr+"','"+idNumberStr+"','"+firstnameStr+"','"+lastnameStr+"','"+ctmForSetImageView.getCtm_img()+"','"+sexCheckBoxStr+"','"+phoneNumStr+"' ,'"+addressStr+"','"+workplaceStr+"','"+bankAccNumStr+"')";
-                            stmt.executeUpdate(query1);
-                            System.out.println("Record is inserted in the table successfully..................");
-                        } catch (Exception excep) {
-                            excep.printStackTrace();
-                        } finally {
-                            try {
-                                if (stmt != null)
-                                    conn.close();
-                            } catch (SQLException se) {}
-                            try {
-                                if (conn != null)
-                                    conn.close();
-                            } catch (SQLException se) {
-                                se.printStackTrace();
-                            }
-                        }
-                        System.out.println("Please check it in the MySQL Table......... ……..");
-                    }
+                        // ใช้ Db
+                        Database<Customer> database = new CustomerDatabase();
+                        ctmInsertCustomerToDB = new Customer(ctm_idStr,idNumberStr,firstnameStr,lastnameStr,ctmForSetImageView.getCtm_img(),sexCheckBoxStr,phoneNumStr,addressStr,workplaceStr,bankAccNumStr);
+                        database.insertDatabase(ctmInsertCustomerToDB);
 
-                        //บันทึกข้อมูลลูกค้า ใน file csv
-                        //new customer
-                        customers.addCustomer(new Customer(ctm_idStr, idNumberStr, firstnameStr, lastnameStr, ctmForSetImageView.getCtm_img(), sexCheckBoxStr, phoneNumStr, addressStr, workplaceStr, bankAccNumStr));
-                        //เขียนไฟล์
-                        dataSource.writeData(customers);
+
 
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Error!!");
@@ -361,37 +211,23 @@ public class RegisterController {
                 }
             }
         }
+    }
 
 
     @FXML
     void handleBackButton(ActionEvent event) {
 
         //ต้องการกลับไป Menu ใช่ไหม
-        //        JOptionPane.showMessage
-
         //if ใช--> clear text field
         // else ไม่ใช่
 
-
-        //jOptionPlane ใช้ภาษาไทยไม่ได้
-//        String[] options = {"confirm", "cancel"};
-//        var option = JOptionPane.showOptionDialog(null, "Do you want to go back the menu?","confirm",0,2,null,options,options[0]);
-//        if (option == 0){
-//            clearTextField();
-//            try {
-//                System.out.println("menu");
-//                FXRouter.goTo("menu");
-//            } catch (IOException e) {
-//                System.err.println("ไปที่หน้า signup ไม่ได้");
-//                System.err.println("ให้ตรวจสอบการกำหนด route");
-//            }
-//        }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm");
         alert.setContentText("ต้องการกลับสู่เมนูหลัก?");
-
         //capture the dialog result of ok or cancel
         Optional<ButtonType> result = alert.showAndWait();
+
+
         if(result.get() == ButtonType.OK){
             clearTextField();
             try {
@@ -401,7 +237,6 @@ public class RegisterController {
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
         }
-
     }
 
     private void clearTextField() {
@@ -418,4 +253,3 @@ public class RegisterController {
         bankAccountNumberTextField.setText("");
     }
 }
-----------------------------------------------------------------------------------------------

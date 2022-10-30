@@ -1,4 +1,4 @@
-package ku.cs.services.Database;
+package ku.cs.servicesDB;
 import java.sql.Connection;
 import java.sql.DriverManager;
 

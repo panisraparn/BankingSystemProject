@@ -1,11 +1,10 @@
-package ku.cs.services.Database;
+package ku.cs.servicesDB;
 
-import ku.cs.models.Customer;
 import ku.cs.models.Employee;
 
 import java.sql.*;
 
-public class EmployeeDatabase implements Database<Employee> {
+public class EmployeeDatabaseConnection implements Database<Employee> {
 
     //database connect
     public Connection conn = null;
@@ -17,7 +16,6 @@ public class EmployeeDatabase implements Database<Employee> {
 
     @Override
     public void insertDatabase(Employee employee) {
-
     }
 
     @Override
@@ -70,6 +68,7 @@ public class EmployeeDatabase implements Database<Employee> {
 
         return employeeReadData;
     }
+
 
 
 

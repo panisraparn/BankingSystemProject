@@ -3,7 +3,7 @@ package ku.cs.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import ku.cs.services.Database.DatabaseConnection;
+import ku.cs.servicesDB.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

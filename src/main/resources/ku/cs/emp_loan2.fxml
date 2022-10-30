@@ -20,44 +20,44 @@
                   <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="46.0" layoutY="60.0" prefHeight="467.0" prefWidth="710.0" style="-fx-background-color: #ffe6ea;">
+            <AnchorPane layoutX="46.0" layoutY="18.0" prefHeight="509.0" prefWidth="710.0" style="-fx-background-color: #ffe6ea;">
                <children>
                   <Label layoutX="395.0" layoutY="17.0" text="รูปแบบเงินกู้">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="311.0" layoutY="149.0" text="อายุสัญญาเงินกู้">
+                  <Label layoutX="314.0" layoutY="208.0" text="อายุสัญญาเงินกู้">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="11.0" layoutY="149.0" text="จำนวนเงินกู้">
+                  <Label layoutX="14.0" layoutY="208.0" text="จำนวนเงินกู้">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="39.0" layoutY="189.0" text="พยาน 1">
+                  <Label layoutX="42.0" layoutY="248.0" text="พยาน 1">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="371.0" layoutY="189.0" text="พยาน 2">
+                  <Label layoutX="374.0" layoutY="248.0" text="พยาน 2">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="20.0" layoutY="229.0" text="พนักงาน 1">
+                  <Label layoutX="23.0" layoutY="288.0" text="พนักงาน 1">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="352.0" layoutY="229.0" text="พนักงาน 2">
+                  <Label layoutX="355.0" layoutY="288.0" text="พนักงาน 2">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Button layoutX="460.0" layoutY="393.0" mnemonicParsing="false" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ยกเลิก" textFill="#fbfdf4">
+                  <Button layoutX="460.0" layoutY="373.0" mnemonicParsing="false" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ยกเลิก" textFill="#fbfdf4">
                      <font>
                         <Font name="Cambria" size="24.0" />
                      </font>
@@ -69,7 +69,7 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <Button layoutX="223.0" layoutY="393.0" mnemonicParsing="false" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="บันทึก" textFill="#fbfdf4">
+                  <Button layoutX="223.0" layoutY="373.0" mnemonicParsing="false" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="บันทึก" textFill="#fbfdf4">
                      <font>
                         <Font name="Cambria" size="24.0" />
                      </font>
@@ -81,34 +81,44 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <TextField layoutX="436.0" layoutY="153.0" />
-                  <TextField layoutX="107.0" layoutY="153.0" />
-                  <TextField layoutX="108.0" layoutY="193.0" />
-                  <TextField layoutX="108.0" layoutY="233.0" />
-                  <TextField layoutX="437.0" layoutY="193.0" />
-                  <TextField layoutX="437.0" layoutY="233.0" />
+                  <TextField layoutX="439.0" layoutY="212.0" />
+                  <TextField layoutX="110.0" layoutY="212.0" />
+                  <TextField layoutX="111.0" layoutY="252.0" />
+                  <TextField layoutX="111.0" layoutY="292.0" />
+                  <TextField layoutX="440.0" layoutY="252.0" />
+                  <TextField layoutX="440.0" layoutY="292.0" />
                   <ChoiceBox layoutX="506.0" layoutY="20.0" prefWidth="150.0" />
-                  <Label layoutX="14.0" layoutY="69.0" text="รหัสลูกค้า:">
+                  <Label layoutX="30.0" layoutY="146.0" text="รหัสลูกค้า:">
                      <font>
-                        <Font name="System Bold" size="25.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="14.0" layoutY="14.0" text="ชื่อ:">
+                  <Label layoutX="30.0" layoutY="91.0" text="ชื่อ:">
                      <font>
-                        <Font name="System Bold" size="25.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showFirstnameLabel" layoutX="67.0" layoutY="14.0" text="Firstname">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="showLastnameLabel" layoutX="192.0" layoutY="14.0" text="Lastname">
+                  <Label fx:id="showFirstnameLabel" layoutX="83.0" layoutY="91.0" text="Firstname">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showCtmidLabel" layoutX="132.0" layoutY="72.0" text="Ctm_id">
+                  <Label fx:id="showLastnameLabel" layoutX="208.0" layoutY="91.0" text="Lastname">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="showCtmidLabel" layoutX="141.0" layoutY="146.0" text="Ctm_id">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="282.0" layoutY="146.0" text="เลขประจำตัวประชาชน:">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="showCtm_cidLabel" layoutX="496.0" layoutY="143.0" prefHeight="36.0" prefWidth="149.0" text="Ctm_cid">
                      <font>
                         <Font size="25.0" />
                      </font>

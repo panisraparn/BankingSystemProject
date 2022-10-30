@@ -15,6 +15,7 @@ public class Customer {
     private String ctm_workplace;
     private String ctm_bankAccount;
 
+
     public Customer(String ctm_Id, String ctm_cid, String ctm_firstname, String ctm_lastname,
                     String ctm_img, String ctm_sex, String ctm_tel, String ctm_address, String ctm_workplace, String ctm_bankAccount)
     {
@@ -28,6 +29,11 @@ public class Customer {
         this.ctm_address = ctm_address;
         this.ctm_workplace = ctm_workplace;
         this.ctm_bankAccount = ctm_bankAccount;
+    }
+
+    public Customer(String ctm_Id, String ctm_cid) {
+        this.ctm_Id = ctm_Id;
+        this.ctm_cid = ctm_cid;
     }
 
     public Customer (String ctm_img){
@@ -61,28 +67,51 @@ public class Customer {
 
 
 
-    //check ctm_id ซ้ำ
-    public boolean isDuplicateCtm_Id(String ctm_Id) {
-        return this.ctm_Id.equals(ctm_Id);
-    }
 
-    //check ctm_id ซ้ำ
-    public boolean isDuplicateCtm_cid(String ctm_cid) {
-        return this.ctm_cid.equals(ctm_cid);
-    }
-
-
-    //set รูป(imagePath) UserDefault กรณีที่ register แล้ว user ไม่ upload รูป
-    public void setCtmImagePath () {
-        this.ctm_img = "images/Profile_icon.jpg";
-    }
     //set รูป(imagePath) กรณีที่ user กดปุ่ม อัพโหลดรูป
     public  void setCtmImagePath(String imagePath){
         this.ctm_img = imagePath;
     }
 
+    public void setCtm_Id(String ctm_Id) {
+        this.ctm_Id = ctm_Id;
+    }
 
+    public void setCtm_cid(String ctm_cid) {
+        this.ctm_cid = ctm_cid;
+    }
 
+    public void setCtm_firstname(String ctm_firstname) {
+        this.ctm_firstname = ctm_firstname;
+    }
+
+    public void setCtm_lastname(String ctm_lastname) {
+        this.ctm_lastname = ctm_lastname;
+    }
+
+    public void setCtm_img(String ctm_img) {
+        this.ctm_img = ctm_img;
+    }
+
+    public void setCtm_sex(String ctm_sex) {
+        this.ctm_sex = ctm_sex;
+    }
+
+    public void setCtm_tel(String ctm_tel) {
+        this.ctm_tel = ctm_tel;
+    }
+
+    public void setCtm_address(String ctm_address) {
+        this.ctm_address = ctm_address;
+    }
+
+    public void setCtm_workplace(String ctm_workplace) {
+        this.ctm_workplace = ctm_workplace;
+    }
+
+    public void setCtm_bankAccount(String ctm_bankAccount) {
+        this.ctm_bankAccount = ctm_bankAccount;
+    }
 
     public String getCtm_Id() {
         return ctm_Id;

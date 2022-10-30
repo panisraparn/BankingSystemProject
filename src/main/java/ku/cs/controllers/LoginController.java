@@ -6,11 +6,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.FXRouter;
-import ku.cs.models.Customer;
 import ku.cs.models.Employee;
-import ku.cs.services.Database.CustomerDatabase;
-import ku.cs.services.Database.Database;
-import ku.cs.services.Database.EmployeeDatabase;
+import ku.cs.servicesDB.Database;
+import ku.cs.servicesDB.EmployeeDatabaseConnection;
 
 import java.io.IOException;
 import java.sql.*;
@@ -47,11 +45,11 @@ public class LoginController {
 
         // ใช้ Db
         String query = "SELECT * FROM employee  WHERE Emp_id = '"+emp_IdLoginStr+"'  AND  Emp_password = '"+emp_passwordStr+"'";
-        Database<Employee> database = new EmployeeDatabase();
+        Database<Employee> database = new EmployeeDatabaseConnection();
         empLoginAccount = database.readDatabase(employeeDB,query);
 
-        //for test login
-        System.out.println("Employee Who login is "+empLoginAccount.getEmp_id()+":"+ empLoginAccount.getEmp_name());
+        //for test login ห้ามเอา comment ออกมันบัค ยกเว้นใส่ข้อมูล login ถูก
+//        System.out.println("Employee Who login is "+empLoginAccount.getEmp_id()+":"+ empLoginAccount.getEmp_name());
 
         if(empLoginAccount == null){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
