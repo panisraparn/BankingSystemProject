@@ -221,11 +221,11 @@ public class RegisterController {
                         System.out.println("Please check it in the MySQL Table......... ……..");
                     }
 
-                        //บันทึกข้อมูลลูกค้า ใน file csv
-                        //new customer
-                        customers.addCustomer(new Customer(ctm_idStr, idNumberStr, firstnameStr, lastnameStr, ctmForSetImageView.getCtm_img(), sexCheckBoxStr, phoneNumStr, addressStr, workplaceStr, bankAccNumStr));
-                        //เขียนไฟล์
-                        dataSource.writeData(customers);
+//                        //บันทึกข้อมูลลูกค้า ใน file csv
+//                        //new customer
+//                        customers.addCustomer(new Customer(ctm_idStr, idNumberStr, firstnameStr, lastnameStr, ctmForSetImageView.getCtm_img(), sexCheckBoxStr, phoneNumStr, addressStr, workplaceStr, bankAccNumStr));
+//                        //เขียนไฟล์
+//                        dataSource.writeData(customers);
 
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Error!!");

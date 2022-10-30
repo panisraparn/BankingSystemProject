@@ -5,101 +5,114 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.EmpHomeController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.EmpHomeController">
    <children>
-      <AnchorPane layoutY="60.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
+      <AnchorPane layoutY="83.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
          <children>
-            <AnchorPane layoutX="110.0" layoutY="47.0" prefHeight="442.0" prefWidth="577.0" style="-fx-background-color: #FFFFFF;">
+            <ImageView fitHeight="534.0" fitWidth="800.0" layoutX="1.0" layoutY="4.0" opacity="0.55" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.5" AnchorPane.rightAnchor="0.0">
+               <image>
+                  <Image url="@../../../../../images/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="46.0" layoutY="60.0" prefHeight="467.0" prefWidth="710.0" style="-fx-background-color: #ffe6ea;">
                <children>
-                  <Label layoutX="381.0" layoutY="45.0" text="รูปแบบเงินกู้">
+                  <Label layoutX="395.0" layoutY="17.0" text="รูปแบบเงินกู้">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="337.0" layoutY="150.0" text="อายุสัญญาเงินกู้">
+                  <Label layoutX="311.0" layoutY="149.0" text="อายุสัญญาเงินกู้">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="79.0" layoutY="155.0" text="จำนวนเงินกู้">
+                  <Label layoutX="11.0" layoutY="149.0" text="จำนวนเงินกู้">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="87.0" layoutY="219.0" text="พยาน 1">
+                  <Label layoutX="39.0" layoutY="189.0" text="พยาน 1">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="345.0" layoutY="218.0" text="พยาน 2">
+                  <Label layoutX="371.0" layoutY="189.0" text="พยาน 2">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="87.0" layoutY="287.0" text="พนักงาน 1">
+                  <Label layoutX="20.0" layoutY="229.0" text="พนักงาน 1">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="336.0" layoutY="287.0" text="พนักงาน 2">
+                  <Label layoutX="352.0" layoutY="229.0" text="พนักงาน 2">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Button layoutX="306.0" layoutY="376.0" mnemonicParsing="false" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ยกเลิก" textFill="#fbfdf4">
+                  <Button layoutX="460.0" layoutY="393.0" mnemonicParsing="false" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ยกเลิก" textFill="#fbfdf4">
                      <font>
                         <Font name="Cambria" size="24.0" />
                      </font>
                      <effect>
                         <DropShadow offsetX="2.0" offsetY="2.0">
                            <color>
-                              <Color blue="0.3294117748737335" green="0.3294117748737335" red="0.3294117748737335" />
+                              <Color red="0.3294117748737335" green="0.3294117748737335" blue="0.3294117748737335" />
                            </color>
                         </DropShadow>
                      </effect>
                   </Button>
-                  <Button layoutX="172.0" layoutY="376.0" mnemonicParsing="false" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="บันทึก" textFill="#fbfdf4">
+                  <Button layoutX="223.0" layoutY="393.0" mnemonicParsing="false" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="บันทึก" textFill="#fbfdf4">
                      <font>
                         <Font name="Cambria" size="24.0" />
                      </font>
                      <effect>
                         <DropShadow offsetX="2.0" offsetY="2.0">
                            <color>
-                              <Color blue="0.3294117748737335" green="0.3294117748737335" red="0.3294117748737335" />
+                              <Color red="0.3294117748737335" green="0.3294117748737335" blue="0.3294117748737335" />
                            </color>
                         </DropShadow>
                      </effect>
                   </Button>
-                  <TextField layoutX="324.0" layoutY="189.0" />
-                  <TextField layoutX="70.0" layoutY="189.0" />
-                  <TextField layoutX="71.0" layoutY="255.0" />
-                  <TextField layoutX="70.0" layoutY="319.0" />
-                  <TextField layoutX="324.0" layoutY="255.0" />
-                  <TextField layoutX="328.0" layoutY="317.0" />
-                  <ChoiceBox layoutX="370.0" layoutY="84.0" prefWidth="150.0" />
-                  <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="138.0" prefWidth="315.0" style="-fx-background-color: #f590cc;">
-                     <children>
-                        <Label layoutX="14.0" layoutY="7.0" text="รหัสลูกค้า">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="14.0" layoutY="46.0" text="ชื่อ">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="14.0" layoutY="83.0" text="นามสกุล">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
+                  <TextField layoutX="436.0" layoutY="153.0" />
+                  <TextField layoutX="107.0" layoutY="153.0" />
+                  <TextField layoutX="108.0" layoutY="193.0" />
+                  <TextField layoutX="108.0" layoutY="233.0" />
+                  <TextField layoutX="437.0" layoutY="193.0" />
+                  <TextField layoutX="437.0" layoutY="233.0" />
+                  <ChoiceBox layoutX="506.0" layoutY="20.0" prefWidth="150.0" />
+                  <Label layoutX="14.0" layoutY="69.0" text="รหัสลูกค้า:">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="14.0" text="ชื่อ:">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="showFirstnameLabel" layoutX="67.0" layoutY="14.0" text="Firstname">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="showLastnameLabel" layoutX="192.0" layoutY="14.0" text="Lastname">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="showCtmidLabel" layoutX="132.0" layoutY="72.0" text="Ctm_id">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children></AnchorPane>
@@ -108,10 +121,15 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="155.0" layoutY="6.0" text="EMPLOYEE บันทึกสัญญาเงินกู้" textFill="#ffe6ea">
+      <Label layoutX="257.0" layoutY="16.0" text="ระบบบันทึกสัญญาเงินกู้" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../images/Government_Savings_bank.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

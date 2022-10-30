@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
@@ -12,7 +13,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.RegisterController">
    <children>
-      <AnchorPane layoutY="60.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
+      <AnchorPane layoutY="81.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
          <children>
             <AnchorPane layoutX="64.0" layoutY="125.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebd6d9;">
                <children>
@@ -34,25 +35,25 @@
       </AnchorPane>
       <AnchorPane layoutX="314.0" layoutY="99.0" prefHeight="482.0" prefWidth="428.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30; -fx-border-radius: 30;">
          <children>
-            <Label layoutX="22.0" layoutY="38.0" prefHeight="28.0" prefWidth="91.0" text="FirstName" textFill="#4d4242">
+            <Label layoutX="13.0" layoutY="38.0" prefHeight="28.0" prefWidth="91.0" text="ชื่อ:" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="firstnameTextField" layoutX="26.0" layoutY="75.0" prefHeight="25.0" prefWidth="145.0" promptText="Enter name" />
-            <Label layoutX="208.0" layoutY="38.0" prefHeight="28.0" prefWidth="84.0" text="Lastname" textFill="#4d4242">
+            <TextField fx:id="firstnameTextField" layoutX="45.0" layoutY="40.0" prefHeight="25.0" prefWidth="145.0" promptText="Enter name" />
+            <Label layoutX="199.0" layoutY="38.0" prefHeight="28.0" prefWidth="84.0" text="นามสกุล:" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="lastNameTextField" layoutX="208.0" layoutY="75.0" prefHeight="25.0" prefWidth="145.0" promptText="Enter lastname" />
-            <Label layoutX="21.0" layoutY="111.0" prefHeight="28.0" prefWidth="178.0" text="Identification Number" textFill="#4d4242">
+            <TextField fx:id="lastNameTextField" layoutX="270.0" layoutY="40.0" prefHeight="25.0" prefWidth="145.0" promptText="Enter lastname" />
+            <Label layoutX="13.0" layoutY="83.0" prefHeight="28.0" prefWidth="178.0" text="หมายเลขบัตรประชาชน" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="IdNumberTextField" layoutX="23.0" layoutY="139.0" prefHeight="25.0" prefWidth="168.0" promptText="Enter Identification Number" />
-            <Button layoutX="58.0" layoutY="417.0" mnemonicParsing="false" onAction="#handleRecordButton" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="Record" textFill="#f2eded">
+            <TextField fx:id="IdNumberTextField" layoutX="15.0" layoutY="118.0" prefHeight="25.0" prefWidth="168.0" promptText="Enter Identification Number" />
+            <Button layoutX="83.0" layoutY="417.0" mnemonicParsing="false" onAction="#handleRecordButton" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="บันทึก" textFill="#f2eded">
                <font>
                   <Font name="Cambria" size="24.0" />
                </font>
@@ -64,46 +65,46 @@
                   </DropShadow>
                </effect>
             </Button>
-            <CheckBox fx:id="femaleCheckBox" layoutX="210.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleFemaleCheckBox" text="Female">
+            <CheckBox fx:id="femaleCheckBox" layoutX="210.0" layoutY="118.0" mnemonicParsing="false" onAction="#handleFemaleCheckBox" text="หญิง">
                <font>
-                  <Font name="Cambria" size="12.0" />
+                  <Font name="Cambria" size="13.0" />
                </font>
             </CheckBox>
-            <Label layoutX="208.0" layoutY="111.0" prefHeight="28.0" prefWidth="91.0" text="Gender" textFill="#4d4242">
+            <Label layoutX="210.0" layoutY="83.0" prefHeight="28.0" prefWidth="91.0" text="เพศ" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <CheckBox fx:id="maleCheckBox" layoutX="305.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleMaleCheckBox" text="Male">
+            <CheckBox fx:id="maleCheckBox" layoutX="285.0" layoutY="118.0" mnemonicParsing="false" onAction="#handleMaleCheckBox" text="ชาย">
                <font>
-                  <Font name="Cambria" size="12.0" />
+                  <Font name="Cambria" size="13.0" />
                </font>
             </CheckBox>
-            <TextField fx:id="phoneNumberTextField" layoutX="22.0" layoutY="215.0" prefHeight="25.0" prefWidth="154.0" promptText="Enter phone number" />
-            <Label layoutX="24.0" layoutY="177.0" prefHeight="28.0" prefWidth="178.0" text="PhoneNumber" textFill="#4d4242">
+            <TextField fx:id="phoneNumberTextField" layoutX="15.0" layoutY="184.0" prefHeight="25.0" prefWidth="154.0" promptText="Enter phone number" />
+            <Label layoutX="10.0" layoutY="149.0" prefHeight="28.0" prefWidth="127.0" text="หมายเลขโทรศัพท์" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="203.0" layoutY="177.0" prefHeight="28.0" prefWidth="178.0" text="Bank account Number" textFill="#4d4242">
+            <Label layoutX="210.0" layoutY="149.0" prefHeight="28.0" prefWidth="75.0" text="เลขที่บัญชี" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="bankAccountNumberTextField" layoutX="204.0" layoutY="215.0" prefHeight="25.0" prefWidth="178.0" promptText="Enter Bank account Number" />
-            <Label layoutX="24.0" layoutY="260.0" prefHeight="28.0" prefWidth="75.0" text="Address" textFill="#4d4242">
+            <TextField fx:id="bankAccountNumberTextField" layoutX="210.0" layoutY="184.0" prefHeight="25.0" prefWidth="178.0" promptText="Enter Bank account Number" />
+            <Label layoutX="8.0" layoutY="215.0" prefHeight="28.0" prefWidth="75.0" text="ที่อยู่อาศัย" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="213.0" layoutY="260.0" prefHeight="28.0" prefWidth="91.0" text="Workplace" textFill="#4d4242">
+            <Label layoutX="210.0" layoutY="215.0" prefHeight="28.0" prefWidth="91.0" text="ที่อยู่ที่ทำงาน" textFill="#4d4242">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="addressTextField" layoutX="22.0" layoutY="288.0" prefHeight="90.0" prefWidth="168.0" promptText="Enter address" />
-            <TextField fx:id="workplaceTextField" layoutX="209.0" layoutY="288.0" prefHeight="90.0" prefWidth="178.0" promptText="Enter workplace address" />
-            <Button layoutX="310.0" layoutY="417.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="46.0" prefWidth="84.0" style="-fx-background-color: #545454; -fx-background-radius: 20;" text="Back" textFill="WHITE">
+            <TextField fx:id="addressTextField" layoutX="15.0" layoutY="250.0" prefHeight="90.0" prefWidth="168.0" promptText="Enter address" />
+            <TextField fx:id="workplaceTextField" layoutX="210.0" layoutY="250.0" prefHeight="90.0" prefWidth="178.0" promptText="Enter workplace address" />
+            <Button layoutX="253.0" layoutY="417.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="46.0" prefWidth="99.0" style="-fx-background-color: #545454; -fx-background-radius: 20;" text="ยกเลิก" textFill="WHITE">
                <font>
                   <Font name="Cambria" size="24.0" />
                </font>
@@ -117,5 +118,15 @@
             </Button>
          </children>
       </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../images/Government_Savings_bank.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="241.0" layoutY="11.0" text="ระบบลงทะเบียนลูกค้าใหม่" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
