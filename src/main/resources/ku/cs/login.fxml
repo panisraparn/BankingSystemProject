@@ -51,11 +51,6 @@
                   <Image url="@../../../../../images/c.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="200.0" fitWidth="199.0" layoutX="29.0">
-               <image>
-                  <Image url="@../../../../../images/—Pngtree—chinese%20style%20unilateral%20border%20pattern_4051152.png" />
-               </image>
-            </ImageView>
          </children></Pane>
       <ImageView fitHeight="607.0" fitWidth="347.0" layoutX="-1.0">
          <image>

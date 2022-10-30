@@ -6,7 +6,7 @@ import ku.cs.FXRouter;
 
 import java.io.IOException;
 
-public class CreditฺBoardHomeController {
+public class CreditBoardHomeController {
 
     @FXML
     public void clickBackToLogin(Event event) {
