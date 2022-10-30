@@ -23,16 +23,28 @@ public class App extends Application {
     }
 
     private void configRoute() {
+        //เรียงด้วยนะ
         String packageStr = "ku/cs/";
-        FXRouter.when("login", packageStr+"login.fxml");
-        FXRouter.when("emp_registration", packageStr+"emp_registration.fxml");
-        FXRouter.when("testConnectDB", packageStr+"testConnectDB.fxml");
-        FXRouter.when("menu",packageStr+"menu.fxml");
-        FXRouter.when("emp_home",packageStr+"emp_home.fxml");
-        FXRouter.when("home",packageStr+"home.fxml");
         FXRouter.when("creditboard_home",packageStr+"creditboard_home.fxml");
-        FXRouter.when("manager_home",packageStr+"manager_home.fxml");
+
         FXRouter.when("emp_document",packageStr+"emp_document.fxml");
+        FXRouter.when("emp_home",packageStr+"emp_home.fxml");
+        FXRouter.when("emp_invoice",packageStr+"emp_invoice.fxml");
+        FXRouter.when("emp_invoice2",packageStr+"emp_invoice2.fxml");
+        FXRouter.when("emp_loan",packageStr+"emp_loan.fxml");
+        FXRouter.when("emp_loan2",packageStr+"emp_loan2.fxml");
+        FXRouter.when("emp_registration", packageStr+"emp_registration.fxml");
+
+
+        FXRouter.when("home",packageStr+"home.fxml");
+        FXRouter.when("login", packageStr+"login.fxml");
+
+
+        FXRouter.when("manager_home",packageStr+"manager_home.fxml");
+
+
+        FXRouter.when("menu",packageStr+"menu.fxml");
+
 
     }
 

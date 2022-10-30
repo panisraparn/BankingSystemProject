@@ -26,7 +26,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="583.0" layoutY="151.0" mnemonicParsing="false" onAction="#clickToEmp_Document_Loan" prefHeight="44.0" prefWidth="166.0" text="บันทึกสัญญาเงินกู้">
+            <Button layoutX="583.0" layoutY="151.0" mnemonicParsing="false" onAction="#clickToEmp_Loan" prefHeight="44.0" prefWidth="166.0" text="บันทึกสัญญาเงินกู้">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

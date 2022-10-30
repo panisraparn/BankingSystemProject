@@ -63,17 +63,13 @@ public class EmpHomeController {
     }
 
     @FXML
-    void clickToEmp_Document_Loan(ActionEvent event) {
+    void clickToEmp_Loan(ActionEvent event) {
         try {
-            FXRouter.goTo("emp_document_loan");
+            FXRouter.goTo("emp_loan");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า emp_document_loan ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
-
-
-
 
 }
