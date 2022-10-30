@@ -13,7 +13,7 @@
          <children>
             <ImageView fitHeight="550.0" fitWidth="802.0" layoutY="3.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../images/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
+                  <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>
             </ImageView>
             <Button layoutX="61.0" layoutY="151.0" mnemonicParsing="false" onAction="#clickToRegister" prefHeight="44.0" prefWidth="166.0" text="ลงทะเบียนลูกค้าใหม่">
@@ -76,7 +76,7 @@
       </Label>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-15.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../images/Government_Savings_bank.jpg" />
+            <Image url="@../../image/Government_Savings_bank.jpg" />
          </image>
       </ImageView>
    </children>

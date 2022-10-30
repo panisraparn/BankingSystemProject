@@ -13,6 +13,8 @@ import javafx.stage.FileChooser;
 import ku.cs.FXRouter;
 import ku.cs.models.Customer;
 import ku.cs.models.CustomerList;
+import ku.cs.services.Database.CustomerDatabase;
+import ku.cs.services.Database.Database;
 import ku.cs.services.FileDataSources.CustomerFileDataSource;
 import ku.cs.services.FileDataSources.DataSource;
 
@@ -63,6 +65,7 @@ public class RegisterController {
     //-------------------------------------------------------------------------------------------------------------------------------------
     private String sexCheckBoxStr; //female = 1, male = 2
     private Customer ctmForSetImageView = new Customer("0");
+    private Customer ctmInsertCustomerToDB;
 
     //database connect
     Connection conn = null;
@@ -134,7 +137,6 @@ public class RegisterController {
 
 //        Connect();
 
-
         //generate ctm_id
         Customer randomCtm_id = new Customer("0", "0", "0", "0", "0", "0", "0", "0", "0", "0");
         String ctm_idStr = randomCtm_id.generateCtm_id();
@@ -144,6 +146,9 @@ public class RegisterController {
         DataSource<CustomerList> dataSource = new CustomerFileDataSource();
         CustomerList customers = dataSource.readData();
 
+        // ใช้ Db
+        Database<Customer> database = new CustomerDatabase();
+
         //--------------------------------------------------------------------------------------------------------------
         String idNumberStr = IdNumberTextField.getText();
         String firstnameStr = firstnameTextField.getText();
@@ -152,7 +157,6 @@ public class RegisterController {
         String bankAccNumStr = bankAccountNumberTextField.getText();
         String addressStr = addressTextField.getText();
         String workplaceStr = workplaceTextField.getText();
-
 
         if (firstnameStr.equals("") || lastnameStr.equals("") || idNumberStr.equals("") || sexCheckBoxStr.equals("")
                 || phoneNumStr.equals("") || bankAccNumStr.equals("") || addressStr.equals("") || workplaceStr.equals("")) {
@@ -192,40 +196,14 @@ public class RegisterController {
                         alert.showAndWait();
 
                     } else {
-                        try {
-                            try {
-                                Class.forName("com.mysql.cj.jdbc.Driver");
-                            } catch (Exception e) {
-                                System.out.println(e);
-                            }
-                            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/test_loansystem", "root", "");
-                            System.out.println("Connection is created successfully:");
-                            stmt = (Statement) conn.createStatement();
-                            String query1 = "INSERT INTO customer " + "VALUES ('"+ctm_idStr+"','"+idNumberStr+"','"+firstnameStr+"','"+lastnameStr+"','"+ctmForSetImageView.getCtm_img()+"','"+sexCheckBoxStr+"','"+phoneNumStr+"' ,'"+addressStr+"','"+workplaceStr+"','"+bankAccNumStr+"')";
-                            stmt.executeUpdate(query1);
-                            System.out.println("Record is inserted in the table successfully..................");
-                        } catch (Exception excep) {
-                            excep.printStackTrace();
-                        } finally {
-                            try {
-                                if (stmt != null)
-                                    conn.close();
-                            } catch (SQLException se) {}
-                            try {
-                                if (conn != null)
-                                    conn.close();
-                            } catch (SQLException se) {
-                                se.printStackTrace();
-                            }
-                        }
-                        System.out.println("Please check it in the MySQL Table......... ……..");
-                    }
+                        ctmInsertCustomerToDB = new Customer(ctm_idStr,idNumberStr,firstnameStr,lastnameStr,ctmForSetImageView.getCtm_img(),sexCheckBoxStr,phoneNumStr,addressStr,workplaceStr,bankAccNumStr);
+                        database.insertDatabase(ctmInsertCustomerToDB);
 
-//                        //บันทึกข้อมูลลูกค้า ใน file csv
-//                        //new customer
-//                        customers.addCustomer(new Customer(ctm_idStr, idNumberStr, firstnameStr, lastnameStr, ctmForSetImageView.getCtm_img(), sexCheckBoxStr, phoneNumStr, addressStr, workplaceStr, bankAccNumStr));
-//                        //เขียนไฟล์
-//                        dataSource.writeData(customers);
+                        //บันทึกข้อมูลลูกค้า ใน file csv
+                        //new customer
+                        customers.addCustomer(new Customer(ctm_idStr, idNumberStr, firstnameStr, lastnameStr, ctmForSetImageView.getCtm_img(), sexCheckBoxStr, phoneNumStr, addressStr, workplaceStr, bankAccNumStr));
+                        //เขียนไฟล์
+                        dataSource.writeData(customers);
 
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Error!!");
@@ -243,6 +221,7 @@ public class RegisterController {
                 }
             }
         }
+    }
 
 
     @FXML
@@ -254,20 +233,6 @@ public class RegisterController {
         //if ใช--> clear text field
         // else ไม่ใช่
 
-
-        //jOptionPlane ใช้ภาษาไทยไม่ได้
-//        String[] options = {"confirm", "cancel"};
-//        var option = JOptionPane.showOptionDialog(null, "Do you want to go back the menu?","confirm",0,2,null,options,options[0]);
-//        if (option == 0){
-//            clearTextField();
-//            try {
-//                System.out.println("menu");
-//                FXRouter.goTo("menu");
-//            } catch (IOException e) {
-//                System.err.println("ไปที่หน้า signup ไม่ได้");
-//                System.err.println("ให้ตรวจสอบการกำหนด route");
-//            }
-//        }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm");
         alert.setContentText("ต้องการกลับสู่เมนูหลัก?");
@@ -283,11 +248,7 @@ public class RegisterController {
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
         }
-
     }
-
-
-
 
     private void clearTextField() {
         ctmForSetImageView = null;

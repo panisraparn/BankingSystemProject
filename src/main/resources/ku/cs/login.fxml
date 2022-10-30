@@ -49,12 +49,12 @@
          </children></Pane>
       <ImageView fitHeight="607.0" fitWidth="347.0" layoutX="-1.0">
          <image>
-            <Image url="@../../../../../images/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
+            <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="75.0" fitWidth="199.0" layoutX="14.0" layoutY="22.0">
          <image>
-            <Image url="@../../../../../images/c.png" />
+            <Image url="@../../image/c.png" />
          </image>
       </ImageView>
    </children>
