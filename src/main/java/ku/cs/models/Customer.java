@@ -55,15 +55,15 @@ public class Customer {
 
 
 
-//    //check firstname ซ้ำ
-//    public boolean isDuplicateFirstname(String ctm_firstname){
-//        return this.ctm_firstname.equals(ctm_firstname);
-//    }
-//
-//    //check lastname ซ้ำ
-//    public boolean isDuplicateLastname(String ctm_lastname){
-//        return this.ctm_lastname.equals(ctm_lastname);
-//    }
+    //check firstname ซ้ำ
+    public boolean isDuplicateFirstname(String ctm_firstname){
+        return this.ctm_firstname.equals(ctm_firstname);
+    }
+
+    //check lastname ซ้ำ
+    public boolean isDuplicateLastname(String ctm_lastname){
+        return this.ctm_lastname.equals(ctm_lastname);
+    }
 
 
 

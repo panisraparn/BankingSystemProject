@@ -1,10 +1,11 @@
 package ku.cs.servicesDB;
 
 import ku.cs.models.Employee;
+import ku.cs.models.EmployeeList;
 
 import java.sql.*;
 
-public class EmployeeDatabaseConnection implements Database<Employee> {
+public class EmployeeDatabaseConnection implements Database<Employee, EmployeeList> {
 
     //database connect
     public Connection conn = null;
@@ -70,6 +71,12 @@ public class EmployeeDatabaseConnection implements Database<Employee> {
     }
 
 
+
+
+    @Override
+    public EmployeeList readDatabase(String q) {
+        return null;
+    }
 
 
 }

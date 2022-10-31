@@ -1,15 +1,17 @@
 package ku.cs.controllers;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import ku.cs.FXRouter;
 
 import java.io.IOException;
 
 public class EmpLoanController {
-    
-    public void clickBackToLogin(MouseEvent event) {
-        
-    }
+    @FXML
+    private ListView<?> borrowerListView;
+
+
 
     public void clickBackToEmp_home(MouseEvent event) {
         try {
