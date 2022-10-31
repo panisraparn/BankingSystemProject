@@ -1,13 +1,11 @@
 package ku.cs.servicesDB;
 
-import ku.cs.models.Customer;
-import ku.cs.models.CustomerList;
+import ku.cs.models.DocumentTOB;
+import ku.cs.models.DocumentTOBList;
 
 import java.sql.*;
 
-public class CustomerDBConnect implements Database<Customer, CustomerList> {
-
-//    public CustomerList customerList;
+public class DocumentTOBDBConnect implements Database <DocumentTOB, DocumentTOBList> {
 
     //database connect
     public Connection conn = null;
@@ -16,14 +14,11 @@ public class CustomerDBConnect implements Database<Customer, CustomerList> {
 
     private DatabaseConnection databaseConnection;
 
-
     //prepare for return Customer method readData
-    public Customer customerReadDatabase;
+    public DocumentTOB documentReadDb;
 
-
-    //ใช้หน้า emp_regis
     @Override
-    public void insertDatabase(Customer customer) {
+    public void insertDatabase(DocumentTOB document) {
         //database connect
         Connection conn = null;
         Statement stmt = null;
@@ -36,7 +31,7 @@ public class CustomerDBConnect implements Database<Customer, CustomerList> {
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/test_loansystem", "root", "");
             System.out.println("Connection is created successfully:");
             stmt = (Statement) conn.createStatement();
-            String query1 = "INSERT INTO customer " + "VALUES ('" + customer.getCtm_Id() + "','" + customer.getCtm_cid() + "','" + customer.getCtm_firstname() + "','" + customer.getCtm_lastname() + "','" + customer.getCtm_img() + "','" + customer.getCtm_sex() + "','" + customer.getCtm_tel() + "' ,'" + customer.getCtm_address() + "','" + customer.getCtm_workplace() + "','" + customer.getCtm_bankAccount() + "')";
+            String query1 = "INSERT INTO customer " + "VALUES ('" + document.getDtb_id() + "','" + document.getDtb_customerId() + "','" + document.getDtb_d1()+ "','" + document.getDtb_d2() + "','" + document.getDtb_d3() + "','" + document.getDtb_d4() + "','" + document.getDtb_date()+ "' ,'" + document.getDtb_status() + "' )";
             stmt.executeUpdate(query1);
             System.out.println("Record is inserted in the table successfully..................");
         } catch (Exception excep) {
@@ -59,18 +54,17 @@ public class CustomerDBConnect implements Database<Customer, CustomerList> {
 
     //return object
     @Override
-    public Customer readDatabase(Customer customer, String query) {
+    public DocumentTOB readDatabase(DocumentTOB documentTOB, String query) {
         //prepare data
-        String id = customer.getCtm_Id();
-        String cid = customer.getCtm_cid();
-        String firstname = customer.getCtm_firstname();
-        String lastname = customer.getCtm_lastname();
-        String img = customer.getCtm_img();
-        String sex = customer.getCtm_sex();
-        String tel = customer.getCtm_tel();
-        String address = customer.getCtm_address();
-        String workplace = customer.getCtm_workplace();
-        String bankAcc = customer.getCtm_bankAccount();
+        String id = documentTOB.getDtb_id();
+        String ctm_id = documentTOB.getDtb_customerId();
+        String d1 = documentTOB.getDtb_d1();
+        String d2 = documentTOB.getDtb_d2();
+        String d3 = documentTOB.getDtb_d3();
+        String d4 = documentTOB.getDtb_d4();
+        String date =  documentTOB.getDtb_date();
+        String status = documentTOB.getDtb_status();
+
 
         //DB connect
         try {
@@ -87,17 +81,15 @@ public class CustomerDBConnect implements Database<Customer, CustomerList> {
 
             while (rs.next()) {
                 id = rs.getString(1);
-                cid = rs.getNString(2);
-                firstname = rs.getString(3);
-                lastname = rs.getString(4);
-                img = rs.getString(5);
-                sex = rs.getNString(6);
-                tel = rs.getString(7);
-                address = rs.getString(8);
-                workplace = rs.getString(9);
-                bankAcc = rs.getString(10);
+                ctm_id = rs.getNString(2);
+                d1 = rs.getString(3);
+                d2 = rs.getString(4);
+                d3 = rs.getString(5);
+                d4 = rs.getNString(6);
+                date = rs.getString(7);
+                status = rs.getString(8);
 
-                this.customerReadDatabase = new Customer(id, cid, firstname, lastname, img, sex, tel, address, workplace, bankAcc);
+                this.documentReadDb = new DocumentTOB(id, ctm_id, d1, d2, d3, d4, date, status);
 //                System.out.println(empLoginAccount.toCsv());
             }
             System.out.println("Account can use from jdbc");
@@ -118,15 +110,14 @@ public class CustomerDBConnect implements Database<Customer, CustomerList> {
         }
         System.out.println("Please check it in the MySQL Table......... ……..");
 
-        return customerReadDatabase;
+        return documentReadDb;
     }
 
 
     //return list
     @Override
-    public CustomerList readDatabase(String query) {
-
-        CustomerList list = new CustomerList();
+    public DocumentTOBList readDatabase(String q) {
+        DocumentTOBList list = new DocumentTOBList();
 
         //DB connect
         try {
@@ -139,22 +130,20 @@ public class CustomerDBConnect implements Database<Customer, CustomerList> {
             System.out.println("Connection is created successfully:");
 
             stmt = conn.createStatement();
-            rs = stmt.executeQuery(query);
+            rs = stmt.executeQuery(q);
 
             while (rs.next()) {
                 String id = rs.getString(1);
-                String cid = rs.getString(2);
-                String firstname = rs.getString(3);
-                String lastname = rs.getString(4);
-                String img = rs.getString(5);
-                String sex = rs.getString(6);
-                String tel = rs.getString(7);
-                String address = rs.getString(8);
-                String workplace = rs.getString(9);
-                String bankAcc = rs.getString(10);
+                String ctm_id = rs.getNString(2);
+                String d1 = rs.getString(3);
+                String d2 = rs.getString(4);
+                String d3 = rs.getString(5);
+                String d4 = rs.getNString(6);
+                String date = rs.getString(7);
+                String status = rs.getString(8);
 
-                this.customerReadDatabase = new Customer(id, cid, firstname, lastname, img, sex, tel, address, workplace, bankAcc);
-                list.addCustomer(customerReadDatabase);
+                this.documentReadDb = new DocumentTOB(id, ctm_id, d1, d2, d3, d4, date, status);
+                list.addDocumentTrans(documentReadDb);
 //                System.out.println(empLoginAccount.toCsv());
             }
             System.out.println("list can use from jdbc");
@@ -176,7 +165,6 @@ public class CustomerDBConnect implements Database<Customer, CustomerList> {
         System.out.println("Please check it in the MySQL Table......... ……..");
 
         return list;
-
     }
 
     @Override
@@ -184,6 +172,3 @@ public class CustomerDBConnect implements Database<Customer, CustomerList> {
 
     }
 }
-
-
-
