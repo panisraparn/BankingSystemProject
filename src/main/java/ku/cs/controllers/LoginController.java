@@ -9,7 +9,7 @@ import ku.cs.FXRouter;
 import ku.cs.models.Employee;
 import ku.cs.models.EmployeeList;
 import ku.cs.servicesDB.Database;
-import ku.cs.servicesDB.EmployeeDatabaseConnection;
+import ku.cs.servicesDB.EmployeeDBConnect;
 
 import java.io.IOException;
 import java.sql.*;
@@ -46,7 +46,7 @@ public class LoginController {
 
         // ใช้ Db
         String query = "SELECT * FROM employee  WHERE Emp_id = '"+emp_IdLoginStr+"'  AND  Emp_password = '"+emp_passwordStr+"'";
-        Database<Employee, EmployeeList> database = new EmployeeDatabaseConnection();
+        Database<Employee, EmployeeList> database = new EmployeeDBConnect();
         empLoginAccount = database.readDatabase(employeeDB,query);
 
         //for test login ห้ามเอา comment ออกมันบัค ยกเว้นใส่ข้อมูล login ถูก

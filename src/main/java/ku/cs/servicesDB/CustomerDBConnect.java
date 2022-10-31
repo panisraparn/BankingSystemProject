@@ -5,7 +5,7 @@ import ku.cs.models.CustomerList;
 
 import java.sql.*;
 
-public class CustomerDatabaseConnection implements Database<Customer, CustomerList> {
+public class CustomerDBConnect implements Database<Customer, CustomerList> {
 
 //    public CustomerList customerList;
 
@@ -99,7 +99,7 @@ public class CustomerDatabaseConnection implements Database<Customer, CustomerLi
                 this.customerReadDatabase = new Customer(id, cid, firstname, lastname, img, sex, tel, address, workplace, bankAcc);
 //                System.out.println(empLoginAccount.toCsv());
             }
-            System.out.println("loginAccount can use from jdbc");
+            System.out.println("Account can use from jdbc");
         } catch (Exception excep) {
             excep.printStackTrace();
         } finally {
@@ -168,7 +168,7 @@ public class CustomerDatabaseConnection implements Database<Customer, CustomerLi
                 list.addCustomer(customerReadDatabase);
 //                System.out.println(empLoginAccount.toCsv());
             }
-            System.out.println("loginAccount can use from jdbc");
+            System.out.println("list can use from jdbc");
         } catch (Exception excep) {
             excep.printStackTrace();
         } finally {
@@ -187,6 +187,11 @@ public class CustomerDatabaseConnection implements Database<Customer, CustomerLi
         System.out.println("Please check it in the MySQL Table......... ……..");
 
         return list;
+
+    }
+
+    @Override
+    public void updateDatabase(String q) {
 
     }
 }
