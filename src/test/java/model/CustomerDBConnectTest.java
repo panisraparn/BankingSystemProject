@@ -16,4 +16,7 @@ public class CustomerDBConnectTest {
         customerList = database.readDatabase(q);
         System.out.println(customerList.toCsv());
     }
+
+
+
 }

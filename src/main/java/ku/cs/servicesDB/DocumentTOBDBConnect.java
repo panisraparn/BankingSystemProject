@@ -168,7 +168,9 @@ public class DocumentTOBDBConnect implements Database <DocumentTOB, DocumentTOBL
     }
 
     @Override
-    public void updateDatabase(String q) {
+    public void updateDatabase(String q) {}
 
-    }
+
+
+
 }

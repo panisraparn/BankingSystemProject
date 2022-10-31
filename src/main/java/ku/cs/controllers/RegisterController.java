@@ -152,8 +152,8 @@ public class RegisterController {
             } else {
 
                 //prepare For generate ctm_id
-                Customer tempCustomerForRegist = new Customer("0", idNumberStr);
-                Customer tempCustomerForRegist1 = new Customer("0",idNumberStr);
+                Customer tempCustomerForCheckCid = new Customer("0", idNumberStr);
+                Customer tempCustomerForCheckCtm_cid = new Customer("0",idNumberStr);
 
                 String ctm_idStr = null;
                 String checkCtm_id = "0";
@@ -161,15 +161,15 @@ public class RegisterController {
 
                 while (checkCtm_id.equals("0")){
                     //random ctm_id 7 digit
-                    ctm_idStr = tempCustomerForRegist.generateCtm_id();
+                    ctm_idStr = tempCustomerForCheckCid.generateCtm_id();
 
                     // ใช้ Db
                     Database<Customer, CustomerList> database = new CustomerDBConnect();
                     //หา Ctm_id ในตาราง customer ที่ตรงกับ ctm_idStr(เลขที่สุ่ม) ถ้า เจอ--> return account ไม่เจอ return null
                     String queryCheckCtm_id = " SELECT * FROM customer  WHERE Ctm_id = '"+ctm_idStr+"' ";
-                    tempCustomerForRegist = database.readDatabase(tempCustomerForRegist,queryCheckCtm_id);
+                    tempCustomerForCheckCid = database.readDatabase(tempCustomerForCheckCid,queryCheckCtm_id);
 
-                    if (tempCustomerForRegist == null){ //หาไม่เจอ
+                    if (tempCustomerForCheckCid == null){ //หาไม่เจอ
                         checkCtm_id = "1";
                     }else { //หาเจอ
                         checkCtm_id = "0";
@@ -180,12 +180,12 @@ public class RegisterController {
                 //check ctm_cid ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if / ไม่ซ้ำ เข้า else
                 Database<Customer, CustomerList> database1 = new CustomerDBConnect();
                 String queryCheckCtm_cid = " SELECT * FROM customer  WHERE Ctm_cid = '"+idNumberStr+"' ";
-                tempCustomerForRegist1 = database1.readDatabase(tempCustomerForRegist1, queryCheckCtm_cid);
+                tempCustomerForCheckCtm_cid = database1.readDatabase(tempCustomerForCheckCtm_cid, queryCheckCtm_cid);
 
                 //มีซ้ำเข้า if (เจอ)
                 // ไม่ซ้ำ else (ไม่เจอ)
 
-                if (tempCustomerForRegist1 == null){
+                if (tempCustomerForCheckCtm_cid == null){
 
                     // ใช้ Db
                     Database<Customer, CustomerList> database2 = new CustomerDBConnect();
@@ -213,7 +213,6 @@ public class RegisterController {
                     alert.setContentText("ระบบมีฐานข้อมูลของลูกค้ารายนี้แล้ว");
                     alert.showAndWait();
                 }
-
             }
         }
     }

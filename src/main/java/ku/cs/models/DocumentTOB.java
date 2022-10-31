@@ -1,6 +1,7 @@
 package ku.cs.models;
 
 import java.sql.Date;
+import java.util.Random;
 
 public class DocumentTOB {
 
@@ -11,7 +12,7 @@ public class DocumentTOB {
     private String dtb_d3;
     private String dtb_d4;
     private String dtb_date;
-    private  String dtb_status;
+    private String dtb_status;
 
     //add DocumentTrans
     public DocumentTOB(String dtb_id, String dtb_customerId, String dtb_document1, String dtb_document2, String dtb_document3, String dtbd4, String dtb_date, String dtb_status) {
@@ -24,6 +25,35 @@ public class DocumentTOB {
         this.dtb_status = dtb_status;
         setDtb_date(); //set เป็นวันที่ปัจจุบัน
     }
+
+    //tempDtb for check Dtb_id, Dtb_customerId Is Exits?
+
+    public DocumentTOB(String dtb_id, String dtb_customerId) {
+        this.dtb_id = dtb_id;
+        this.dtb_customerId = dtb_customerId;
+    }
+
+    //test RandomDtb_id
+    public DocumentTOB(String randDtb_id){
+        this.dtb_id = randDtb_id;
+    }
+
+    public String generateDtb_id() {
+        Random rd = new Random();
+        int rdNum;
+        // 10 digit
+        String m[] = new String[10];
+        for (int i = 0; i < 10; i++) {
+            rdNum = rd.nextInt(10);
+            m[i] = Integer.toString(rdNum);
+        }
+        String dtb_id = m[0] + m[1] + m[2] + m[3] + m[4] + m[5] + m[6] + m[7] + m[8] + m[9];
+        this.dtb_id = dtb_id;
+        return dtb_id;
+
+    }
+
+
 
     //setter
     public void setDtb_id(String dtb_id) {
