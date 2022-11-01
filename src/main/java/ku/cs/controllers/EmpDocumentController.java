@@ -153,7 +153,7 @@ public class EmpDocumentController {
             DocumentTOB documentTOB = new DocumentTOB(dtb_idStr, showCtmIdLabel.getText(),dtbForInsertRecord.getDtb_d1(),dtbForInsertRecord.getDtb_d2(),dtbForInsertRecord.getDtb_d3(),
                         dtbForInsertRecord.getDtb_d4(),dtbForInsertRecord.getDtb_date(),"0");
 
-            System.out.println(" documentTob: " + documentTOB.toCsv());
+//            System.out.println(" documentTob: " + documentTOB.toCsv());
 
             //insert
             Database<DocumentTOB, DocumentTOBList> databaseDtb = new DocumentTOBDBConnect();
@@ -166,7 +166,7 @@ public class EmpDocumentController {
             alert.showAndWait();
 
             clearShowLabel();
-            
+
         }
     }
 
