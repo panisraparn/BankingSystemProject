@@ -9,7 +9,7 @@ import ku.cs.FXRouter;
 import ku.cs.models.Employee;
 import ku.cs.models.EmployeeList;
 import ku.cs.servicesDB.Database;
-import ku.cs.servicesDB.EmployeeDBConnect;
+import ku.cs.servicesDB.Employee_DBConnect;
 
 import java.io.IOException;
 import java.sql.*;
@@ -26,6 +26,7 @@ public class LoginController {
 
     //เป็น account ที่ไว้ใช้ login
     public Employee empLoginAccount;
+
     //emp database
     public Employee employeeDB = new Employee("0","0","0","0");
 
@@ -44,10 +45,15 @@ public class LoginController {
         employeeDB.setEmp_id(emp_IdLoginStr);
         employeeDB.setEmp_password(emp_passwordStr);
 
+//        System.out.println("1 : " +employeeDB.toCsv());
+
         // ใช้ Db
         String query = "SELECT * FROM employee  WHERE Emp_id = '"+emp_IdLoginStr+"'  AND  Emp_password = '"+emp_passwordStr+"'";
-        Database<Employee, EmployeeList> database = new EmployeeDBConnect();
+        Database<Employee, EmployeeList> database = new Employee_DBConnect();
         empLoginAccount = database.readDatabase(employeeDB,query);
+
+//        System.out.println("2 : " + employeeDB.toCsv());
+//        System.out.println("3 : " + empLoginAccount.toCsv());
 
         //for test login ห้ามเอา comment ออกมันบัค ยกเว้นใส่ข้อมูล login ถูก
 //        System.out.println("Employee Who login is "+empLoginAccount.getEmp_id()+":"+ empLoginAccount.getEmp_name());
@@ -74,7 +80,7 @@ public class LoginController {
                         System.err.println("ไปที่หน้า manager_home ไม่ได้");
                         System.err.println("ให้ตรวจสอบการกำหนด route");
                     }
-                }else {
+                }else if (empLoginAccount.getEmp_id().equals("3")){
                     try {
                         FXRouter.goTo("creditboard_home", empLoginAccount);
                     } catch (IOException e) {

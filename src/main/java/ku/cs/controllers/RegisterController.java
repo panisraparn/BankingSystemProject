@@ -13,7 +13,7 @@ import javafx.stage.FileChooser;
 import ku.cs.FXRouter;
 import ku.cs.models.Customer;
 import ku.cs.models.CustomerList;
-import ku.cs.servicesDB.CustomerDBConnect;
+import ku.cs.servicesDB.Customer_DBConnect;
 import ku.cs.servicesDB.Database;
 
 
@@ -165,7 +165,7 @@ public class RegisterController {
                     ctm_idStr = tempCustomerForCheckCid.generateCtm_id();
 
                     // ใช้ Db
-                    Database<Customer, CustomerList> database = new CustomerDBConnect();
+                    Database<Customer, CustomerList> database = new Customer_DBConnect();
                     //หา Ctm_id ในตาราง customer ที่ตรงกับ ctm_idStr(เลขที่สุ่ม) ถ้า เจอ--> return account ไม่เจอ return null
                     String queryCheckCtm_id = " SELECT * FROM customer  WHERE Ctm_id = '"+ctm_idStr+"' ";
                     tempCustomerForCheckCid = database.readDatabase(tempCustomerForCheckCid,queryCheckCtm_id);
@@ -179,7 +179,7 @@ public class RegisterController {
 
 
                 //check ctm_cid ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if / ไม่ซ้ำ เข้า else
-                Database<Customer, CustomerList> database1 = new CustomerDBConnect();
+                Database<Customer, CustomerList> database1 = new Customer_DBConnect();
                 String queryCheckCtm_cid = " SELECT * FROM customer  WHERE Ctm_cid = '"+idNumberStr+"' ";
                 tempCustomerForCheckCtm_cid = database1.readDatabase(tempCustomerForCheckCtm_cid, queryCheckCtm_cid);
 
@@ -189,7 +189,7 @@ public class RegisterController {
                 if (tempCustomerForCheckCtm_cid == null){
 
                     // ใช้ Db
-                    Database<Customer, CustomerList> database2 = new CustomerDBConnect();
+                    Database<Customer, CustomerList> database2 = new Customer_DBConnect();
                     ctmInsertToDB = new Customer(ctm_idStr,idNumberStr,firstnameStr,lastnameStr,ctmForSetImageView.getCtm_img(),sexCheckBoxStr,phoneNumStr,addressStr,workplaceStr,bankAccNumStr);
                     database2.insertDatabase(ctmInsertToDB);
 

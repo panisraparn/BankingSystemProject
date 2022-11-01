@@ -5,7 +5,7 @@ import ku.cs.models.EmployeeList;
 
 import java.sql.*;
 
-public class EmployeeDBConnect implements Database<Employee, EmployeeList> {
+public class Employee_DBConnect implements Database<Employee, EmployeeList> {
 
     //database connect
     public Connection conn = null;
@@ -13,7 +13,7 @@ public class EmployeeDBConnect implements Database<Employee, EmployeeList> {
     public ResultSet rs = null;
 
     //prepare for return readData
-    public Employee employeeReadData;
+    private Employee employeeReadData;
 
     @Override
     public void insertDatabase(Employee employee) {

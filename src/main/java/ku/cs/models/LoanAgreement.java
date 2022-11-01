@@ -1,5 +1,6 @@
 package ku.cs.models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class LoanAgreement {
@@ -9,7 +10,7 @@ public class LoanAgreement {
     private String loan_lastname;
     private String loan_type; //รูปแบบเงินกู้
     private int loan_term; //อายุสัญญา
-    private Date loan_date; //วันที่ออกสัญญา
+    private String loan_date; //วันที่ออกสัญญา
     private int loan_balance;//ยอดคงเหลือที่ต้องชำระ
     private int loan_amount;// จำนวนเงินกู้
     private String loan_witness1;
@@ -20,21 +21,21 @@ public class LoanAgreement {
 
     //constructor
 
+    public LoanAgreement(String id, String customerId, String fname, String lname, String type,int term, String date, int balance, int amount, String witness1, String witness2, String emp1, String emp2) {
 
-    public LoanAgreement(String loan_id, String loan_customerId, String loan_firstname, String loan_lastname, String loan_type, int loan_term, Date loan_date, int loan_balance, int loan_amount, String loan_witness1, String loan_witness2, String loan_Emp1, String loan_Emp2) {
-        this.loan_id = loan_id;
-        this.loan_customerId = loan_customerId;
-        this.loan_firstname = loan_firstname;
-        this.loan_lastname = loan_lastname;
-        this.loan_type = loan_type;
-        this.loan_term = loan_term;
-        this.loan_date = loan_date;
-        this.loan_balance = loan_balance;
-        this.loan_amount = loan_amount;
-        this.loan_witness1 = loan_witness1;
-        this.loan_witness2 = loan_witness2;
-        this.loan_Emp1 = loan_Emp1;
-        this.loan_Emp2 = loan_Emp2;
+        this.loan_id = id;
+        this.loan_customerId = customerId;
+        this.loan_firstname = fname;
+        this.loan_lastname = lname;
+        this.loan_type = type;
+        this.loan_term = term;
+        this.loan_date = date;
+        this.loan_balance = balance;
+        this.loan_amount = amount;
+        this.loan_witness1 = witness1;
+        this.loan_witness2 = witness2;
+        this.loan_Emp1 = emp1;
+        this.loan_Emp2 = emp2;
     }
 
 
@@ -64,8 +65,9 @@ public class LoanAgreement {
         this.loan_term = loan_term;
     }
 
-    public void setLoan_date(Date loan_date) {
-        this.loan_date = loan_date;
+    public void setLoan_date(String loan_date) {
+        LocalDate today = LocalDate.now();
+        this.loan_date = String.valueOf(today);
     }
 
     public void setLoan_balance(int loan_balance) {
@@ -118,7 +120,7 @@ public class LoanAgreement {
         return loan_term;
     }
 
-    public Date getLoan_date() {
+    public String getLoan_date() {
         return loan_date;
     }
 
@@ -144,5 +146,12 @@ public class LoanAgreement {
 
     public String getLoan_Emp2() {
         return loan_Emp2;
+    }
+
+
+    public String toCsv() {
+        return loan_id +","+ loan_customerId +","+ loan_firstname +","+ loan_lastname +","+ loan_type +","+ loan_type
+                +","+ loan_date +","+ loan_balance +","+ loan_amount +","+ loan_witness1 +","+ loan_witness2
+                +","+ loan_Emp1 +","+ loan_Emp2;
     }
 }

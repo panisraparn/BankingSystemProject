@@ -11,9 +11,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import ku.cs.FXRouter;
 import ku.cs.models.*;
-import ku.cs.servicesDB.CustomerDBConnect;
+import ku.cs.servicesDB.Customer_DBConnect;
 import ku.cs.servicesDB.Database;
-import ku.cs.servicesDB.DocumentTOBDBConnect;
+import ku.cs.servicesDB.DocumentTOB_DBConnect;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,7 +53,7 @@ public class EmpDocumentController {
 
 
         Customer customer = new Customer("0", "0");
-        Database<Customer, CustomerList> database = new CustomerDBConnect();
+        Database<Customer, CustomerList> database = new Customer_DBConnect();
         String q =" Select * FROM customer WHERE Ctm_cid = '"+findCtmCidTextField.getText()+"'  ";
         customer = database.readDatabase(customer,q); //เจอ return record ไม่เจอ return null
 
@@ -80,7 +80,7 @@ public class EmpDocumentController {
 
             }else{
                 DocumentTOB documentTOB = new DocumentTOB("", "");
-                Database<DocumentTOB, DocumentTOBList> databaseDtb = new DocumentTOBDBConnect();
+                Database<DocumentTOB, DocumentTOBList> databaseDtb = new DocumentTOB_DBConnect();
                 String qDtb =" Select * FROM documenttransactionofborrow WHERE Dtb_customerId = '"+customer.getCtm_Id()+"'  ";
                 documentTOB = databaseDtb.readDatabase(documentTOB,qDtb); //เจอ return record ไม่เจอ return null
 
@@ -134,7 +134,7 @@ public class EmpDocumentController {
                 dtb_idStr = tempDtbChekDtb_id.generateDtb_id();
 
                 // ใช้ Db
-                Database<DocumentTOB, DocumentTOBList> database = new DocumentTOBDBConnect();
+                Database<DocumentTOB, DocumentTOBList> database = new DocumentTOB_DBConnect();
 
                 //หา dtb_id ในตาราง dtb ที่ตรงกับ dtb_idStr(เลขที่สุ่ม) ถ้า เจอ--> return account ไม่เจอ return null
                 String queryCheckCtm_id = " SELECT * FROM documenttransactionofborrow  WHERE Dtb_id = '"+dtb_idStr+"' ";
@@ -156,7 +156,7 @@ public class EmpDocumentController {
 //            System.out.println(" documentTob: " + documentTOB.toCsv());
 
             //insert
-            Database<DocumentTOB, DocumentTOBList> databaseDtb = new DocumentTOBDBConnect();
+            Database<DocumentTOB, DocumentTOBList> databaseDtb = new DocumentTOB_DBConnect();
             databaseDtb.insertDatabase(documentTOB);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
