@@ -22,7 +22,7 @@
             </Button>
             <AnchorPane layoutX="46.0" layoutY="60.0" prefHeight="467.0" prefWidth="710.0" style="-fx-background-color: #f590cc;">
                <children>
-                  <ImageView fitHeight="474.0" fitWidth="755.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="461.0" fitWidth="711.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                      </image>
@@ -37,10 +37,10 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Button layoutX="188.0" layoutY="155.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="88.0" text="Upload File 1" />
-                  <Button layoutX="188.0" layoutY="273.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="88.0" text="Upload File 3" />
-                  <Button layoutX="188.0" layoutY="214.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="88.0" text="Upload File 2" />
-                  <Button layoutX="188.0" layoutY="332.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="88.0" text="Upload File 4" />
+                  <Button layoutX="188.0" layoutY="155.0" mnemonicParsing="false" onAction="#UploadFile1Button" prefHeight="30.0" prefWidth="88.0" text="Upload File 1" />
+                  <Button layoutX="188.0" layoutY="273.0" mnemonicParsing="false" onAction="#UploadFile3Button" prefHeight="30.0" prefWidth="88.0" text="Upload File 3" />
+                  <Button layoutX="188.0" layoutY="214.0" mnemonicParsing="false" onAction="#UploadFile2Button" prefHeight="30.0" prefWidth="88.0" text="Upload File 2" />
+                  <Button layoutX="188.0" layoutY="332.0" mnemonicParsing="false" onAction="#UploadFile4Button" prefHeight="30.0" prefWidth="88.0" text="Upload File 4" />
                   <Button layoutX="423.0" layoutY="396.0" mnemonicParsing="false" onAction="#cancelButton" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ยกเลิก" textFill="#fbfdf4">
                      <font>
                         <Font name="Cambria" size="24.0" />
@@ -70,7 +70,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showLastnameLabel" layoutX="194.0" layoutY="30.0" text="Lastname">
+                  <Label fx:id="showLastnameLabel" layoutX="276.0" layoutY="30.0" text="Lastname">
                      <font>
                         <Font size="25.0" />
                      </font>

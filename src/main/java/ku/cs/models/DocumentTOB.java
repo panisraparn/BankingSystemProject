@@ -126,6 +126,6 @@ public class DocumentTOB {
     }
 
     public String toCsv() {
-        return dtb_id + "," + dtb_customerId + "," + dtb_d1 + "," + dtb_d2 + "," + dtb_d3 + "," + dtb_d4 + dtb_date + "," + dtb_status;
+        return dtb_id + "," + dtb_customerId + "," + dtb_d1 + "," + dtb_d2 + "," + dtb_d3 + "," + dtb_d4 + "," +dtb_date + "," + dtb_status;
     }
 }

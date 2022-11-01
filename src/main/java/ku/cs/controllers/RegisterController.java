@@ -118,6 +118,7 @@ public class RegisterController {
                 e.printStackTrace();
             }
         }
+
     }
 
     @FXML
