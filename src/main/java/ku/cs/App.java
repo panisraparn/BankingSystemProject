@@ -26,7 +26,11 @@ public class App extends Application {
         //เรียงด้วยนะ
         String packageStr = "ku/cs/";
         FXRouter.when("creditboard_home",packageStr+"creditboard_home.fxml");
+        FXRouter.when("creditboard_update",packageStr+"creditboard_update.fxml");
+        FXRouter.when("creditboard_update2",packageStr+"creditboard_update2.fxml");
 
+
+        FXRouter.when("emp_checklist",packageStr+"emp_checklist.fxml");
         FXRouter.when("emp_document",packageStr+"emp_document.fxml");
         FXRouter.when("emp_home",packageStr+"emp_home.fxml");
         FXRouter.when("emp_invoice",packageStr+"emp_invoice.fxml");

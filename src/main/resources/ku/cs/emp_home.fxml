@@ -31,27 +31,27 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="53.0" layoutY="227.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="182.0" text="ตรวจสอบรายชื่อลูกหนี้">
+            <Button layoutX="53.0" layoutY="227.0" mnemonicParsing="false" onAction="#clickToEmp_checklist" prefHeight="44.0" prefWidth="182.0" text="ตรวจสอบรายชื่อลูกหนี้">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="330.0" layoutY="227.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="166.0" text="ออกใบแจ้งหนี้">
+            <Button layoutX="330.0" layoutY="227.0" mnemonicParsing="false" onAction="#clickToEmp_invoice" prefHeight="44.0" prefWidth="166.0" text="ออกใบแจ้งหนี้">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="583.0" layoutY="227.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="166.0" text="ติดตามหนี้">
+            <Button layoutX="583.0" layoutY="227.0" mnemonicParsing="false" onAction="#clickToEmp_Debt" prefHeight="44.0" prefWidth="166.0" text="ติดตามหนี้">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="61.0" layoutY="301.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="166.0" text="หักชำระหนี้">
+            <Button layoutX="61.0" layoutY="301.0" mnemonicParsing="false" onAction="#clickToEmp_payDebt" prefHeight="44.0" prefWidth="166.0" text="หักชำระหนี้">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="330.0" layoutY="301.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="166.0" text="ส่งผลรายงาน">
+            <Button layoutX="330.0" layoutY="301.0" mnemonicParsing="false" onAction="#clickToEmp_report" prefHeight="44.0" prefWidth="166.0" text="ส่งผลรายงาน">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

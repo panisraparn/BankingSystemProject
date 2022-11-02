@@ -41,6 +41,7 @@ public class EmpHomeController {
         }
     }
 
+    //ลงทะเบียนลูกค้าใหม่
     @FXML
     void clickToRegister(ActionEvent event) {
         try {
@@ -51,7 +52,7 @@ public class EmpHomeController {
         }
     }
 
-
+    //บันทึกเอกสารรายได้
     @FXML
     void clickToEmp_Document(ActionEvent event) {
         try {
@@ -62,12 +63,69 @@ public class EmpHomeController {
         }
     }
 
+    //บันทึกสัญญาเงินกู้
     @FXML
     void clickToEmp_Loan(ActionEvent event) {
         try {
             FXRouter.goTo("emp_loan");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า emp_document_loan ไม่ได้");
+            System.err.println("ไปที่หน้า emp_loan ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    //ตรวจสอบรายชื่อลูกหนี้
+    @FXML
+    void clickToEmp_checklist(ActionEvent event) {
+        try {
+            FXRouter.goTo("emp_checklist");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า emp_checklist ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    //ออกใบแจ้งหนี้
+    @FXML
+    void clickToEmp_invoice(ActionEvent event) {
+//        try {
+//            FXRouter.goTo("emp_invoice");
+//        } catch (IOException e) {
+//            System.err.println("ไปที่หน้า emp_invoice ไม่ได้");
+//            System.err.println("ให้ตรวจสอบการกำหนด route");
+//        }
+    }
+
+    //ติดตามหนี้
+    @FXML
+    void clickToEmp_Debt(ActionEvent event) {
+//        try {
+//            FXRouter.goTo("emp_Debt");
+//        } catch (IOException e) {
+//            System.err.println("ไปที่หน้า emp_Debt ไม่ได้");
+//            System.err.println("ให้ตรวจสอบการกำหนด route");
+//        }
+    }
+
+
+    //หักชำระหนี้
+    @FXML
+    void clickToEmp_payDebt(ActionEvent event) {
+//        try {
+//            FXRouter.goTo("emp_payDebt");
+//        } catch (IOException e) {
+//            System.err.println("ไปที่หน้า emp_payDebt ไม่ได้");
+//            System.err.println("ให้ตรวจสอบการกำหนด route");
+//        }
+    }
+
+    //ส่งผลรายงาน
+    @FXML
+    void clickToEmp_report(ActionEvent event) {
+        try {
+            FXRouter.goTo("emp_report");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า emp_report ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
