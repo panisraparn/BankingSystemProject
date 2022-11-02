@@ -70,7 +70,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showLastnameLabel" layoutX="276.0" layoutY="30.0" text="Lastname">
+                  <Label fx:id="showLastnameLabel" layoutX="433.0" layoutY="30.0" text="Lastname">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -98,6 +98,11 @@
                   <Label layoutX="26.0" layoutY="332.0" text="สำเนาหลักประกัน">
                      <font>
                         <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="335.0" layoutY="30.0" text="นามสกุล:">
+                     <font>
+                        <Font size="25.0" />
                      </font>
                   </Label>
                </children>

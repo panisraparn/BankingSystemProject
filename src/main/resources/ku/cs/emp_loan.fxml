@@ -20,19 +20,42 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="349.0" layoutY="81.0" prefHeight="17.0" prefWidth="40.0" text="name" />
-                  <Label fx:id="FirstnameLabel" layoutX="349.0" layoutY="109.0" prefHeight="35.0" prefWidth="129.0" text="FirstnameLabel">
+                  <Label layoutX="342.0" layoutY="246.0" prefHeight="17.0" prefWidth="40.0" text="ชื่อ" />
+                  <Label fx:id="firstnameLabel" layoutX="342.0" layoutY="274.0" prefHeight="35.0" prefWidth="129.0" text="FirstnameLabel">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LastnameLabel" layoutX="505.0" layoutY="109.0" prefHeight="35.0" prefWidth="129.0" text="LastnameLabel">
+                  <Label fx:id="lastnameLabel" layoutX="498.0" layoutY="274.0" prefHeight="35.0" prefWidth="129.0" text="LastnameLabel">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="342.0" layoutY="59.0" prefHeight="17.0" prefWidth="92.0" text="วันที่บันทึกเอกสาร" />
+                  <Label fx:id="dateDtbLabel" layoutX="342.0" layoutY="88.0" prefHeight="30.0" prefWidth="129.0" text="Date">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="342.0" layoutY="143.0" prefHeight="17.0" prefWidth="92.0" text="เลขที่เอกสาร" />
+                  <Label fx:id="dtb_idLabel" layoutX="459.0" layoutY="134.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_id">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="342.0" layoutY="201.0" prefHeight="17.0" prefWidth="92.0" text="รหัสลูกค้า" />
+                  <Label fx:id="dtb_CtmIdLabel" layoutX="459.0" layoutY="192.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_customerid">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
+            <Label fx:id="empNameLabel" alignment="CENTER_RIGHT" layoutX="558.0" layoutY="14.0" prefHeight="21.0" prefWidth="227.0" text="empName">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
       <Label layoutX="780.0" layoutY="6.0" onMouseClicked="#clickBackToEmp_home" style="-fx-background-color: #ffe6ea;" text="X">
          <font>

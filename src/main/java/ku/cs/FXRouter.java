@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import ku.cs.models.Employee;
 
 import java.io.IOException;
 import java.util.AbstractMap;
@@ -150,6 +151,8 @@ public final class FXRouter {
     public static Object getData() {
         return currentRoute.data;
     }
+
+
 
     private static class RouteScene {
         private String scenePath;

@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class CustomerDBConnectTest {
 
+    // return list
     @Test
     void readDatabaseList(){
         CustomerList customerList = new CustomerList();
@@ -15,6 +16,17 @@ public class CustomerDBConnectTest {
         String q =" Select * FROM customer WHERE Ctm_sex = '2' ";
         customerList = database.readDatabase(q);
         System.out.println(customerList.toCsv());
+    }
+
+    //return record (Object)
+    @Test
+    void readCustomerFromCtm_cid(){
+
+        Customer customer = new Customer("0", "1105100167850");
+        Database<Customer, CustomerList> database = new Customer_DBConnect();
+        String q =" Select * FROM customer WHERE Ctm_cid = '"+customer.getCtm_cid()+"'  ";
+        customer = database.readDatabase(customer,q); //เจอ return record ไม่เจอ return null
+        System.out.println(customer.toCsv());
     }
 
 

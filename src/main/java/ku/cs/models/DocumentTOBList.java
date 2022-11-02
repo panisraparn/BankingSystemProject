@@ -12,6 +12,14 @@ public class DocumentTOBList {
         documents.add(document);
     }
 
+    public ArrayList<DocumentTOB> getDocuments() {
+        return documents;
+    }
+
+    public int countDocTOBElement(){
+        return documents.size();
+    }
+
     public String toCsv() {
         String result = "";
         for (DocumentTOB document : this.documents){
@@ -21,5 +29,17 @@ public class DocumentTOBList {
     }
 
 
+    public DocumentTOB getDtbRecord(int i) {
+        DocumentTOB doc = documents.get(i);
+        return doc;
+    }
 
+    public DocumentTOB getDtbRecordById(String id) {
+        for (DocumentTOB doc : documents){
+            if (doc.checkId(id)){
+                return doc;
+            }
+        }
+        return null;
+    }
 }

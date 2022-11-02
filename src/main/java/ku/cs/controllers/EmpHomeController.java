@@ -67,7 +67,7 @@ public class EmpHomeController {
     @FXML
     void clickToEmp_Loan(ActionEvent event) {
         try {
-            FXRouter.goTo("emp_loan");
+            FXRouter.goTo("emp_loan" ,empLoginAccount);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า emp_loan ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

@@ -228,7 +228,7 @@ public class RegisterController {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm");
-        alert.setContentText("ต้องการกลับสู่เมนูหลัก?");
+        alert.setContentText("ต้องการยกเลิกใช่หรือไม่?");
         //capture the dialog result of ok or cancel
         Optional<ButtonType> result = alert.showAndWait();
 
