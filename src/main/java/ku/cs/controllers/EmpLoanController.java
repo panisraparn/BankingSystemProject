@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
@@ -45,6 +46,7 @@ public class EmpLoanController {
 
     //prepare data for emp who login
     public Employee empLoginAccount;
+    public LoanAgreement empLoginWithCtm_idForLoan;
 
 
     //prepare list from table loanAgreement Database for listview
@@ -126,13 +128,27 @@ public class EmpLoanController {
         dtb_idLabel.setText(docCtmId.getDtb_id());
         dtb_CtmIdLabel.setText(docCtmId.getDtb_customerId());
 
+        //for loan2Controller --> ส่ง รหัสพนักงานที่ login กับ customer id ที่จะบันทักสัญญา ไป loan2Controller
+        empLoginWithCtm_idForLoan = new LoanAgreement("0","0");
+        empLoginWithCtm_idForLoan.setLoan_customerId(docCtmId.getDtb_customerId());
+        empLoginWithCtm_idForLoan.setLoan_Emp1(empLoginAccount.getEmp_id());
+
+//        System.out.println(employeeLoginWithCustomerLoan.getLoan_Emp1()+","+employeeLoginWithCustomerLoan.getLoan_customerId());
 
     }
 
     @FXML
     void handleRecordLoanButton(ActionEvent event) {
+
+//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("Error!!");
+//        alert.setHeaderText(null);
+//        alert.setContentText("กรุณากดเลือกเอกสารประกอบการกู้ยืมเพื่ออนุมัติ");
+//
+//        alert.showAndWait();
+
         try {
-            FXRouter.goTo("emp_loan2",empLoginAccount);
+            FXRouter.goTo("emp_loan2", empLoginWithCtm_idForLoan);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า emp_loan2 ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -141,7 +157,7 @@ public class EmpLoanController {
 
     public void clickBackToEmp_home(MouseEvent event) {
         try {
-            FXRouter.goTo("emp_home");
+            FXRouter.goTo("emp_home",empLoginAccount);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า emp_home ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

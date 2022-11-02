@@ -38,6 +38,12 @@ public class LoanAgreement {
         this.loan_Emp2 = emp2;
     }
 
+    //ใช้หน้า EmpLoan ในการส่ง รหัสพนักที่ login ในระบบ กับ customer id ที่จะ ทำสัญญา
+    public LoanAgreement(String customerId, String emp1) {
+        this.loan_customerId = customerId;
+        this.loan_Emp1 = emp1;
+    }
+
 
     //setter
 
