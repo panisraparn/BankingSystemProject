@@ -80,7 +80,7 @@ public class LoginController {
                         System.err.println("ไปที่หน้า manager_home ไม่ได้");
                         System.err.println("ให้ตรวจสอบการกำหนด route");
                     }
-                }else if (empLoginAccount.getEmp_id().equals("3")){
+                }else {
                     try {
                         FXRouter.goTo("creditboard_home", empLoginAccount);
                     } catch (IOException e) {
@@ -88,9 +88,10 @@ public class LoginController {
                         System.err.println("ให้ตรวจสอบการกำหนด route");
                     }
                 }
+                }
             }
         }
     }
-}
+
 
 

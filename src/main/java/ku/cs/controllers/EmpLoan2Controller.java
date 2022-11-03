@@ -154,11 +154,9 @@ public class EmpLoan2Controller {
                 database2.insertDatabase(loanInsert);
 
                 //เปลี่ยน status ของ dtb ที่ customer = loan_customerId
-                DocumentTOB  documentTOB = new DocumentTOB("-",loanInsert.getLoan_customerId());
                 Database<DocumentTOB, DocumentTOBList> database3 = new DocumentTOB_DBConnect();
                 String queryDtb = " UPDATE  documenttransactionofborrow SET Dtb_status = '2' WHERE Dtb_customerId = '"+loanInsert.getLoan_customerId()+"' ";
                 database3.updateDatabase(queryDtb);
-
 
 
 

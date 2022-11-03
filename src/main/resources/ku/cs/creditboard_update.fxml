@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.EmpLoanController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.CreditBoardUpdateController">
    <children>
       <AnchorPane layoutY="73.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
          <children>
@@ -18,63 +19,69 @@
             </ImageView>
             <AnchorPane layoutX="110.0" layoutY="47.0" prefHeight="420.0" prefWidth="649.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                  <ListView fx:id="borrowerListView" layoutX="40.0" layoutY="59.0" prefHeight="340.0" prefWidth="285.0" />
+                  <ListView fx:id="waitForApproveListView" layoutX="40.0" layoutY="59.0" prefHeight="340.0" prefWidth="285.0" />
                   <Label layoutX="213.0" layoutY="14.0" text="รายชื่อที่รอการอนุมัติเงินกู้">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="FirstnameLabel" layoutX="349.0" layoutY="59.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_customerid">
+                  <Label layoutX="349.0" layoutY="59.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_customerid">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LastnameLabel" layoutX="349.0" layoutY="94.0" prefHeight="35.0" prefWidth="129.0" text="Ctm_name">
+                  <Label layoutX="349.0" layoutY="94.0" prefHeight="35.0" prefWidth="129.0" text="Ctm_name">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LastnameLabel1" layoutX="349.0" layoutY="164.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_Id">
+                  <Label layoutX="349.0" layoutY="164.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_Id">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="FirstnameLabel1" layoutX="349.0" layoutY="240.0" prefHeight="35.0" prefWidth="129.0" text="Document 1">
+                  <Label layoutX="349.0" layoutY="240.0" prefHeight="35.0" prefWidth="129.0" text="Document 1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LastnameLabel2" layoutX="349.0" layoutY="275.0" prefHeight="35.0" prefWidth="129.0" text="Document 2">
+                  <Label layoutX="349.0" layoutY="275.0" prefHeight="35.0" prefWidth="129.0" text="Document 2">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LastnameLabel11" layoutX="349.0" layoutY="310.0" prefHeight="35.0" prefWidth="129.0" text="Document 3">
+                  <Label layoutX="349.0" layoutY="310.0" prefHeight="35.0" prefWidth="129.0" text="Document 3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LastnameLabel111" layoutX="349.0" layoutY="345.0" prefHeight="35.0" prefWidth="129.0" text="Document 4">
+                  <Label layoutX="349.0" layoutY="345.0" prefHeight="35.0" prefWidth="129.0" text="Document 4">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <Label layoutX="521.0" layoutY="210.0" text="status" />
-                  <Label layoutX="521.0" layoutY="249.0" text="status" />
-                  <Label layoutX="521.0" layoutY="284.0" text="status" />
-                  <Label layoutX="521.0" layoutY="319.0" text="status" />
-                  <Label layoutX="521.0" layoutY="354.0" text="status" />
-                  <Label fx:id="LastnameLabel3" layoutX="349.0" layoutY="129.0" prefHeight="35.0" prefWidth="129.0" text="Ctm_lastname">
+                  <Label fx:id="status1Label" layoutX="521.0" layoutY="249.0" text="status1" />
+                  <Label fx:id="status2Label" layoutX="521.0" layoutY="284.0" text="status2" />
+                  <Label fx:id="status3Label" layoutX="521.0" layoutY="319.0" text="status3" />
+                  <Label fx:id="status4Label" layoutX="521.0" layoutY="354.0" text="status4" />
+                  <Label layoutX="349.0" layoutY="129.0" prefHeight="35.0" prefWidth="129.0" text="Ctm_lastname">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="521.0" layoutY="68.0" text="customerid" />
-                  <Label layoutX="521.0" layoutY="103.0" text="name" />
-                  <Label layoutX="521.0" layoutY="138.0" text="lastname" />
-                  <Label layoutX="521.0" layoutY="173.0" text="id" />
+                  <Label fx:id="customerIdLabel" layoutX="521.0" layoutY="68.0" prefHeight="17.0" prefWidth="109.0" text="customerid" />
+                  <Label fx:id="nameLabel" layoutX="521.0" layoutY="103.0" prefHeight="17.0" prefWidth="109.0" text="name" />
+                  <Label fx:id="lastnameLabel" layoutX="521.0" layoutY="138.0" prefHeight="17.0" prefWidth="109.0" text="lastname" />
+                  <Label fx:id="idLabel" layoutX="521.0" layoutY="173.0" prefHeight="17.0" prefWidth="102.0" text="id" />
                </children>
             </AnchorPane>
+            <Button layoutX="669.0" layoutY="485.0" mnemonicParsing="false" onAction="#handleApproveButton" prefHeight="36.0" prefWidth="102.0" text="Button" />
+            <Label fx:id="empNameLabel" alignment="CENTER_RIGHT" layoutX="555.0" layoutY="14.0" prefHeight="21.0" prefWidth="227.0" text="empName">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
       <Label layoutX="780.0" layoutY="6.0" onMouseClicked="#clickBackToEmp_home" style="-fx-background-color: #ffe6ea;" text="X">
          <font>

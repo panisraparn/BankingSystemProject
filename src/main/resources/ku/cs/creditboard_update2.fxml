@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.EmpLoanController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.CreditBoardUpdate2Controller">
    <children>
       <AnchorPane layoutY="73.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
          <children>
@@ -19,46 +19,54 @@
             </ImageView>
             <AnchorPane layoutX="110.0" layoutY="47.0" prefHeight="420.0" prefWidth="649.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                  <Label layoutX="213.0" layoutY="14.0" text="รายชื่อที่รอการอนุมัติเงินกู้">
+                  <Label layoutX="181.0" layoutY="14.0" text="รายชื่อที่รอการอนุมัติเอกสารเงินกู้">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="FirstnameLabel" layoutX="34.0" layoutY="61.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_customerid">
+                  <Label layoutX="34.0" layoutY="61.0" prefHeight="35.0" prefWidth="129.0" text="รหัสลูกค้า">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LastnameLabel" layoutX="34.0" layoutY="96.0" prefHeight="35.0" prefWidth="129.0" text="Ctm_name">
+                  <Label layoutX="34.0" layoutY="96.0" prefHeight="35.0" prefWidth="129.0" text="ชื่อ">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LastnameLabel1" layoutX="34.0" layoutY="166.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_Id">
+                  <Label layoutX="34.0" layoutY="166.0" prefHeight="35.0" prefWidth="129.0" text="เลขที่เอกสาร">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LastnameLabel3" layoutX="34.0" layoutY="131.0" prefHeight="35.0" prefWidth="129.0" text="Ctm_lastname">
+                  <Label layoutX="34.0" layoutY="131.0" prefHeight="35.0" prefWidth="129.0" text="นามสกุล">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="206.0" layoutY="70.0" text="customerid" />
-                  <Label layoutX="206.0" layoutY="105.0" text="name" />
-                  <Label layoutX="206.0" layoutY="140.0" text="lastname" />
-                  <Label layoutX="206.0" layoutY="175.0" text="id" />
-                  <Button layoutX="34.0" layoutY="220.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Document 1" />
-                  <Button layoutX="34.0" layoutY="258.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Document 2" />
-                  <Button layoutX="34.0" layoutY="297.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Document 3" />
-                  <Button layoutX="34.0" layoutY="336.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Document 4" />
+                  <Label fx:id="dtb_customerId" layoutX="206.0" layoutY="70.0" text="customerid" />
+                  <Label fx:id="fnameLabel" layoutX="206.0" layoutY="105.0" text="name" />
+                  <Label fx:id="lastnameLabel" layoutX="206.0" layoutY="140.0" text="lastname" />
+                  <Label fx:id="dtb_IdLabel" layoutX="206.0" layoutY="175.0" text="id" />
+                  <Button layoutX="34.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleDoc1Button" prefHeight="30.0" prefWidth="89.0" text="Document 1" />
+                  <Button layoutX="34.0" layoutY="258.0" mnemonicParsing="false" onAction="#handleDoc2Button" prefHeight="30.0" prefWidth="89.0" text="Document 2" />
+                  <Button layoutX="34.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleDoc3Button" prefHeight="30.0" prefWidth="89.0" text="Document 3" />
+                  <Button layoutX="34.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleDoc4Button" prefHeight="30.0" prefWidth="89.0" text="Document 4" />
                   <ImageView fitHeight="343.0" fitWidth="301.0" layoutX="325.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
-                  <CheckBox layoutX="163.0" layoutY="227.0" mnemonicParsing="false" text="Check" />
-                  <CheckBox layoutX="163.0" layoutY="265.0" mnemonicParsing="false" text="Check" />
-                  <CheckBox layoutX="163.0" layoutY="304.0" mnemonicParsing="false" text="Check" />
-                  <CheckBox layoutX="163.0" layoutY="343.0" mnemonicParsing="false" text="Check" />
+                  <CheckBox fx:id="doc1Checkbox" layoutX="163.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleDoc1Checkbox" text="ผ่าน" />
+                  <CheckBox fx:id="doc2Checkbox" layoutX="163.0" layoutY="265.0" mnemonicParsing="false" onAction="#handleDoc2Checkbox" text="ผ่าน" />
+                  <CheckBox fx:id="doc3Checkbox" layoutX="163.0" layoutY="304.0" mnemonicParsing="false" onAction="#handleDoc3Checkbox" text="ผ่าน" />
+                  <CheckBox fx:id="doc4Checkbox" layoutX="163.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleDoc4Checkbox" text="ผ่าน" />
+                  <ImageView fx:id="dtbDocImageView" fitHeight="343.0" fitWidth="330.0" layoutX="296.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
+            <Label fx:id="empNameLabel" alignment="CENTER_RIGHT" layoutX="531.0" layoutY="14.0" prefHeight="21.0" prefWidth="227.0" text="empName">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="709.0" layoutY="483.0" mnemonicParsing="false" onAction="#approveButton" text="อนุมัติ" />
+            <Button layoutX="619.0" layoutY="483.0" mnemonicParsing="false" onAction="#disapprovedButton" text="ไม่อนุมัติ" />
          </children></AnchorPane>
       <Label layoutX="780.0" layoutY="6.0" onMouseClicked="#clickBackToEmp_home" style="-fx-background-color: #ffe6ea;" text="X">
          <font>

@@ -17,41 +17,30 @@ import ku.cs.servicesDB.DocumentTOB_DBConnect;
 
 import java.io.IOException;
 
-public class EmpLoanController {
-    @FXML
-    private ListView<String> borrowerListView;
+public class CreditBoardUpdateController {
+    @FXML private ListView<String> waitForApproveListView;
+    @FXML private Label status1Label;
+    @FXML private Label status2Label;
+    @FXML private Label status3Label;
+    @FXML private Label status4Label;
+    @FXML private Label customerIdLabel;
+    @FXML private Label nameLabel;
+    @FXML private Label lastnameLabel;
+    @FXML private Label idLabel;
+    @FXML private Label empNameLabel;
 
-    @FXML
-    private Label firstnameLabel;
+    //prepare data for method showSelectedDtb_status0
+    private String selectedCustomer ="0";
 
-    @FXML
-    private Label lastnameLabel;
-
-    @FXML
-    private Label dateDtbLabel;
-
-    @FXML
-    private Label dtb_idLabel;
-
-    @FXML
-    private Label dtb_CtmIdLabel;
-
-    @FXML
-    private Label empNameLabel;
-
-
-    //prepare data for showSelectedBorrower
-    private String selectedDocumentTOB_dtb_id;
-
+    //listview
+    private DocumentTOBList documentTOBList = new DocumentTOBList();
+    private javafx.collections.ObservableList<String> ObservableList;
 
     //prepare data for emp who login
-    public Employee empLoginAccount;
-    public LoanAgreement empLoginWithCtm_idForLoan;
+    public  Employee empLoginAccount;
 
-
-    //prepare list from table loanAgreement Database for listview
-    private javafx.collections.ObservableList<String> ObservableList;
-    private DocumentTOBList documentTOBList = new DocumentTOBList();
+    //prepare data for approveDtb --> ส่งข้อมูลไปหน้าต่อไป
+    public LoanAgreement empLoginWithCtm_idForLoan  = new LoanAgreement("0","0");
 
     @FXML
     public void initialize(){
@@ -62,7 +51,7 @@ public class EmpLoanController {
 
         //อ่าน database ของ document
         Database<DocumentTOB, DocumentTOBList> database = new DocumentTOB_DBConnect();
-        String query1 = " Select * FROM documenttransactionofborrow WHERE Dtb_status = '1' ORDER BY Dtb_date;  ";
+        String query1 = " Select * FROM documenttransactionofborrow WHERE Dtb_status = '0' ORDER BY Dtb_date;  ";
         //เอาที่อ่านจาก database มาใส่ list
         documentTOBList = database.readDatabase(query1); //ได้ documentTob list
 
@@ -70,45 +59,39 @@ public class EmpLoanController {
         handleSelectedListView();
     }
 
-    private void showEmpLoginData(Employee loginAccount) {
-        empNameLabel.setText(loginAccount.getEmp_name());
-    }
+
 
     private void showListView() {
         ObservableList = FXCollections.observableArrayList();
         for(int i = documentTOBList.countDocTOBElement()-1; i>=0; i--)
         {
-          DocumentTOB doc = documentTOBList.getDtbRecord(i);
+            DocumentTOB doc = documentTOBList.getDtbRecord(i);
 //          ObservableList.add("No."+doc.getDtb_id()+" CustomerId : "+doc.getDtb_customerId()+"  Date : "+doc.getDtb_date());
 
             ObservableList.add(doc.getDtb_id());
         }
-        borrowerListView.setItems(ObservableList);
+        waitForApproveListView.setItems(ObservableList);
     }
 
     private void handleSelectedListView() {
-        borrowerListView.getSelectionModel().selectedItemProperty().addListener(
+        waitForApproveListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<String>() {
                     @Override
                     public void changed(ObservableValue<? extends String> observable,
                                         String oldValue, String newValue) {
-
 //                        System.out.println(newValue + " is selected");
-
-                        selectedDocumentTOB_dtb_id = newValue;
-                        showSelectedBorrower(newValue);
-
+                        selectedCustomer = newValue;
+                        showSelectedCustomer(newValue);
                     }
                 });
     }
 
-
-
-    private void showSelectedBorrower(String dtb_IdBorrowerId){
-        String dtb_id = dtb_IdBorrowerId;
+    private void showSelectedCustomer(String dtb_IdCustomer) {
+        String dtb_id = dtb_IdCustomer;
+        selectedCustomer =dtb_IdCustomer;
 
         //ดึง รหัสลูกค้าจาก dtb_customerId
-        DocumentTOB docCtmId = new DocumentTOB(dtb_IdBorrowerId,"");
+        DocumentTOB docCtmId = new DocumentTOB(dtb_IdCustomer,"");
         Database<DocumentTOB, DocumentTOBList> database1 = new DocumentTOB_DBConnect();
         String q1 = "  Select * FROM documenttransactionofborrow WHERE Dtb_id = '"+dtb_id+"'   ";
         docCtmId = database1.readDatabase(docCtmId,q1);
@@ -121,49 +104,67 @@ public class EmpLoanController {
 
 //        System.out.println("select customer is : " + customer.getCtm_firstname());
 
-        firstnameLabel.setText(customer.getCtm_firstname());
+        customerIdLabel.setText(docCtmId.getDtb_customerId());
+        nameLabel.setText(customer.getCtm_firstname());
         lastnameLabel.setText(customer.getCtm_lastname());
+        idLabel.setText(dtb_id);
 
-        dateDtbLabel.setText(docCtmId.getDtb_date());
-        dtb_idLabel.setText(docCtmId.getDtb_id());
-        dtb_CtmIdLabel.setText(docCtmId.getDtb_customerId());
+
+        if(docCtmId.getDtb_d1().equals("")){
+            status1Label.setText("ไม่มี");
+        }else {
+            status1Label.setText("มี");
+        }
+        if (docCtmId.getDtb_d2().equals("")){
+            status2Label.setText("ไม่มี");
+        }else{
+            status2Label.setText("มี");
+        }
+        if (docCtmId.getDtb_d3().equals("")){
+            status3Label.setText("ไม่มี");
+        }else{
+            status3Label.setText("มี");
+        }
+        if (docCtmId.getDtb_d4().equals("")){
+            status4Label.setText("ไม่มี");
+        }else{
+            status4Label.setText("มี");
+        }
 
         //for loan2Controller --> ส่ง รหัสพนักงานที่ login กับ customer id ที่จะบันทักสัญญา ไป loan2Controller
-        empLoginWithCtm_idForLoan = new LoanAgreement("0","0");
         empLoginWithCtm_idForLoan.setLoan_customerId(docCtmId.getDtb_customerId());
         empLoginWithCtm_idForLoan.setLoan_Emp1(empLoginAccount.getEmp_id());
+    }
 
-//        System.out.println(employeeLoginWithCustomerLoan.getLoan_Emp1()+","+employeeLoginWithCustomerLoan.getLoan_customerId());
-
+    private void showEmpLoginData(Employee empLoginAccount) {
+        empNameLabel.setText(empLoginAccount.getEmp_name());
     }
 
     @FXML
-    void handleRecordLoanButton(ActionEvent event) {
-
-        if(empLoginWithCtm_idForLoan == null){
+    void handleApproveButton(ActionEvent event) {
+        if(selectedCustomer.equals("0")){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error!!");
             alert.setHeaderText(null);
-            alert.setContentText("กรุณากดเลือกเอกสารประกอบการกู้ยืมเพื่อทำรายการบันทึกการกู้ยืม");
+            alert.setContentText("กรุณากดเลือกเอกสารประกอบการกู้ยืมเพื่ออนุมัติ");
             alert.showAndWait();
         }else{
             try {
-                FXRouter.goTo("emp_loan2", empLoginWithCtm_idForLoan);
+                FXRouter.goTo("creditboard_update2", empLoginWithCtm_idForLoan);
             } catch (IOException e) {
-                System.err.println("ไปที่หน้า emp_loan2 ไม่ได้");
+                System.err.println("ไปที่หน้า creditboard_update2 ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
         }
     }
 
-    public void clickBackToEmp_home(MouseEvent event) {
+    @FXML
+    void clickBackToEmp_home(MouseEvent event) {
         try {
-            FXRouter.goTo("emp_home",empLoginAccount);
+            FXRouter.goTo("creditboard_home");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า emp_home ไม่ได้");
+            System.err.println("ไปที่หน้า creditboard_home ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
-
 }

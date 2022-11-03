@@ -16,11 +16,16 @@
                   <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="300.0" layoutY="228.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="219.0" text="1.อนุมัติเงินกู้">
+            <Button layoutX="300.0" layoutY="228.0" mnemonicParsing="false" onAction="#handle1Button" prefHeight="82.0" prefWidth="219.0" text="1.อนุมัติเงินกู้">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
+            <Label fx:id="empNameLabel" alignment="CENTER_RIGHT" layoutX="519.0" layoutY="25.0" prefHeight="21.0" prefWidth="227.0" text="empName">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Label layoutX="271.0" layoutY="7.0" text="CREDIT BOARD" textFill="#ffe6ea">
