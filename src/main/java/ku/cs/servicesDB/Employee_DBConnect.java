@@ -19,13 +19,16 @@ public class Employee_DBConnect implements Database<Employee, EmployeeList> {
     public void insertDatabase(Employee employee) {
     }
 
+
+
+
     @Override
-    public Employee readDatabase(Employee employee, String query) {
+    public Employee readRecord(String query) {
         //prepare data
-        String empId = employee.getEmp_id();
-        String empName = employee.getEmp_name();
-        String empJTitle = employee.getEmp_jTitle() ;
-        String empPassword =employee.getEmp_password();
+        String empId ;
+        String empName ;
+        String empJTitle ;
+        String empPassword ;
 
         //DB connect
         try {
@@ -69,8 +72,6 @@ public class Employee_DBConnect implements Database<Employee, EmployeeList> {
 
         return employeeReadData;
     }
-
-
 
 
     @Override

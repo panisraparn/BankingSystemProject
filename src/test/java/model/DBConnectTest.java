@@ -25,7 +25,7 @@ public class DBConnectTest {
         Customer customer = new Customer("0", "1105100167850");
         Database<Customer, CustomerList> database = new Customer_DBConnect();
         String q =" Select * FROM customer WHERE Ctm_cid = '"+customer.getCtm_cid()+"'  ";
-        customer = database.readDatabase(customer,q); //เจอ return record ไม่เจอ return null
+        customer = database.readRecord(q); //เจอ return record ไม่เจอ return null
         System.out.println(customer.toCsv());
     }
 

@@ -168,7 +168,7 @@ public class RegisterController {
                     Database<Customer, CustomerList> database = new Customer_DBConnect();
                     //หา Ctm_id ในตาราง customer ที่ตรงกับ ctm_idStr(เลขที่สุ่ม) ถ้า เจอ--> return account ไม่เจอ return null
                     String queryCheckCtm_id = " SELECT * FROM customer  WHERE Ctm_id = '"+ctm_idStr+"' ";
-                    tempCustomerForCheckCid = database.readDatabase(tempCustomerForCheckCid,queryCheckCtm_id);
+                    tempCustomerForCheckCid = database.readRecord(queryCheckCtm_id);
 
                     if (tempCustomerForCheckCid == null){ //หาไม่เจอ
                         checkCtm_id = "1";
@@ -180,7 +180,7 @@ public class RegisterController {
                 //check ctm_cid ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if / ไม่ซ้ำ เข้า else
                 Database<Customer, CustomerList> database1 = new Customer_DBConnect();
                 String queryCheckCtm_cid = " SELECT * FROM customer  WHERE Ctm_cid = '"+idNumberStr+"' ";
-                tempCustomerForCheckCtm_cid = database1.readDatabase(tempCustomerForCheckCtm_cid, queryCheckCtm_cid);
+                tempCustomerForCheckCtm_cid = database1.readRecord(queryCheckCtm_cid);
 
                 //มีซ้ำเข้า if (เจอ)
                 // ไม่ซ้ำ else (ไม่เจอ)

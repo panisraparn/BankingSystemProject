@@ -42,10 +42,6 @@ public class EmpDocumentController {
     private DocumentTOB dtbForInsertRecord = new DocumentTOB("","","","","","","","");
 
 
-    @FXML
-    public void initialize(){
-      clearShowLabel();
-    }
 
 
     @FXML
@@ -55,7 +51,7 @@ public class EmpDocumentController {
         Customer customer = new Customer("0", "0");
         Database<Customer, CustomerList> database = new Customer_DBConnect();
         String q =" Select * FROM customer WHERE Ctm_cid = '"+findCtmCidTextField.getText()+"'  ";
-        customer = database.readDatabase(customer,q); //เจอ return record ไม่เจอ return null
+        customer = database.readRecord(q); //เจอ return record ไม่เจอ return null
 
         if(findCtmCidTextField.getText().equals("")){
 
@@ -82,7 +78,7 @@ public class EmpDocumentController {
                 DocumentTOB documentTOB = new DocumentTOB("", "");
                 Database<DocumentTOB, DocumentTOBList> databaseDtb = new DocumentTOB_DBConnect();
                 String qDtb =" Select * FROM documenttransactionofborrow WHERE Dtb_customerId = '"+customer.getCtm_Id()+"'  ";
-                documentTOB = databaseDtb.readDatabase(documentTOB,qDtb); //เจอ return record ไม่เจอ return null
+                documentTOB = databaseDtb.readRecord(qDtb); //เจอ return record ไม่เจอ return null
 
                 //check ว่าเคยบันทึกเอกสารรายได้หรือยัง --> ยัง if เคย else
                 if (documentTOB == null){
@@ -136,7 +132,7 @@ public class EmpDocumentController {
 
                 //หา dtb_id ในตาราง dtb ที่ตรงกับ dtb_idStr(เลขที่สุ่ม) ถ้า เจอ--> return account ไม่เจอ return null
                 String queryCheckCtm_id = " SELECT * FROM documenttransactionofborrow  WHERE Dtb_id = '"+dtb_idStr+"' ";
-                tempDtbChekDtb_id = database.readDatabase(tempDtbChekDtb_id,queryCheckCtm_id);
+                tempDtbChekDtb_id = database.readRecord(queryCheckCtm_id);
 
                 if (tempDtbChekDtb_id == null){ //หาไม่เจอ
                     checkDtb_id = "1";
@@ -164,6 +160,13 @@ public class EmpDocumentController {
             alert.showAndWait();
 
             clearShowLabel();
+
+            try {
+                FXRouter.goTo("emp_home");
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า emp_home ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
 
         }
     }

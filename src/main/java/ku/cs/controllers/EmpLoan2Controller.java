@@ -62,7 +62,7 @@ public class EmpLoan2Controller {
         Customer customer = new Customer("0", "0");
         Database<Customer, CustomerList> database = new Customer_DBConnect();
         String q = " Select * FROM customer WHERE Ctm_id = '" + empLoginWithCtm_idForLoan.getLoan_customerId() + "'  ";
-        customer = database.readDatabase(customer, q); //เจอ return record ไม่เจอ return null
+        customer = database.readRecord(q); //เจอ return record ไม่เจอ return null
         System.out.println(customer.toCsv());
 
         firstnameLabel.setText(customer.getCtm_firstname());
@@ -117,7 +117,7 @@ public class EmpLoan2Controller {
 
             //หา Ctm_id ในตาราง customer ที่ตรงกับ ctm_idStr(เลขที่สุ่ม) ถ้า เจอ--> return account ไม่เจอ return null
             String queryCheckLoan_id = " SELECT * FROM loanagreement  WHERE Loan_id = '" + loan_id + "' ";
-            tempLoan = database.readDatabase(loanInsert, queryCheckLoan_id);
+            tempLoan = database.readRecord(queryCheckLoan_id);
 
             if (tempLoan == null) { //หาไม่เจอ
                 checkLoan_id = "1";
@@ -130,14 +130,14 @@ public class EmpLoan2Controller {
         Database<LoanAgreement, LoanAgreementList> database1 = new LoanAgreement_DBConnect();
         //หา Ctm_id ในตาราง customer ที่ตรงกับ ctm_idStr(เลขที่สุ่ม) ถ้า เจอ--> return account ไม่เจอ return null
         String queryCheckLoan_id = " SELECT * FROM loanagreement  WHERE Loan_customerId = '" + ctmIdLabel.getText() + "' ";
-        tempLoan= database1.readDatabase(loanInsert, queryCheckLoan_id);
+        tempLoan= database1.readRecord(queryCheckLoan_id);
 
         if (tempLoan == null) {
             //check รหัสพนักงาน emp2 ว่ามีอยู่ไหม
             Employee empTempForCheckEmp2IsExist = new Employee(em2IdStr,"-","-","-");
             Database <Employee, EmployeeList> checkEmp2IsExits = new Employee_DBConnect();
             String queryEmp = " SELECT * FROM employee WHERE Emp_id = '"+em2IdStr+"' ";
-            empTempForCheckEmp2IsExist =checkEmp2IsExits.readDatabase(empTempForCheckEmp2IsExist,queryEmp);
+            empTempForCheckEmp2IsExist =checkEmp2IsExits.readRecord(queryEmp);
 
             if(empTempForCheckEmp2IsExist == null){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -10,8 +10,7 @@ public interface Database<T, C> {
     //ใส่ object --> insert ข้อมูลใน table
     void insertDatabase(T t);
 
-    //ใส่ Object ใส่ query return เป็น class object
-    T readDatabase(T t,String query);
+    T readRecord(String query);
 
     //ใส่ query return เป็น list
     C readDatabase(String q);

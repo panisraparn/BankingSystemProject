@@ -29,7 +29,7 @@ public class DocumentTOBTest {
 
         Database<Customer, CustomerList> database = new Customer_DBConnect();
         String q =" Select * FROM customer WHERE Ctm_id = '"+id+"'  ";
-        customer = database.readDatabase(customer,q); //เจอ return record ไม่เจอ return null
+        customer = database.readRecord(q); //เจอ return record ไม่เจอ return null
 
         System.out.println("1: " + customer);
 

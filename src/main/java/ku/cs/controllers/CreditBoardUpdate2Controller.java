@@ -61,7 +61,7 @@ public class CreditBoardUpdate2Controller {
         Employee employee = new Employee("-","-","-","-");
         Database<Employee, EmployeeList> findEmp = new Employee_DBConnect();
         String findEmpQuery = " Select * FROM employee WHERE Emp_id = '"+empLoginWithCtm_idForLoan.getLoan_Emp1()+"' ";
-        employee = findEmp.readDatabase(employee, findEmpQuery);
+        employee = findEmp.readRecord(findEmpQuery);
 
         empNameLabel.setText(employee.getEmp_name());
         dtb_customerId.setText(empLoginWithCtm_idForLoan.getLoan_customerId());
@@ -70,7 +70,7 @@ public class CreditBoardUpdate2Controller {
         Customer customer = new Customer("0", "0");
         Database<Customer, CustomerList> database = new Customer_DBConnect();
         String q = " Select * FROM customer WHERE Ctm_id = '" + empLoginWithCtm_idForLoan.getLoan_customerId() + "'  ";
-        customer = database.readDatabase(customer, q); //เจอ return record ไม่เจอ return null
+        customer = database.readRecord(q); //เจอ return record ไม่เจอ return null
         System.out.println(customer.toCsv());
 
         fnameLabel.setText(customer.getCtm_firstname());
@@ -80,7 +80,7 @@ public class CreditBoardUpdate2Controller {
         Database<DocumentTOB, DocumentTOBList> findDtb_id = new DocumentTOB_DBConnect();
         String findDtb_idQuery = " Select * FROM documenttransactionofborrow WHERE Dtb_customerId = '"+empLoginWithCtm_idForLoan.getLoan_customerId()+"'  ";
         //เอาที่อ่านจาก database มาใส่ Object
-       documentTOB = findDtb_id.readDatabase(documentTOB,findDtb_idQuery);
+       documentTOB = findDtb_id.readRecord(findDtb_idQuery);
        dtb_IdLabel.setText(documentTOB.getDtb_id());
     }
 

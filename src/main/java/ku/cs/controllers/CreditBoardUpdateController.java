@@ -94,13 +94,13 @@ public class CreditBoardUpdateController {
         DocumentTOB docCtmId = new DocumentTOB(dtb_IdCustomer,"");
         Database<DocumentTOB, DocumentTOBList> database1 = new DocumentTOB_DBConnect();
         String q1 = "  Select * FROM documenttransactionofborrow WHERE Dtb_id = '"+dtb_id+"'   ";
-        docCtmId = database1.readDatabase(docCtmId,q1);
+        docCtmId = database1.readRecord(q1);
 
         //ดึงข้อมูล ชื่อลูกค้าจาก ตาราง customer Database loan_system
         Customer customer = new Customer("0", "0");
         Database<Customer, CustomerList> database = new Customer_DBConnect();
         String q =" Select * FROM customer WHERE Ctm_id = '"+docCtmId.getDtb_customerId()+"'  ";
-        customer = database.readDatabase(customer,q); //เจอ return record ไม่เจอ return null
+        customer = database.readRecord(q); //เจอ return record ไม่เจอ return null
 
 //        System.out.println("select customer is : " + customer.getCtm_firstname());
 

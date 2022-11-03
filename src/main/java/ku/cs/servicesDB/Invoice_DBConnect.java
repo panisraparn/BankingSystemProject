@@ -58,18 +58,18 @@ public class Invoice_DBConnect implements Database<Invoice, InvoiceList>{
 
     }
 
-    //ใส่ Object ใส่ query return เป็น class object
+
     @Override
-    public Invoice readDatabase(Invoice invoice, String query) {
+    public Invoice readRecord(String query) {
         //prepare data
-        String id = invoice.getInvoice_id();
-        String customerId = invoice.getInvoice_customerId();
-        String fname= invoice.getInvoice_ctmfirstname();
-        String lname = invoice.getInvoice_ctmlastname();
-        String bankAcc = invoice.getInvoice_ctmbankAccount();
-        int debt = invoice.getInvoice_ctmDebt();
-        String date = invoice.getInvoice_date();
-        String status = invoice.getInvoice_status();
+        String id ;
+        String customerId ;
+        String fname;
+        String lname;
+        String bankAcc ;
+        int debt ;
+        String date;
+        String status ;
 
         //DB connect
         try {
@@ -176,5 +176,38 @@ public class Invoice_DBConnect implements Database<Invoice, InvoiceList>{
 
     //ใส่ query --> update table
     @Override
-    public void updateDatabase(String q) { }
+    public void updateDatabase(String q) {
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/test_loansystem", "root", "");
+            System.out.println("Connection is created successfully:");
+            stmt = (Statement) conn.createStatement();
+            String query1 = q;
+            stmt.executeUpdate(query1);
+            System.out.println("Record has been updated in the table successfully..................");
+        } catch (SQLException excep) {
+            excep.printStackTrace();
+        } catch (Exception excep) {
+            excep.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+            } catch (SQLException se) {}
+            try {
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        System.out.println("Please check it in the MySQL Table. Record is now updated.......");
+    }
 }
+

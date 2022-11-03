@@ -52,19 +52,18 @@ public class DocumentTOB_DBConnect implements Database <DocumentTOB, DocumentTOB
         System.out.println("Please check it in the MySQL Table......... ……..");
     }
 
-    //return object
-    @Override
-    public DocumentTOB readDatabase(DocumentTOB documentTOB, String query) {
-        //prepare data
-        String id = documentTOB.getDtb_id();
-        String ctm_id = documentTOB.getDtb_customerId();
-        String d1 = documentTOB.getDtb_d1();
-        String d2 = documentTOB.getDtb_d2();
-        String d3 = documentTOB.getDtb_d3();
-        String d4 = documentTOB.getDtb_d4();
-        String date =  documentTOB.getDtb_date();
-        String status = documentTOB.getDtb_status();
 
+    @Override
+    public DocumentTOB readRecord(String query) {
+        //prepare data
+        String id ;
+        String ctm_id ;
+        String d1;
+        String d2 ;
+        String d3 ;
+        String d4 ;
+        String date ;
+        String status;
 
         //DB connect
         try {
@@ -166,6 +165,7 @@ public class DocumentTOB_DBConnect implements Database <DocumentTOB, DocumentTOB
 
         return list;
     }
+
 
     @Override
     public void updateDatabase(String q) {

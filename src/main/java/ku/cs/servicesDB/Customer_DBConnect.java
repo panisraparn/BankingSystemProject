@@ -53,20 +53,20 @@ public class Customer_DBConnect implements Database<Customer, CustomerList> {
         System.out.println("Please check it in the MySQL Table......... ……..");
     }
 
-    //return object
+
     @Override
-    public Customer readDatabase(Customer customer, String query) {
+    public Customer readRecord(String query) {
         //prepare data
-        String id = customer.getCtm_Id();
-        String cid = customer.getCtm_cid();
-        String firstname = customer.getCtm_firstname();
-        String lastname = customer.getCtm_lastname();
-        String img = customer.getCtm_img();
-        String sex = customer.getCtm_sex();
-        String tel = customer.getCtm_tel();
-        String address = customer.getCtm_address();
-        String workplace = customer.getCtm_workplace();
-        String bankAcc = customer.getCtm_bankAccount();
+        String id ;
+        String cid;
+        String firstname ;
+        String lastname ;
+        String img ;
+        String sex ;
+        String tel ;
+        String address ;
+        String workplace ;
+        String bankAcc ;
 
         //DB connect
         try {

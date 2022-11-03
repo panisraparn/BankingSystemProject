@@ -55,16 +55,16 @@ public class Receipt_DBConnect implements Database<Receipt, ReceiptList> {
         System.out.println("Please check it in the MySQL Table......... ……..");
     }
 
-    //ใส่ Object ใส่ query return เป็น class object
+
     @Override
-    public Receipt readDatabase(Receipt receipt, String query) {
+    public Receipt readRecord(String query) {
         //prepare data
-        String id = receipt.getRec_id();
-        String customerId = receipt.getRec_customerId();
-        String date= receipt.getRec_date();
-        int payamy = receipt.getRec_payAmt();
-        int balanceLoan = receipt.getRec_balanceLoan();
-        String invoiceId = receipt.getRec_invoiceId();
+        String id ;
+        String customerId ;
+        String date;
+        int payamy ;
+        int balanceLoan ;
+        String invoiceId ;
 
         //DB connect
         try {

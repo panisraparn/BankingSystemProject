@@ -50,7 +50,7 @@ public class LoginController {
         // ใช้ Db
         String query = "SELECT * FROM employee  WHERE Emp_id = '"+emp_IdLoginStr+"'  AND  Emp_password = '"+emp_passwordStr+"'";
         Database<Employee, EmployeeList> database = new Employee_DBConnect();
-        empLoginAccount = database.readDatabase(employeeDB,query);
+        empLoginAccount = database.readRecord(query);
 
 //        System.out.println("2 : " + employeeDB.toCsv());
 //        System.out.println("3 : " + empLoginAccount.toCsv());

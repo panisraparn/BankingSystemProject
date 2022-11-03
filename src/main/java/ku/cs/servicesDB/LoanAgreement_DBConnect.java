@@ -59,24 +59,23 @@ public class LoanAgreement_DBConnect implements Database<LoanAgreement, LoanAgre
         System.out.println("Please check it in the MySQL Table......... ……..");
     }
 
-    //ใส่ Object ใส่ query return เป็น class object
-    @Override
-    public LoanAgreement readDatabase(LoanAgreement loanAgreement, String query) {
 
+    @Override
+    public LoanAgreement readRecord(String query) {
         //prepare data
-        String id = loanAgreement.getLoan_id();
-        String customerId = loanAgreement.getLoan_customerId();
-        String fname = loanAgreement.getLoan_lastname();
-        String lname = loanAgreement.getLoan_lastname();
-        String type = loanAgreement.getLoan_type();
-        int term = loanAgreement.getLoan_term();
-        String date =loanAgreement.getLoan_date();
-        int balance = loanAgreement.getLoan_balance();
-        int amount = loanAgreement.getLoan_amount();
-        String witness1 = loanAgreement.getLoan_witness1();
-        String witness2 = loanAgreement.getLoan_witness2();
-        String emp1 = loanAgreement.getLoan_Emp1();
-        String emp2 = loanAgreement.getLoan_Emp2();
+        String id;
+        String customerId;
+        String fname;
+        String lname;
+        String type ;
+        int term ;
+        String date;
+        int balance;
+        int amount;
+        String witness1 ;
+        String witness2 ;
+        String emp1 ;
+        String emp2 ;
 
         //DB connect
         try {
@@ -93,12 +92,12 @@ public class LoanAgreement_DBConnect implements Database<LoanAgreement, LoanAgre
 
             while (rs.next()) {
                 id = rs.getString(1);
-                customerId = rs.getNString(2);
+                customerId = rs.getString(2);
                 fname = rs.getString(3);
                 lname = rs.getString(4);
                 type = rs.getString(5);
                 term = Integer.parseInt(rs.getString(6));
-                date = rs.getNString(7);
+                date = rs.getString(7);
                 balance = Integer.parseInt(rs.getString(8));
                 amount = Integer.parseInt(rs.getString(9));
                 witness1 = rs.getString(10);
@@ -195,6 +194,38 @@ public class LoanAgreement_DBConnect implements Database<LoanAgreement, LoanAgre
     @Override
     public void updateDatabase(String q) {
 
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/test_loansystem", "root", "");
+            System.out.println("Connection is created successfully:");
+            stmt = (Statement) conn.createStatement();
+            String query1 = q;
+            stmt.executeUpdate(query1);
+            System.out.println("Record has been updated in the table successfully..................");
+        } catch (SQLException excep) {
+            excep.printStackTrace();
+        } catch (Exception excep) {
+            excep.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+            } catch (SQLException se) {}
+            try {
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        System.out.println("Please check it in the MySQL Table. Record is now updated.......");
     }
-
 }
+
+
