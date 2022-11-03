@@ -83,11 +83,11 @@ public class Customer_DBConnect implements Database<Customer, CustomerList> {
 
             while (rs.next()) {
                 id = rs.getString(1);
-                cid = rs.getNString(2);
+                cid = rs.getString(2);
                 firstname = rs.getString(3);
                 lastname = rs.getString(4);
                 img = rs.getString(5);
-                sex = rs.getNString(6);
+                sex = rs.getString(6);
                 tel = rs.getString(7);
                 address = rs.getString(8);
                 workplace = rs.getString(9);
