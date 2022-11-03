@@ -6,10 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import ku.cs.FXRouter;
 import ku.cs.models.*;
-import ku.cs.servicesDB.Customer_DBConnect;
-import ku.cs.servicesDB.Database;
-import ku.cs.servicesDB.Employee_DBConnect;
-import ku.cs.servicesDB.LoanAgreement_DBConnect;
+import ku.cs.servicesDB.*;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -156,13 +153,25 @@ public class EmpLoan2Controller {
                 loanInsert.setLoan_id(loan_id);
                 database2.insertDatabase(loanInsert);
 
+                //เปลี่ยน status ของ dtb ที่ customer = loan_customerId
+                DocumentTOB  documentTOB = new DocumentTOB("-",loanInsert.getLoan_customerId());
+                Database<DocumentTOB, DocumentTOBList> database3 = new DocumentTOB_DBConnect();
+                String queryDtb = " UPDATE  documenttransactionofborrow SET Dtb_status = '2' WHERE Dtb_customerId = '"+loanInsert.getLoan_customerId()+"' ";
+                database3.updateDatabase(queryDtb);
+
+
+
+
+
+
+
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Error!!");
                 alert.setHeaderText(null);
                 alert.setContentText("ระบบบันทึกข้อมูลลูกค้าสำเร็จ");
                 alert.showAndWait();
 
-                
+
                 try {
                     FXRouter.goTo("emp_home");
                 } catch (IOException e) {
