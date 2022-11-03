@@ -15,6 +15,11 @@ public class Employee {
         this.emp_password = emp_password;
     }
 
+    //for check emploan2
+    public Employee(String em2IdStr) {
+        this.emp_id = em2IdStr;
+    }
+
     public void setEmp_id(String emp_id) {
         this.emp_id = emp_id;
     }
@@ -46,6 +51,8 @@ public class Employee {
     public String getEmp_password() {
         return emp_password;
     }
+
+
 
     public String toCsv() {
         return emp_id + "," + emp_name + "," + emp_jTitle + ","  + emp_password;

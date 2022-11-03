@@ -6,7 +6,7 @@ import ku.cs.servicesDB.Customer_DBConnect;
 import ku.cs.servicesDB.Database;
 import org.junit.jupiter.api.Test;
 
-public class CustomerDBConnectTest {
+public class DBConnectTest {
 
     // return list
     @Test
@@ -28,7 +28,6 @@ public class CustomerDBConnectTest {
         customer = database.readDatabase(customer,q); //เจอ return record ไม่เจอ return null
         System.out.println(customer.toCsv());
     }
-
 
 
 }

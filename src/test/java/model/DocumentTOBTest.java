@@ -9,6 +9,8 @@ import ku.cs.servicesDB.Database;
 import ku.cs.servicesDB.DocumentTOB_DBConnect;
 import org.junit.jupiter.api.Test;
 
+import java.util.Random;
+
 public class DocumentTOBTest {
     @Test
     void testRandomDtb10Digit(){
@@ -39,4 +41,12 @@ public class DocumentTOBTest {
 //        System.out.println(documentTOB.toCsv());
 
     }
+
+    @Test
+    void testRandomDtb15Digit() {
+        Random random = new Random();
+        long n = (long) (100000000000000L + random.nextFloat() * 900000000000000L);
+        System.out.println(n);
+    }
+
 }

@@ -97,8 +97,6 @@ public class EmpDocumentController {
                     //set object เป็น record ของลูกค้าที่ต้องการบันทึกเอกสาร    --> ใช้ Ctm_cid หา แต่ต้องเก็บ customerId (Ctm_id)
                     dtbForInsertRecord.setDtb_customerId(showCtmIdLabel.getText());
 
-
-
                 }else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Error!!");

@@ -177,7 +177,6 @@ public class RegisterController {
                     }
                 }//while true ให้ generate ctm_id จนกว่าจะไม่ซ้ำ
 
-
                 //check ctm_cid ว่าซ้ำกับที่มีอยู่ไหม ถ้าซ้าเข้า if / ไม่ซ้ำ เข้า else
                 Database<Customer, CustomerList> database1 = new Customer_DBConnect();
                 String queryCheckCtm_cid = " SELECT * FROM customer  WHERE Ctm_cid = '"+idNumberStr+"' ";
@@ -187,7 +186,6 @@ public class RegisterController {
                 // ไม่ซ้ำ else (ไม่เจอ)
 
                 if (tempCustomerForCheckCtm_cid == null){
-
                     // ใช้ Db
                     Database<Customer, CustomerList> database2 = new Customer_DBConnect();
                     ctmInsertToDB = new Customer(ctm_idStr,idNumberStr,firstnameStr,lastnameStr,ctmForSetImageView.getCtm_img(),sexCheckBoxStr,phoneNumStr,addressStr,workplaceStr,bankAccNumStr);

@@ -2,6 +2,7 @@ package ku.cs.models;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Random;
 
 public class LoanAgreement {
     private String loan_id;
@@ -20,9 +21,9 @@ public class LoanAgreement {
 
 
     //constructor
-
-    public LoanAgreement(String id, String customerId, String fname, String lname, String type,int term, String date, int balance, int amount, String witness1, String witness2, String emp1, String emp2) {
-
+    public LoanAgreement(String id, String customerId, String fname, String lname, String type,int term, String date,
+                         int balance, int amount, String witness1, String witness2, String emp1, String emp2)
+    {
         this.loan_id = id;
         this.loan_customerId = customerId;
         this.loan_firstname = fname;
@@ -42,6 +43,13 @@ public class LoanAgreement {
     public LoanAgreement(String customerId, String emp1) {
         this.loan_customerId = customerId;
         this.loan_Emp1 = emp1;
+    }
+
+    //for query of insert loan emp_controller
+    public LoanAgreement(String id, String loan_customerId, String loan_firstname) {
+        this.loan_id = id;
+        this.loan_customerId = loan_customerId;
+        this.loan_firstname = loan_firstname;
     }
 
 
@@ -71,9 +79,12 @@ public class LoanAgreement {
         this.loan_term = loan_term;
     }
 
-    public void setLoan_date(String loan_date) {
-        LocalDate today = LocalDate.now();
-        this.loan_date = String.valueOf(today);
+    public String setLoan_date() {
+        long millis=System.currentTimeMillis();
+        // creating a new object of the class Dte
+        java.sql.Date date = new java.sql.Date(millis);
+        this.loan_date = String.valueOf(date);
+        return loan_date;
     }
 
     public void setLoan_balance(int loan_balance) {
@@ -154,6 +165,12 @@ public class LoanAgreement {
         return loan_Emp2;
     }
 
+    //generateLoan_id
+    public String generateLoan_id() {
+        Random random = new Random();
+        long n = (long) (100000000000000L + random.nextFloat() * 900000000000000L);
+        return String.valueOf(n);
+    }
 
     public String toCsv() {
         return loan_id +","+ loan_customerId +","+ loan_firstname +","+ loan_lastname +","+ loan_type +","+ loan_type

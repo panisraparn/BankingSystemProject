@@ -62,7 +62,7 @@ public class EmpLoanController {
 
         //อ่าน database ของ document
         Database<DocumentTOB, DocumentTOBList> database = new DocumentTOB_DBConnect();
-        String query1 = " Select * FROM documenttransactionofborrow WHERE Dtb_status = '0' ORDER BY Dtb_date;  ";
+        String query1 = " Select * FROM documenttransactionofborrow WHERE Dtb_status = '1' ORDER BY Dtb_date;  ";
         //เอาที่อ่านจาก database มาใส่ list
         documentTOBList = database.readDatabase(query1); //ได้ documentTob list
 
@@ -140,18 +140,19 @@ public class EmpLoanController {
     @FXML
     void handleRecordLoanButton(ActionEvent event) {
 
-//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//        alert.setTitle("Error!!");
-//        alert.setHeaderText(null);
-//        alert.setContentText("กรุณากดเลือกเอกสารประกอบการกู้ยืมเพื่ออนุมัติ");
-//
-//        alert.showAndWait();
-
-        try {
-            FXRouter.goTo("emp_loan2", empLoginWithCtm_idForLoan);
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า emp_loan2 ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+        if(empLoginWithCtm_idForLoan == null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error!!");
+            alert.setHeaderText(null);
+            alert.setContentText("กรุณากดเลือกเอกสารประกอบการกู้ยืมเพื่ออนุมัติ");
+            alert.showAndWait();
+        }else{
+            try {
+                FXRouter.goTo("emp_loan2", empLoginWithCtm_idForLoan);
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า emp_loan2 ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
         }
     }
 
