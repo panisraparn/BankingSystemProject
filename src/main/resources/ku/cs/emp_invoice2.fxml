@@ -2,13 +2,20 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.EmpHomeController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.EmpHomeController">
    <children>
-      <AnchorPane layoutY="60.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
+      <AnchorPane layoutY="74.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
          <children>
+            <ImageView fitHeight="664.0" fitWidth="816.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
+               </image>
+            </ImageView>
             <AnchorPane layoutX="45.0" layoutY="47.0" prefHeight="442.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
                <children>
                   <Label layoutX="24.0" layoutY="66.0" text="ชื่อ">
@@ -96,5 +103,10 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/Government_Savings_bank.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

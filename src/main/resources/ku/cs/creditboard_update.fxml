@@ -2,13 +2,20 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.EmpLoanController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.EmpLoanController">
    <children>
-      <AnchorPane layoutY="60.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
+      <AnchorPane layoutY="73.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
          <children>
+            <ImageView fitHeight="652.0" fitWidth="813.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
+               </image>
+            </ImageView>
             <AnchorPane layoutX="110.0" layoutY="47.0" prefHeight="420.0" prefWidth="649.0" style="-fx-background-color: #FFFFFF;">
                <children>
                   <ListView fx:id="borrowerListView" layoutX="40.0" layoutY="59.0" prefHeight="340.0" prefWidth="285.0" />
@@ -74,10 +81,15 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="155.0" layoutY="6.0" text="CREDIT BOARD อนุมัติเงินกู้" textFill="#ffe6ea">
+      <Label layoutX="259.0" layoutY="6.0" text="CREDIT BOARD อนุมัติเงินกู้" textFill="#ffe6ea">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/Government_Savings_bank.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
