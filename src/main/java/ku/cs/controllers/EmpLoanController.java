@@ -96,7 +96,7 @@ public class EmpLoanController {
 //                        System.out.println(newValue + " is selected");
 
                         selectedDocumentTOB_dtb_id = newValue;
-                        System.out.println("This is dtb_id " + selectedDocumentTOB_dtb_id);
+//                        System.out.println("This is dtb_id " + selectedDocumentTOB_dtb_id);
                         showSelectedBorrower(selectedDocumentTOB_dtb_id);
 
                     }
@@ -113,7 +113,7 @@ public class EmpLoanController {
         Database<DocumentTOB, DocumentTOBList> database1 = new DocumentTOB_DBConnect();
         String q1 = "  Select * FROM documenttransactionofborrow WHERE Dtb_id = '"+dtb_id+"'   ";
         docCtmId = database1.readRecord(q1);
-        System.out.println("1: " + docCtmId.toCsv());
+//        System.out.println("1: " + docCtmId.toCsv());
 
         //ดึงข้อมูล ชื่อลูกค้าจาก ตาราง customer Database loan_system
         Customer customer = new Customer("0", "0");
@@ -125,9 +125,10 @@ public class EmpLoanController {
 
         firstnameLabel.setText(customer.getCtm_firstname());
         lastnameLabel.setText(customer.getCtm_lastname());
-
         dateDtbLabel.setText(docCtmId.getDtb_date());
-        System.out.println( "Date : "+docCtmId.getDtb_date());
+
+
+//        System.out.println( "Date : "+docCtmId.getDtb_date());
 
 
 
@@ -146,18 +147,27 @@ public class EmpLoanController {
     @FXML
     void handleRecordLoanButton(ActionEvent event) {
 
-        if(empLoginWithCtm_idForLoan == null){
+        int contList = documentTOBList.countDocTOBElement(); //นับจำนวนคนขอกู้ที่ส่งเอกสารผ่าน
+        if (contList == 0){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error!!");
             alert.setHeaderText(null);
-            alert.setContentText("กรุณากดเลือกเอกสารประกอบการกู้ยืมเพื่อทำรายการบันทึกการกู้ยืม");
+            alert.setContentText("ไม่มีรายชื่อผู้ขอกู้ที่ได้รับการอนุมัติจาก credit board");
             alert.showAndWait();
         }else{
-            try {
-                FXRouter.goTo("emp_loan2", empLoginWithCtm_idForLoan);
-            } catch (IOException e) {
-                System.err.println("ไปที่หน้า emp_loan2 ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
+            if(empLoginWithCtm_idForLoan == null){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error!!");
+                alert.setHeaderText(null);
+                alert.setContentText("กรุณากดเลือกเอกสารประกอบการกู้ยืมเพื่อทำรายการบันทึกการกู้ยืม");
+                alert.showAndWait();
+            }else{
+                try {
+                    FXRouter.goTo("emp_loan2", empLoginWithCtm_idForLoan);
+                } catch (IOException e) {
+                    System.err.println("ไปที่หน้า emp_loan2 ไม่ได้");
+                    System.err.println("ให้ตรวจสอบการกำหนด route");
+                }
             }
         }
     }

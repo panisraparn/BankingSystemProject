@@ -88,12 +88,12 @@ public class EmpHomeController {
     //ออกใบแจ้งหนี้
     @FXML
     void clickToEmp_invoice(ActionEvent event) {
-//        try {
-//            FXRouter.goTo("emp_invoice");
-//        } catch (IOException e) {
-//            System.err.println("ไปที่หน้า emp_invoice ไม่ได้");
-//            System.err.println("ให้ตรวจสอบการกำหนด route");
-//        }
+        try {
+            FXRouter.goTo("emp_invoice", empLoginAccount);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า emp_invoice ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
 
     //ติดตามหนี้

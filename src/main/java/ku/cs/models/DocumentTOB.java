@@ -50,7 +50,19 @@ public class DocumentTOB {
         String dtb_id = m[0] + m[1] + m[2] + m[3] + m[4] + m[5] + m[6] + m[7] + m[8] + m[9];
         this.dtb_id = dtb_id;
         return dtb_id;
+    }
 
+    public boolean isInteger(String str)
+    {
+        if (str == null || str.length() == 0) return false;
+
+        for (int i = 0; i < str.length(); i++) {
+            if(!Character.isDigit(str.charAt(i))) {  // not condition
+                return false;
+            }
+        }
+
+        return true;
     }
 
 

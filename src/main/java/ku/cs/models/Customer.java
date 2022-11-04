@@ -17,8 +17,7 @@ public class Customer {
 
 
     public Customer(String ctm_Id, String ctm_cid, String ctm_firstname, String ctm_lastname,
-                    String ctm_img, String ctm_sex, String ctm_tel, String ctm_address, String ctm_workplace, String ctm_bankAccount)
-    {
+                    String ctm_img, String ctm_sex, String ctm_tel, String ctm_address, String ctm_workplace, String ctm_bankAccount) {
         this.ctm_Id = ctm_Id;
         this.ctm_cid = ctm_cid;
         this.ctm_firstname = ctm_firstname;
@@ -36,15 +35,15 @@ public class Customer {
         this.ctm_cid = ctm_cid;
     }
 
-    public Customer (String ctm_img){
-        this.ctm_img=ctm_img;
+    public Customer(String ctm_img) {
+        this.ctm_img = ctm_img;
     }
 
 
-    public String generateCtm_id(){
+    public String generateCtm_id() {
         Random rand = new Random();
         int digit7 = rand.nextInt(9999999);
-        String randCtm_idStr = String.format("%07d",digit7);
+        String randCtm_idStr = String.format("%07d", digit7);
         return randCtm_idStr;
     }
 
@@ -54,22 +53,19 @@ public class Customer {
     }
 
 
-
     //check firstname ซ้ำ
-    public boolean isDuplicateFirstname(String ctm_firstname){
+    public boolean isDuplicateFirstname(String ctm_firstname) {
         return this.ctm_firstname.equals(ctm_firstname);
     }
 
     //check lastname ซ้ำ
-    public boolean isDuplicateLastname(String ctm_lastname){
+    public boolean isDuplicateLastname(String ctm_lastname) {
         return this.ctm_lastname.equals(ctm_lastname);
     }
 
 
-
-
     //set รูป(imagePath) กรณีที่ user กดปุ่ม อัพโหลดรูป
-    public  void setCtmImagePath(String imagePath){
+    public void setCtmImagePath(String imagePath) {
         this.ctm_img = imagePath;
     }
 
@@ -154,15 +150,14 @@ public class Customer {
     }
 
     @Override
-    public String toString(){
-        return ctm_Id + "," + ctm_cid + "," + ctm_firstname + "," + ctm_lastname + ","+ ctm_img + ","
+    public String toString() {
+        return ctm_Id + "," + ctm_cid + "," + ctm_firstname + "," + ctm_lastname + "," + ctm_img + ","
                 + ctm_sex + "," + ctm_tel + "," + ctm_address + "," + ctm_workplace + "," + ctm_bankAccount;
     }
 
     public String toCsv() {
-        return ctm_Id + "," + ctm_cid + "," + ctm_firstname + "," + ctm_lastname + ","+ ctm_img + ","
+        return ctm_Id + "," + ctm_cid + "," + ctm_firstname + "," + ctm_lastname + "," + ctm_img + ","
                 + ctm_sex + "," + ctm_tel + "," + ctm_address + "," + ctm_workplace + "," + ctm_bankAccount;
     }
-
 
 }

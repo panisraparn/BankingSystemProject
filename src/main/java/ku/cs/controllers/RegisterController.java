@@ -61,7 +61,7 @@ public class RegisterController {
     private TextField workplaceTextField;
 
     //-------------------------------------------------------------------------------------------------------------------------------------
-    private String sexCheckBoxStr; //female = 1, male = 2
+    private String sexCheckBoxStr = "0"; //female = 1, male = 2, is not Selected = 0
     private Customer ctmForSetImageView = new Customer("0");
 
 
@@ -124,6 +124,7 @@ public class RegisterController {
     @FXML
     void handleRecordButton(ActionEvent event) throws SQLException {
 
+
         String idNumberStr = IdNumberTextField.getText();
         String firstnameStr = firstnameTextField.getText();
         String lastnameStr = lastNameTextField.getText();
@@ -132,7 +133,7 @@ public class RegisterController {
         String addressStr = addressTextField.getText();
         String workplaceStr = workplaceTextField.getText();
 
-        if (firstnameStr.equals("") || lastnameStr.equals("") || idNumberStr.equals("") || sexCheckBoxStr.equals("")
+        if (firstnameStr.equals("") || lastnameStr.equals("") || idNumberStr.equals("") || sexCheckBoxStr.equals("0")
                 || phoneNumStr.equals("") || bankAccNumStr.equals("") || addressStr.equals("") || workplaceStr.equals("")) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error!!");
@@ -142,6 +143,7 @@ public class RegisterController {
             alert.showAndWait();
 
         } else {
+
             //ถ้าไม่ได้ upload รูป ให้ alert ว่า ใส่รูปด้วย
             if (ctmForSetImageView.getCtm_img().equals("0")) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -254,4 +256,7 @@ public class RegisterController {
         workplaceTextField.setText("");
         bankAccountNumberTextField.setText("");
     }
+
+
+
 }
