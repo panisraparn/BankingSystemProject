@@ -1,5 +1,7 @@
 package ku.cs.models;
 
+import java.util.Random;
+
 public class Invoice {
     private String invoice_id;
     private String invoice_customerId;
@@ -8,12 +10,14 @@ public class Invoice {
     private String invoice_ctmbankAccount;
     private int invoice_ctmDebt;
     private String invoice_date;
+    private String invoice_month;
+    private String invoice_year;
     private String invoice_status;
 
     //add invoice
-    public Invoice(String invoice_id, String invoice_customerId, String invoice_ctmfirstname, String invoice_ctmlastname,
-                   String invoice_ctmbankAccount, int invoice_ctmDebt, String invoice_date, String invoice_status) {
 
+
+    public Invoice(String invoice_id, String invoice_customerId, String invoice_ctmfirstname, String invoice_ctmlastname, String invoice_ctmbankAccount, int invoice_ctmDebt, String invoice_date, String invoice_month, String invoice_year, String invoice_status) {
         this.invoice_id = invoice_id;
         this.invoice_customerId = invoice_customerId;
         this.invoice_ctmfirstname = invoice_ctmfirstname;
@@ -21,6 +25,8 @@ public class Invoice {
         this.invoice_ctmbankAccount = invoice_ctmbankAccount;
         this.invoice_ctmDebt = invoice_ctmDebt;
         this.invoice_date = invoice_date;
+        this.invoice_month = invoice_month;
+        this.invoice_year = invoice_year;
         this.invoice_status = invoice_status;
     }
 
@@ -57,6 +63,14 @@ public class Invoice {
         this.invoice_status = invoice_status;
     }
 
+    public void setInvoice_month(String invoice_month) {
+        this.invoice_month = invoice_month;
+    }
+
+    public void setInvoice_year(String invoice_year) {
+        this.invoice_year = invoice_year;
+    }
+
     //getter
     public String getInvoice_id() {
         return invoice_id;
@@ -86,13 +100,37 @@ public class Invoice {
         return invoice_date;
     }
 
+    public String getInvoice_month() {
+        return invoice_month;
+    }
+
+    public String getInvoice_year() {
+        return invoice_year;
+    }
+
     public String getInvoice_status() {
         return invoice_status;
     }
 
+
+
+    public String generateInvoice_id() {
+        Random rd = new Random();
+        int rdNum;
+        // 10 digit
+        String m[] = new String[10];
+        for (int i = 0; i < 10; i++) {
+            rdNum = rd.nextInt(10);
+            m[i] = Integer.toString(rdNum);
+        }
+        String id = m[0] + m[1] + m[2] + m[3] + m[4] + m[5] + m[6] + m[7] + m[8] + m[9];
+        this.invoice_id = id;
+        return id;
+    }
+
     public String toCsv() {
         return invoice_id +","+ invoice_customerId +","+ invoice_ctmfirstname +","+ invoice_ctmlastname +","+
-                invoice_ctmbankAccount +","+ invoice_ctmDebt +","+invoice_status;
+                invoice_ctmbankAccount +","+ invoice_ctmDebt +","+invoice_date+","+invoice_month+","+invoice_year+","+invoice_status;
     }
 
 

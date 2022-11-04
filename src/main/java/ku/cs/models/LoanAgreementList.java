@@ -22,4 +22,14 @@ public class LoanAgreementList {
         }
         return result;
     }
+
+    public int countListElement() {
+        return loanAgreements.size();
+    }
+
+    public LoanAgreement getLoanRecord(int i) {
+        LoanAgreement loanAgreement = loanAgreements.get(i);
+        return  loanAgreement;
+
+    }
 }

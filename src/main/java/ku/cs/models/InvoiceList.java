@@ -1,6 +1,7 @@
 package ku.cs.models;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class InvoiceList {
 
@@ -15,6 +16,17 @@ public class InvoiceList {
         invoices.add(invoice);
     }
 
+    //นับ invoice ที่อยู่ ใน list
+    public  int countInvoiceElement(){
+        return invoices.size();
+    }
+
+    //return invoice ใน list ตัวที่ i
+    public  Invoice getInvoiceRecord(int i){
+        Invoice invoice = invoices.get(i);
+        return invoice;
+    }
+
     public String toCsv(){
         String result = "";
         for(Invoice invoice : this.invoices){
@@ -22,6 +34,19 @@ public class InvoiceList {
         }
         return result;
     }
+    public void removeElement(int i){
+        invoices.remove(i);
+    }
+
+    public void removeAllElement(InvoiceList invoiceList){
+        int n =invoiceList.countInvoiceElement();
+        int i =0;
+        for(i = 0; i < n; i++){
+            invoiceList.removeElement(i);
+        }
+    }
+
+
 
 
 

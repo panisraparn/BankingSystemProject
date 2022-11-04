@@ -19,28 +19,65 @@
                   <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="110.0" layoutY="47.0" prefHeight="442.0" prefWidth="577.0" style="-fx-background-color: #FFFFFF;">
+            <AnchorPane layoutX="58.0" layoutY="47.0" prefHeight="493.0" prefWidth="717.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                  <ListView fx:id="waitToCreateInvoice" layoutX="25.0" layoutY="44.0" prefHeight="373.0" prefWidth="303.0" />
-                  <Label layoutX="110.0" layoutY="5.0" text="รายชื่อลูกหนี้ทุกคนที่มียอดคงเหลือในสัญญา">
+                  <ListView fx:id="waitToCreateInvoice" layoutX="25.0" layoutY="44.0" prefHeight="427.0" prefWidth="214.0" />
+                  <Label layoutX="214.0" layoutY="7.0" text="รายชื่อออกใบแจ้งหนี้">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
+                  <Label layoutX="363.0" layoutY="69.0" />
+                  <Label layoutX="255.0" layoutY="108.0" prefHeight="21.0" prefWidth="86.0" text="ชื่อ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="255.0" layoutY="138.0" prefHeight="21.0" prefWidth="86.0" text="นามสกุล">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="255.0" layoutY="168.0" prefHeight="30.0" prefWidth="141.0" text="เดือนที่รายงาน">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="252.0" layoutY="198.0" prefHeight="30.0" prefWidth="68.0" text="สถานะ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="250.0" layoutY="228.0" prefHeight="30.0" prefWidth="141.0" text="ยอดคงเหลือ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="firstnameLabel" layoutX="452.0" layoutY="115.0" text="FirstnameLabel" />
+                  <Label fx:id="lastnameLabel" layoutX="453.0" layoutY="144.0" text="LastnameLabel" />
+                  <Label fx:id="dateLabel" layoutX="454.0" layoutY="174.0" text="DateLabel" />
+                  <Label fx:id="statusLabel" layoutX="450.0" layoutY="204.0" text="StatusLabel" />
+                  <Label fx:id="balanceLabel" layoutX="446.0" layoutY="234.0" text="balanceLabel" />
+                  <Button layoutX="535.0" layoutY="406.0" mnemonicParsing="false" onAction="#handleInvoiceButton" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ออกใบแจ้งหนี้" textFill="#f2eded">
+                     <font>
+                        <Font name="Cambria" size="24.0" />
+                     </font>
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color red="0.3294117748737335" green="0.3294117748737335" blue="0.3294117748737335" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Label layoutX="255.0" layoutY="78.0" prefHeight="21.0" prefWidth="86.0" text="รหัสลูกค้า">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="loan_customerIdLabel" layoutX="452.0" layoutY="84.0" text="FirstnameLabel" />
                </children>
             </AnchorPane>
-            <Button layoutX="628.0" layoutY="495.0" mnemonicParsing="false" onAction="#handleInvoiceButton" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ออกใบแจ้งหนี้" textFill="#f2eded">
-               <font>
-                  <Font name="Cambria" size="24.0" />
-               </font>
-               <effect>
-                  <DropShadow offsetX="2.0" offsetY="2.0">
-                     <color>
-                        <Color red="0.3294117748737335" green="0.3294117748737335" blue="0.3294117748737335" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>
             <Label fx:id="empNameLabel" alignment="CENTER_RIGHT" layoutX="541.0" layoutY="24.0" prefHeight="21.0" prefWidth="227.0" text="empName">
                <font>
                   <Font size="15.0" />
@@ -52,7 +89,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="229.0" layoutY="7.0" text="EMPLOYEE ใบแจ้งหนี้" textFill="#ffe6ea">
+      <Label layoutX="229.0" layoutY="7.0" text="EMPLOYEE ออกใบแจ้งหนี้" textFill="#ffe6ea">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>

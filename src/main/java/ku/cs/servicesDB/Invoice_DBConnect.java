@@ -33,7 +33,7 @@ public class Invoice_DBConnect implements Database<Invoice, InvoiceList>{
 
             String query1 = "INSERT INTO invoice " + "VALUES ('" +invoice.getInvoice_id()+ "','" + invoice.getInvoice_customerId() + "'" +
                     ",'" + invoice.getInvoice_ctmfirstname() + "','" + invoice.getInvoice_ctmlastname() + "','" + invoice.getInvoice_ctmbankAccount() + "'" +
-                    ",'" + invoice.getInvoice_ctmDebt() + "','" + invoice.getInvoice_date() + " ', '" +invoice.getInvoice_status()+ "')";
+                    ",'" + invoice.getInvoice_ctmDebt() + "','" + invoice.getInvoice_date() + " ', '"+invoice.getInvoice_month()+"', '"+invoice.getInvoice_year()+"', '" +invoice.getInvoice_status()+ "')";
 
             stmt.executeUpdate(query1);
 
@@ -69,6 +69,8 @@ public class Invoice_DBConnect implements Database<Invoice, InvoiceList>{
         String bankAcc ;
         int debt ;
         String date;
+        String month;
+        String year;
         String status ;
 
         //DB connect
@@ -86,15 +88,17 @@ public class Invoice_DBConnect implements Database<Invoice, InvoiceList>{
 
             while (rs.next()) {
                 id = rs.getString(1);
-                customerId = rs.getNString(2);
+                customerId = rs.getString(2);
                 fname = rs.getString(3);
                 lname = rs.getString(4);
                 bankAcc = rs.getString(5);
                 debt = Integer.parseInt(rs.getString(6));
-                date = rs.getNString(7);
-                status = rs.getString(8);
+                date = rs.getString(7);
+                month = rs.getString(8);
+                year = rs.getString(9);
+                status = rs.getString(10);
 
-                this.invoiceRecord = new Invoice(id, customerId, fname, lname, bankAcc, debt, date, status);
+                this.invoiceRecord = new Invoice(id, customerId, fname, lname, bankAcc, debt, date, month, year, status);
 
 //                System.out.println(empLoginAccount.toCsv());
             }
@@ -147,9 +151,11 @@ public class Invoice_DBConnect implements Database<Invoice, InvoiceList>{
                 String bankAcc = rs.getString(5);
                 int debt = Integer.parseInt(rs.getString(6));
                 String date = rs.getNString(7);
-                String status = rs.getString(8);
+                String month = rs.getString(8);
+                String year = rs.getString(9);
+                String status = rs.getString(10);
 
-                this.invoiceRecord = new Invoice(id, customerId, fname, lname, bankAcc, debt, date, status);
+                this.invoiceRecord = new Invoice(id, customerId, fname, lname, bankAcc, debt, date, month, year,status);
                 list.addInvoice(invoiceRecord);
 //                System.out.println(empLoginAccount.toCsv());
             }

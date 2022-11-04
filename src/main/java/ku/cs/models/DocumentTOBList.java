@@ -16,6 +16,7 @@ public class DocumentTOBList {
         return documents;
     }
 
+    //นับ element ที่อยู่ใน list
     public int countDocTOBElement(){
         return documents.size();
     }
@@ -34,12 +35,14 @@ public class DocumentTOBList {
         return doc;
     }
 
-    public DocumentTOB getDtbRecordById(String id) {
-        for (DocumentTOB doc : documents){
-            if (doc.checkId(id)){
-                return doc;
-            }
-        }
-        return null;
-    }
+//    public DocumentTOB getDtbRecordById(String id) {
+//        for (DocumentTOB doc : documents){
+//            if (doc.checkId(id)){
+//                return doc;
+//            }
+//        }
+//        return null;
+//    }
+
+
 }

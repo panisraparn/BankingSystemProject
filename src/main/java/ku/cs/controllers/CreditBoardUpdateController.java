@@ -89,12 +89,12 @@ public class CreditBoardUpdateController {
                 });
     }
 
-    private void showSelectedCustomer(String dtb_IdCustomer) {
-        String dtb_id = dtb_IdCustomer;
-        selectedCustomer =dtb_IdCustomer;
+    private void showSelectedCustomer(String dtb_Id) {
+        String dtb_id = dtb_Id;
+        selectedCustomer =dtb_Id;
 
-        //ดึง รหัสลูกค้าจาก dtb_customerId
-        DocumentTOB docCtmId = new DocumentTOB(dtb_IdCustomer,"");
+        //ดึง รหัสลูกค้าจาก dtb_Id
+        DocumentTOB docCtmId = new DocumentTOB(dtb_Id,"");
         Database<DocumentTOB, DocumentTOBList> database1 = new DocumentTOB_DBConnect();
         String q1 = "  Select * FROM documenttransactionofborrow WHERE Dtb_id = '"+dtb_id+"'   ";
         docCtmId = database1.readRecord(q1);

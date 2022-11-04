@@ -218,7 +218,6 @@ public class RegisterController {
         }
     }
 
-
     @FXML
     void handleBackButton(ActionEvent event) {
 
