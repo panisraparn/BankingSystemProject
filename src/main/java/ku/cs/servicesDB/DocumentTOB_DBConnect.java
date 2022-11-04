@@ -80,11 +80,11 @@ public class DocumentTOB_DBConnect implements Database <DocumentTOB, DocumentTOB
 
             while (rs.next()) {
                 id = rs.getString(1);
-                ctm_id = rs.getNString(2);
+                ctm_id = rs.getString(2);
                 d1 = rs.getString(3);
                 d2 = rs.getString(4);
                 d3 = rs.getString(5);
-                d4 = rs.getNString(6);
+                d4 = rs.getString(6);
                 date = rs.getString(7);
                 status = rs.getString(8);
 
@@ -133,11 +133,11 @@ public class DocumentTOB_DBConnect implements Database <DocumentTOB, DocumentTOB
 
             while (rs.next()) {
                 String id = rs.getString(1);
-                String ctm_id = rs.getNString(2);
+                String ctm_id = rs.getString(2);
                 String d1 = rs.getString(3);
                 String d2 = rs.getString(4);
                 String d3 = rs.getString(5);
-                String d4 = rs.getNString(6);
+                String d4 = rs.getString(6);
                 String date = rs.getString(7);
                 String status = rs.getString(8);
 

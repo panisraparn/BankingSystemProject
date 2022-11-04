@@ -21,9 +21,9 @@ public class DocumentTOB {
         this.dtb_d1 = dtb_document1;
         this.dtb_d2 = dtb_document2;
         this.dtb_d3 = dtb_document3;
-        dtb_d4 = dtbd4;
+        this.dtb_d4 = dtbd4;
+        this.dtb_date =dtb_date;
         this.dtb_status = dtb_status;
-        setDtb_date(); //set เป็นวันที่ปัจจุบัน
     }
 
     //tempDtb for check Dtb_id, Dtb_customerId Is Exits?

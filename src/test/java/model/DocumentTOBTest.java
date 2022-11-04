@@ -42,6 +42,31 @@ public class DocumentTOBTest {
 
     }
 
+
+    @Test
+    void testReadDtb_TOBReturnRecord(){
+
+
+        Customer customer = new Customer("3723502", "0");
+
+        String id = "7594490440";
+
+        Database<Customer, CustomerList> database = new Customer_DBConnect();
+        String q =" Select * FROM customer WHERE Ctm_id = '"+id+"'  ";
+        customer = database.readRecord(q); //เจอ return record ไม่เจอ return null
+
+        System.out.println("1: " + customer);
+
+        DocumentTOB documentTOB = new DocumentTOB("", "");
+        Database<DocumentTOB, DocumentTOBList> databaseDtb = new DocumentTOB_DBConnect();
+        String qDtb =" Select * FROM documenttransactionofborrow WHERE Dtb_customerId = '4323232'  ";
+        documentTOB = databaseDtb.readRecord(qDtb); //เจอ return record ไม่เจอ return null
+
+        System.out.println(documentTOB.toCsv());
+
+    }
+
+
     @Test
     void testRandomDtb15Digit() {
         Random random = new Random();

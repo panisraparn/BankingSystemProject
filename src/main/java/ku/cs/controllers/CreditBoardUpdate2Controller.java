@@ -221,7 +221,7 @@ public class CreditBoardUpdate2Controller {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm");
-        alert.setContentText("ไม่อนุมัติใช่หรือไม่?");
+        alert.setContentText("ต้องการยกเลิกใช่หรือไม่");
         //capture the dialog result of ok or cancel
         Optional<ButtonType> result = alert.showAndWait();
 

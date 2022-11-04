@@ -141,6 +141,7 @@ public class EmpDocumentController {
                 }
             }//while true ให้ generate Dtb_id จนกว่าจะไม่ซ้ำ
 
+            //set วันที่ออกเอกสาร
             dtbForInsertRecord.setDtb_date();
 
             // ใช้ Db

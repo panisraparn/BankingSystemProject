@@ -28,6 +28,9 @@ public class CreditBoardUpdateController {
     @FXML private Label lastnameLabel;
     @FXML private Label idLabel;
     @FXML private Label empNameLabel;
+    @FXML private Label dtbDateLabel;
+
+
 
     //prepare data for method showSelectedDtb_status0
     private String selectedCustomer ="0";
@@ -51,7 +54,7 @@ public class CreditBoardUpdateController {
 
         //อ่าน database ของ document
         Database<DocumentTOB, DocumentTOBList> database = new DocumentTOB_DBConnect();
-        String query1 = " Select * FROM documenttransactionofborrow WHERE Dtb_status = '0' ORDER BY Dtb_date;  ";
+        String query1 = " Select * FROM documenttransactionofborrow WHERE Dtb_status = '0' ORDER BY Dtb_date DESC;  ";
         //เอาที่อ่านจาก database มาใส่ list
         documentTOBList = database.readDatabase(query1); //ได้ documentTob list
 
@@ -108,6 +111,7 @@ public class CreditBoardUpdateController {
         nameLabel.setText(customer.getCtm_firstname());
         lastnameLabel.setText(customer.getCtm_lastname());
         idLabel.setText(dtb_id);
+        dtbDateLabel.setText(docCtmId.getDtb_date());
 
 
         if(docCtmId.getDtb_d1().equals("")){

@@ -82,6 +82,12 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <Label layoutX="99.0" layoutY="481.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_Date">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="dtbDateLabel" layoutX="190.0" layoutY="490.0" prefHeight="17.0" prefWidth="109.0" text="date" />
          </children></AnchorPane>
       <Label layoutX="780.0" layoutY="6.0" onMouseClicked="#clickBackToEmp_home" style="-fx-background-color: #ffe6ea;" text="X">
          <font>

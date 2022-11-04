@@ -66,7 +66,7 @@
                </font>
             </Label>
             <Button layoutX="709.0" layoutY="483.0" mnemonicParsing="false" onAction="#approveButton" text="อนุมัติ" />
-            <Button layoutX="619.0" layoutY="483.0" mnemonicParsing="false" onAction="#disapprovedButton" text="ไม่อนุมัติ" />
+            <Button layoutX="619.0" layoutY="483.0" mnemonicParsing="false" onAction="#disapprovedButton" text="ยกเลิก" />
          </children></AnchorPane>
       <Label layoutX="780.0" layoutY="6.0" onMouseClicked="#clickBackToEmp_home" style="-fx-background-color: #ffe6ea;" text="X">
          <font>

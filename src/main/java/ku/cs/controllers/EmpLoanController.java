@@ -62,7 +62,7 @@ public class EmpLoanController {
 
         //อ่าน database ของ document
         Database<DocumentTOB, DocumentTOBList> database = new DocumentTOB_DBConnect();
-        String query1 = " Select * FROM documenttransactionofborrow WHERE Dtb_status = '1' ORDER BY Dtb_date;  ";
+        String query1 = " Select * FROM documenttransactionofborrow WHERE Dtb_status = '1' ORDER BY Dtb_date DESC;   ";
         //เอาที่อ่านจาก database มาใส่ list
         documentTOBList = database.readDatabase(query1); //ได้ documentTob list
 
@@ -96,7 +96,8 @@ public class EmpLoanController {
 //                        System.out.println(newValue + " is selected");
 
                         selectedDocumentTOB_dtb_id = newValue;
-                        showSelectedBorrower(newValue);
+                        System.out.println("This is dtb_id " + selectedDocumentTOB_dtb_id);
+                        showSelectedBorrower(selectedDocumentTOB_dtb_id);
 
                     }
                 });
@@ -108,10 +109,11 @@ public class EmpLoanController {
         String dtb_id = dtb_IdBorrowerId;
 
         //ดึง รหัสลูกค้าจาก dtb_customerId
-        DocumentTOB docCtmId = new DocumentTOB(dtb_IdBorrowerId,"");
+        DocumentTOB docCtmId = new DocumentTOB(dtb_IdBorrowerId,"-","-","-","-","-","-","-");
         Database<DocumentTOB, DocumentTOBList> database1 = new DocumentTOB_DBConnect();
         String q1 = "  Select * FROM documenttransactionofborrow WHERE Dtb_id = '"+dtb_id+"'   ";
         docCtmId = database1.readRecord(q1);
+        System.out.println("1: " + docCtmId.toCsv());
 
         //ดึงข้อมูล ชื่อลูกค้าจาก ตาราง customer Database loan_system
         Customer customer = new Customer("0", "0");
@@ -125,6 +127,10 @@ public class EmpLoanController {
         lastnameLabel.setText(customer.getCtm_lastname());
 
         dateDtbLabel.setText(docCtmId.getDtb_date());
+        System.out.println( "Date : "+docCtmId.getDtb_date());
+
+
+
         dtb_idLabel.setText(docCtmId.getDtb_id());
         dtb_CtmIdLabel.setText(docCtmId.getDtb_customerId());
 
