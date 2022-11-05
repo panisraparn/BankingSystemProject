@@ -37,7 +37,7 @@ public class Employee_DBConnect implements Database<Employee, EmployeeList> {
             } catch (Exception e) {
                 System.out.println(e);
             }
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/test_loansystem", "root", "");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/test_loansystem", "root", "");
             System.out.println("Connection is created successfully:");
 
             stmt = conn.createStatement();

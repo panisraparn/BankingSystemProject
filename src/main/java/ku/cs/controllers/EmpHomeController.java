@@ -99,12 +99,12 @@ public class EmpHomeController {
     //ติดตามหนี้
     @FXML
     void clickToEmp_Debt(ActionEvent event) {
-//        try {
-//            FXRouter.goTo("emp_Debt");
-//        } catch (IOException e) {
-//            System.err.println("ไปที่หน้า emp_Debt ไม่ได้");
-//            System.err.println("ให้ตรวจสอบการกำหนด route");
-//        }
+        try {
+            FXRouter.goTo("emp_debt");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า emp_Debt ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
 
 

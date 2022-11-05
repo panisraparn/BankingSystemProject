@@ -53,10 +53,10 @@ public class EmpInvoiceController {
         String query = " Select * From LoanAgreement Where Loan_balance != 0";
         loanAgreementList = database.readDatabase(query);
         showListView();
-        handleInvoiceButton();
+        handleInvoiceSelected();
     }
 
-    private void handleInvoiceButton() {
+    private void handleInvoiceSelected() {
         waitToCreateInvoice.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<String>() {
                     @Override

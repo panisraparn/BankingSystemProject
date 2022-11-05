@@ -47,7 +47,6 @@ public class EmpDocumentController {
     @FXML
     void findCustomerButton(ActionEvent event) {
 
-
         Customer customer = new Customer("0", "0");
         Database<Customer, CustomerList> database = new Customer_DBConnect();
         String q =" Select * FROM customer WHERE Ctm_cid = '"+findCtmCidTextField.getText()+"'  ";

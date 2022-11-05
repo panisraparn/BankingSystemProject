@@ -94,7 +94,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <Button layoutX="545.0" layoutY="416.0" mnemonicParsing="false" onAction="#handleRecordInvoiceButton" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ออกใบแจ้งหนี้" textFill="#f2eded">
+            <Button layoutX="545.0" layoutY="416.0" mnemonicParsing="false" onAction="#handleRecordInvoiceButton" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="บันทึก" textFill="#f2eded">
                <font>
                   <Font name="Cambria" size="24.0" />
                </font>
