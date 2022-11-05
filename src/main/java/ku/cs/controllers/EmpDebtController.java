@@ -1,5 +1,8 @@
 package ku.cs.controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -16,7 +19,7 @@ import java.io.IOException;
 public class EmpDebtController {
 
     @FXML
-    private ListView<?> waitToTrackDownDebtsListView;
+    private ListView<String> waitToTrackDownDebtsListView;
     @FXML private Label invoiceIdLabel;
     @FXML private Label firstnameLabel;
     @FXML private Label invoiceCtmDebt;
@@ -24,14 +27,15 @@ public class EmpDebtController {
     @FXML private Label invoiceStatusLabel;
     @FXML private TextField findCtmCidTextField;
 
-    //List
+    //ListView
     private InvoiceList waitToTrackDownDebtsList = new InvoiceList();
+    private javafx.collections.ObservableList<String> ObservableList;
+    private String selectedInvoice_Id = "0";
 
 
     @FXML
     public void initialize(){
         //อ่าน database ของ invoice
-
     }
 
     @FXML void findCustomerButton(ActionEvent event) {
@@ -72,6 +76,15 @@ public class EmpDebtController {
     }
 
     private void showListView() {
+        ObservableList = FXCollections.observableArrayList();
+        for(int i = waitToTrackDownDebtsList.countInvoiceElement()-1; i>=0; i--)
+        {
+            Invoice invoice = waitToTrackDownDebtsList.getInvoiceRecord(i);
+//          ObservableList.add("No."+doc.getDtb_id()+" CustomerId : "+doc.getDtb_customerId()+"  Date : "+doc.getDtb_date());
+
+            ObservableList.add(invoice.getInvoice_id());
+        }
+        waitToTrackDownDebtsListView.setItems(ObservableList);
     }
 
     private void handleInvoiceSelected(){
@@ -80,6 +93,25 @@ public class EmpDebtController {
 
     @FXML
     void handleCheckInfoButton(ActionEvent event) {
+        waitToTrackDownDebtsListView.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<String>() {
+                    @Override
+                    public void changed(ObservableValue<? extends String> observable,
+                                        String oldValue, String newValue) {
+//                        System.out.println(newValue + " is selected");
+                        selectedInvoice_Id = newValue;
+//                        showSelectedCustomer(selectedLoan_id);
+                    }
+                });
+    }
+
+    @FXML
+    void clickShowAllInvoice(MouseEvent event) {
+
+        Customer customer = new Customer("0", "0");
+        Database<Customer, CustomerList> database = new Customer_DBConnect();
+        String q =" Select * FROM customer WHERE Ctm_cid = '"+findCtmCidTextField.getText()+"'  ";
+        customer = database.readRecord(q); //เจอ return record ไม่เจอ return null
 
     }
 
@@ -92,4 +124,7 @@ public class EmpDebtController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
+
+
 }

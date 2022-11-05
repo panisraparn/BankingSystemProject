@@ -184,7 +184,6 @@ public class EmpLoan2Controller {
                 }
 
             }else{
-
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Error!!");
                 alert.setHeaderText(null);
