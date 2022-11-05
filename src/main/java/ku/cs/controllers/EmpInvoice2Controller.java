@@ -3,6 +3,7 @@ package ku.cs.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -12,6 +13,7 @@ import ku.cs.servicesDB.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class EmpInvoice2Controller {
 
@@ -131,19 +133,36 @@ public class EmpInvoice2Controller {
             alert.setContentText("บันทึกสำเร็จ");
             alert.showAndWait();
 
-
             try {
                 FXRouter.goTo("emp_home");
             } catch (IOException e) {
                 System.err.println("ไปที่หน้า emp_home ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
-
         }
-
     }
 
+    @FXML
+    void cancelButton(ActionEvent event) {
+        //ต้องการกลับไป Menu ใช่ไหม
+        //if ใช--> clear text field
+        // else ไม่ใช่
 
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm");
+        alert.setContentText("ต้องการยกเลิกใช่หรือไม่?");
+        //capture the dialog result of ok or cancel
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if(result.get() == ButtonType.OK){
+            try {
+                FXRouter.goTo("emp_home");
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า menu ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
+    }
 
     @FXML void clickBackToLogin(MouseEvent event) {
         try {

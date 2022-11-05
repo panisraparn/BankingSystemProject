@@ -27,4 +27,13 @@ public class InvoiceDBTest {
         String dNow = String.format("%02d",daynow);
         System.out.println(dNow);
     }
+
+    @Test
+    void readDatabase(){
+        Invoice invoiceTemp = new Invoice("-","-","-","-","-",0,"-","-", "-", "-");
+        Database<Invoice,InvoiceList>  database1 = new Invoice_DBConnect();
+        String q1 = " Select * FROM invoice Where Invoice_id = '0417542412' ";
+        invoiceTemp = database1.readRecord(q1);
+        System.out.println(invoiceTemp.toCsv());
+    }
 }

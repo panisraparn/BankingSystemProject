@@ -92,20 +92,32 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
+                  <Button layoutX="578.0" layoutY="369.0" mnemonicParsing="false" onAction="#cancelButton" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ยกเลิก" textFill="#fbfdf4">
+                     <font>
+                        <Font name="Cambria" size="24.0" />
+                     </font>
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color red="0.3294117748737335" green="0.3294117748737335" blue="0.3294117748737335" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Button layoutX="450.0" layoutY="369.0" mnemonicParsing="false" onAction="#handleRecordInvoiceButton" prefHeight="46.0" prefWidth="101.0" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="บันทึก" textFill="#f2eded">
+                     <font>
+                        <Font name="Cambria" size="24.0" />
+                     </font>
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color red="0.3294117748737335" green="0.3294117748737335" blue="0.3294117748737335" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
                </children>
             </AnchorPane>
-            <Button layoutX="545.0" layoutY="416.0" mnemonicParsing="false" onAction="#handleRecordInvoiceButton" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="บันทึก" textFill="#f2eded">
-               <font>
-                  <Font name="Cambria" size="24.0" />
-               </font>
-               <effect>
-                  <DropShadow offsetX="2.0" offsetY="2.0">
-                     <color>
-                        <Color red="0.3294117748737335" green="0.3294117748737335" blue="0.3294117748737335" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>
             <Label fx:id="empNameLabel" alignment="CENTER_RIGHT" layoutX="529.0" layoutY="14.0" prefHeight="21.0" prefWidth="227.0" text="empName">
                <font>
                   <Font size="15.0" />

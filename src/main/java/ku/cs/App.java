@@ -32,7 +32,7 @@ public class App extends Application {
 
         FXRouter.when("emp_checklist",packageStr+"emp_checklist.fxml");
         FXRouter.when("emp_debt",packageStr+"emp_debt.fxml");
-        FXRouter.when("emp_debt2",packageStr+"emp_debt2.fxml");
+        FXRouter.when("emp_debt_2",packageStr+"emp_debt_2.fxml");
         FXRouter.when("emp_document",packageStr+"emp_document.fxml");
         FXRouter.when("emp_home",packageStr+"emp_home.fxml");
         FXRouter.when("emp_invoice",packageStr+"emp_invoice.fxml");

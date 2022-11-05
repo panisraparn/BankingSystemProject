@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.EmpDebt2Controller">
+   <children>
+      <Label layoutX="71.0" layoutY="205.0" text="ชื่อ:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstnameLabel1" layoutX="124.0" layoutY="205.0" prefHeight="27.0" prefWidth="162.0" text="Firstname">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="71.0" layoutY="150.0" text="No.">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="invoiceIdLabel1" layoutX="111.0" layoutY="152.0" text="invoice_id">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="71.0" layoutY="268.0" prefHeight="30.0" prefWidth="185.0" text="ยอดหนี้ที่ต้องชำระ:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="invoiceCtmDebt1" layoutX="292.0" layoutY="269.0" text="Invoice_ctmDebt">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="status_invoiceLabel" layoutX="160.0" layoutY="399.0" text="Invoice_status">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="71.0" layoutY="398.0" text="สถานะ:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="statusChoiceBox" layoutX="309.0" layoutY="400.0" prefWidth="150.0" />
+      <Button layoutX="422.0" layoutY="466.0" mnemonicParsing="false" onAction="#cancelButton" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ยกเลิก" textFill="#fbfdf4">
+         <font>
+            <Font name="Cambria" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow offsetX="2.0" offsetY="2.0">
+               <color>
+                  <Color red="0.3294117748737335" green="0.3294117748737335" blue="0.3294117748737335" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Button layoutX="185.0" layoutY="466.0" mnemonicParsing="false" onAction="#recordButton" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="บันทึก" textFill="#fbfdf4">
+         <font>
+            <Font name="Cambria" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow offsetX="2.0" offsetY="2.0">
+               <color>
+                  <Color red="0.3294117748737335" green="0.3294117748737335" blue="0.3294117748737335" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Label fx:id="lastnameLabel" layoutX="286.0" layoutY="206.0" prefHeight="27.0" prefWidth="207.0" text="lastname">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="71.0" layoutY="332.0" text="วันที่ออกใบแจ้งหนี้">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateLabel" layoutX="292.0" layoutY="333.0" prefHeight="27.0" prefWidth="157.0" text="date">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="468.0" layoutY="268.0" text="บาท">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="750.0" layoutY="23.0" onMouseClicked="#clickBackToEmp_home" style="-fx-background-color: #ffffff;" text="X">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
