@@ -3,9 +3,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ED008C;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.CreditBoardUpdateController">
@@ -17,84 +19,126 @@
                   <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="110.0" layoutY="47.0" prefHeight="420.0" prefWidth="649.0" style="-fx-background-color: #FFFFFF;">
+            <AnchorPane layoutX="110.0" layoutY="47.0" prefHeight="420.0" prefWidth="649.0" style="-fx-background-color: #ffe6ea;">
                <children>
-                  <ListView fx:id="waitForApproveListView" layoutX="40.0" layoutY="59.0" prefHeight="340.0" prefWidth="285.0" />
-                  <Label layoutX="213.0" layoutY="14.0" text="รายชื่อที่รอการอนุมัติเงินกู้">
+                  <ListView fx:id="waitForApproveListView" layoutX="14.0" layoutY="57.0" prefHeight="340.0" prefWidth="239.0" style="-fx-background-color: #ffe6ea; -fx-border-color: #000000;" />
+                  <Label layoutX="22.0" layoutY="21.0" text="รายชื่อที่รอการอนุมัติเงินกู้">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="349.0" layoutY="59.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_customerid">
+                  <Label layoutX="260.0" layoutY="51.0" prefHeight="35.0" prefWidth="87.0" text="รหัสลูกค้า:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="260.0" layoutY="86.0" prefHeight="35.0" prefWidth="38.0" text="ชื่อ:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="260.0" layoutY="121.0" prefHeight="35.0" prefWidth="239.0" text="เลขที่รายการประกอบการกู้ยืม:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="260.0" layoutY="232.0" prefHeight="35.0" prefWidth="163.0" text="สำเนาบัตรประชาชน:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="257.0" layoutY="267.0" prefHeight="35.0" prefWidth="153.0" text="สำเนาสมุดเงินฝาก:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="260.0" layoutY="302.0" prefHeight="35.0" prefWidth="163.0" text="เอกสารรับรองรายได้:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="260.0" layoutY="337.0" prefHeight="35.0" prefWidth="153.0" text="สำเนาหลักประกัน:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="333.0" layoutY="160.0" text="status">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="status1Label" layoutX="440.0" layoutY="236.0" text="status1">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="status2Label" layoutX="430.0" layoutY="271.0" text="status2">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="status3Label" layoutX="432.0" layoutY="306.0" text="status3">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="status4Label" layoutX="423.0" layoutY="341.0" text="status4">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="customerIdLabel" layoutX="349.0" layoutY="55.0" prefHeight="17.0" prefWidth="109.0" text="customerid">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="nameLabel" layoutX="304.0" layoutY="90.0" prefHeight="27.0" prefWidth="145.0" text="name">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="lastnameLabel" layoutX="460.0" layoutY="90.0" prefHeight="27.0" prefWidth="180.0" text="lastname">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="idLabel" layoutX="507.0" layoutY="125.0" prefHeight="17.0" prefWidth="102.0" text="id">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label layoutX="260.0" layoutY="156.0" prefHeight="35.0" prefWidth="57.0" text="สถานะ:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="260.0" layoutY="193.0" prefHeight="35.0" prefWidth="153.0" text="วันที่บันทึกเอกสาร:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dtbDateLabel" layoutX="414.0" layoutY="197.0" prefHeight="17.0" prefWidth="109.0" text="date">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="349.0" layoutY="94.0" prefHeight="35.0" prefWidth="129.0" text="Ctm_name">
+                  <Button layoutX="560.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleApproveButton" prefHeight="38.0" prefWidth="80.0" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ถัดไป" textFill="#fbfdf4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Cambria" size="20.0" />
                      </font>
-                  </Label>
-                  <Label layoutX="349.0" layoutY="164.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_Id">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="349.0" layoutY="240.0" prefHeight="35.0" prefWidth="129.0" text="Document 1">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="349.0" layoutY="275.0" prefHeight="35.0" prefWidth="129.0" text="Document 2">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="349.0" layoutY="310.0" prefHeight="35.0" prefWidth="129.0" text="Document 3">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="349.0" layoutY="345.0" prefHeight="35.0" prefWidth="129.0" text="Document 4">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="521.0" layoutY="210.0" text="status" />
-                  <Label fx:id="status1Label" layoutX="521.0" layoutY="249.0" text="status1" />
-                  <Label fx:id="status2Label" layoutX="521.0" layoutY="284.0" text="status2" />
-                  <Label fx:id="status3Label" layoutX="521.0" layoutY="319.0" text="status3" />
-                  <Label fx:id="status4Label" layoutX="521.0" layoutY="354.0" text="status4" />
-                  <Label layoutX="349.0" layoutY="129.0" prefHeight="35.0" prefWidth="129.0" text="Ctm_lastname">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="customerIdLabel" layoutX="521.0" layoutY="68.0" prefHeight="17.0" prefWidth="109.0" text="customerid" />
-                  <Label fx:id="nameLabel" layoutX="521.0" layoutY="103.0" prefHeight="17.0" prefWidth="109.0" text="name" />
-                  <Label fx:id="lastnameLabel" layoutX="521.0" layoutY="138.0" prefHeight="17.0" prefWidth="109.0" text="lastname" />
-                  <Label fx:id="idLabel" layoutX="521.0" layoutY="173.0" prefHeight="17.0" prefWidth="102.0" text="id" />
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color red="0.3294117748737335" green="0.3294117748737335" blue="0.3294117748737335" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
                </children>
             </AnchorPane>
-            <Button layoutX="669.0" layoutY="485.0" mnemonicParsing="false" onAction="#handleApproveButton" prefHeight="36.0" prefWidth="102.0" text="Button" />
             <Label fx:id="empNameLabel" alignment="CENTER_RIGHT" layoutX="555.0" layoutY="14.0" prefHeight="21.0" prefWidth="227.0" text="empName">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="99.0" layoutY="481.0" prefHeight="35.0" prefWidth="129.0" text="Dtb_Date">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="dtbDateLabel" layoutX="190.0" layoutY="490.0" prefHeight="17.0" prefWidth="109.0" text="date" />
          </children></AnchorPane>
       <Label layoutX="780.0" layoutY="6.0" onMouseClicked="#clickBackToEmp_home" style="-fx-background-color: #ffe6ea;" text="X">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="259.0" layoutY="6.0" text="CREDIT BOARD อนุมัติเงินกู้" textFill="#ffe6ea">
+      <Label layoutX="290.0" layoutY="6.0" text="ระบบอนุมัติเงินกู้" textFill="#ffe6ea">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
