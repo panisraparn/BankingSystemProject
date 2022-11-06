@@ -121,10 +121,11 @@ public class EmpPayDebt2Controller {
 
 
 //        System.out.println("122: " + invoiceBill.getInvoice_id());
+        int balance1 = Integer.parseInt(Loan_balanceLabel.getText());
 
 
         Database<Receipt,ReceiptList> database = new Receipt_DBConnect();
-        Receipt receipt = new Receipt(idRec, invoiceBill.getInvoice_customerId(), dateNow, monthNow, yearNow, invoiceBill.getInvoice_ctmDebt(), Integer.parseInt(Loan_balanceLabel.getText()), invoiceBill.getInvoice_id());
+        Receipt receipt = new Receipt(idRec, invoiceBill.getInvoice_customerId(), dateNow, monthNow, yearNow, invoiceBill.getInvoice_ctmDebt(), balance1, invoiceBill.getInvoice_id());
         database.insertDatabase(receipt);
 
         //update สัญญา

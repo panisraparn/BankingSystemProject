@@ -34,7 +34,7 @@ public class Receipt_DBConnect implements Database<Receipt, ReceiptList> {
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/test_loansystem", "root", "");
             System.out.println("Connection is created successfully:");
             stmt = (Statement) conn.createStatement();
-            String query1 = "INSERT INTO receipt " + "VALUES ('" +receipt.getRec_id() + "','" + receipt.getRec_customerId() + "','" + receipt.getRec_date() + "', '"+receipt.getRec_month()+"', '"+receipt.getRec_year()+"', '" + receipt.getRec_payAmt() + "','" + receipt.getRec_balanceLoan() + "' '"+receipt.getRec_invoiceId()+"') ";
+            String query1 = "INSERT INTO receipt   VALUES ('" +receipt.getRec_id() + "','" + receipt.getRec_customerId() + "','" + receipt.getRec_date() + "', '"+receipt.getRec_month()+"', '"+receipt.getRec_year()+"', '" + receipt.getRec_payAmt() + "','" + receipt.getRec_balanceLoan() + "', '"+receipt.getRec_invoiceId()+"') ";
             stmt.executeUpdate(query1);
             System.out.println("Record is inserted in the table successfully..................");
         } catch (Exception excep) {
