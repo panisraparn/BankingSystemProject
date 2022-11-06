@@ -4,6 +4,7 @@ module ku.cs {
     requires javafx.graphics;
     requires java.sql;
     requires java.desktop;
+    requires jasperreports;
 
 
     exports ku.cs;

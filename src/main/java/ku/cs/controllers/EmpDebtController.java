@@ -40,13 +40,24 @@ public class EmpDebtController {
 
     @FXML
     public void initialize(){
+        clearLabel();
         //อ่าน database ของ invoice
         Database<Invoice, InvoiceList> database = new Invoice_DBConnect();
-        String allInvoiceQuery = " Select * FROM invoice WHERE Invoice_status = '1' || Invoice_status = '2' || Invoice_status = '0'  ";
+        String allInvoiceQuery = " Select * FROM invoice WHERE Invoice_status = '1' || Invoice_status = '2' || Invoice_status = '0' || Invoice_status = '3'  ";
         waitToTrackDownDebtsList = database.readDatabase(allInvoiceQuery);
 
         showListView();
         handleInvoiceSelected();
+    }
+
+    private void clearLabel() {
+        invoiceIdLabel.setText("");
+        firstnameLabel.setText("");
+        LastnameLabel.setText("");
+        invoiceCtmDebt.setText("");
+        invoiceStatusLabel.setText("");
+        dateLabel.setText("");
+        Ctm_cidLabel.setText("");
     }
 
 
@@ -101,6 +112,9 @@ public class EmpDebtController {
         }
         else if (invoiceTemp.getInvoice_status().equals("2")){
             invoiceStatusLabel.setText("ไม่จ่าย 2 เดือน");
+        }
+        else if (invoiceTemp.getInvoice_status().equals("3")){
+            invoiceStatusLabel.setText("ไม่จ่าย 3 เดือน");
         }
 
         //set วันที่ ที่ออกใบแจ้งหนี้
@@ -168,7 +182,7 @@ public class EmpDebtController {
     void clickShowAllInvoice(MouseEvent event) {
         //อ่าน database ของ invoice
         Database<Invoice, InvoiceList> database = new Invoice_DBConnect();
-        String allInvoiceQuery = " Select * FROM invoice WHERE Invoice_status = '1' || Invoice_status = '2' || Invoice_status = '0'  ";
+        String allInvoiceQuery = " Select * FROM invoice WHERE Invoice_status = '1' || Invoice_status = '2' || Invoice_status = '0' || Invoice_status = '3' ";
         waitToTrackDownDebtsList = database.readDatabase(allInvoiceQuery);
 
 
@@ -189,8 +203,12 @@ public class EmpDebtController {
         else if (invoiceStatusLabel.getText().equals("ไม่จ่าย 1 เดือน")){
             status = "1";
         }
-        else if (invoiceStatusLabel.getText().equals("ไม่จ่าย 2 เดือน"))
+        else if (invoiceStatusLabel.getText().equals("ไม่จ่าย 2 เดือน")){
             status = "2";
+        }
+        else if (invoiceStatusLabel.getText().equals("ไม่จ่าย 3 เดือน")){
+            status = "3";
+        }
 
         invoiceEmp_debt2.setInvoice_status(status);
         try {

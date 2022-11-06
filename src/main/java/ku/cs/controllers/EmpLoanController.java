@@ -55,7 +55,7 @@ public class EmpLoanController {
 
     @FXML
     public void initialize(){
-
+        clearLabel();
         //รับ loginAccount
         empLoginAccount = (Employee)FXRouter.getData();
         showEmpLoginData(empLoginAccount);
@@ -68,6 +68,14 @@ public class EmpLoanController {
 
         showListView();
         handleSelectedListView();
+    }
+
+    private void clearLabel() {
+        firstnameLabel.setText("");
+        lastnameLabel.setText("");
+        dateDtbLabel.setText("");
+        dtb_idLabel.setText("");
+        dtb_CtmIdLabel.setText("");
     }
 
     private void showEmpLoginData(Employee loginAccount) {

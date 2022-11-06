@@ -42,7 +42,10 @@ public class EmpDocumentController {
     private DocumentTOB dtbForInsertRecord = new DocumentTOB("","","","","","","","");
 
 
-
+    @FXML
+    public  void initialize(){
+        clearShowLabel();
+    }
 
     @FXML
     void findCustomerButton(ActionEvent event) {
@@ -204,7 +207,6 @@ public class EmpDocumentController {
     }
 
     private void clearShowLabel() {
-        findCtmCidTextField.setText("");
         showFirstnameLabel.setText("");
         showLastnameLabel.setText("");
         showCtmIdLabel.setText("");

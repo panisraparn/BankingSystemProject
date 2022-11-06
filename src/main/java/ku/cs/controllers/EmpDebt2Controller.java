@@ -39,6 +39,7 @@ public class EmpDebt2Controller {
         statusChoiceBox.getItems().add("1: ไม่จ่าย 1 เดือน");
         statusChoiceBox.getItems().add("2: ไม่จ่าย 2 เดือน");
         statusChoiceBox.getItems().add("3: ไม่จ่าย 3 เดือน");
+        statusChoiceBox.getItems().add("4: จ่าย ");
 
     }
 
@@ -58,6 +59,10 @@ public class EmpDebt2Controller {
         else if (invoice.getInvoice_status().equals("2")){
             status_invoiceLabel.setText("ไม่จ่าย 2 เดือน");
         }
+        else if (invoice.getInvoice_status().equals("3")){
+            status_invoiceLabel.setText("ไม่จ่าย 3 เดือน");
+        }
+
 
         Invoice invoiceTemp = new Invoice(invoiceEmp_debt2.getInvoice_id(),"","","-","-",0,"","-","-","-");
         //อ่าน database ของ invoice
@@ -99,8 +104,13 @@ public class EmpDebt2Controller {
                     String queryDtb = " UPDATE  invoice SET Invoice_status = '2' WHERE Invoice_id = '"+invoiceEmp_debt2.getInvoice_id()+"' ";
                     database.updateDatabase(queryDtb);
                 }else{
-                    String queryDtb = " UPDATE  invoice SET Invoice_status = '3' WHERE Invoice_id = '"+invoiceEmp_debt2.getInvoice_id()+"' ";
-                    database.updateDatabase(queryDtb);
+                    if (statusInvoice.equals("3: ไม่จ่าย 3 เดือน")){
+                        String queryDtb = " UPDATE  invoice SET Invoice_status = '3' WHERE Invoice_id = '"+invoiceEmp_debt2.getInvoice_id()+"' ";
+                        database.updateDatabase(queryDtb);
+                    }else{
+                        String queryDtb = " UPDATE  invoice SET Invoice_status = '4' WHERE Invoice_id = '"+invoiceEmp_debt2.getInvoice_id()+"' ";
+                        database.updateDatabase(queryDtb);
+                    }
                 }
             }
         }
@@ -116,7 +126,6 @@ public class EmpDebt2Controller {
             System.err.println("ไปที่หน้า emp_home ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
 
     @FXML

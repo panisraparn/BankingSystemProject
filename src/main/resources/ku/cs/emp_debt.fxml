@@ -15,7 +15,7 @@
    <children>
       <AnchorPane layoutY="81.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
          <children>
-            <ImageView fitHeight="589.0" fitWidth="819.0" layoutX="-22.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="589.0" fitWidth="819.0" layoutX="-17.0" layoutY="6.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>
@@ -27,7 +27,7 @@
             </Button>
             <AnchorPane layoutX="51.0" layoutY="65.0" prefHeight="458.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                  <ListView fx:id="waitToTrackDownDebtsListView" layoutX="28.0" layoutY="22.0" prefHeight="398.0" prefWidth="288.0" />
+                  <ListView fx:id="waitToTrackDownDebtsListView" layoutX="28.0" layoutY="39.0" prefHeight="381.0" prefWidth="288.0" />
                   <Button layoutX="564.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleCheckInfoButton" prefHeight="38.0" prefWidth="111.0" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ตรวจสอบ" textFill="#fbfdf4">
                      <font>
                         <Font name="Cambria" size="20.0" />
@@ -80,7 +80,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="invoiceStatusLabel" layoutX="511.0" layoutY="343.0" text="Invoice_ctmDebt">
+                  <Label fx:id="invoiceStatusLabel" layoutX="511.0" layoutY="343.0" text="Invoice_status">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -110,6 +110,11 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
+                  <Label layoutX="127.0" layoutY="9.0" text="ใบแจ้งหนี้">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <TextField fx:id="findCtmCidTextField" layoutX="455.0" layoutY="17.0" prefHeight="30.0" prefWidth="264.0" promptText="กรอกเลขบัตรประจำตัวประชาชน" style="-fx-background-color: #00000;" />
@@ -118,7 +123,7 @@
                   <Image url="@../../image/search.png" />
                </image>
             </ImageView>
-            <Label layoutX="62.0" layoutY="41.0" onMouseClicked="#clickShowAllInvoice" prefHeight="17.0" prefWidth="89.0" style="-fx-background-color: #ffffff;" text="เเสดงทุกรายชื่อ">
+            <Label layoutX="356.0" layoutY="23.0" onMouseClicked="#clickShowAllInvoice" prefHeight="17.0" prefWidth="89.0" style="-fx-background-color: #ffffff;" text="เเสดงทุกรายชื่อ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

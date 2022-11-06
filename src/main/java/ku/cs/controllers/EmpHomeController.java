@@ -111,12 +111,12 @@ public class EmpHomeController {
     //หักชำระหนี้
     @FXML
     void clickToEmp_payDebt(ActionEvent event) {
-//        try {
-//            FXRouter.goTo("emp_payDebt");
-//        } catch (IOException e) {
-//            System.err.println("ไปที่หน้า emp_payDebt ไม่ได้");
-//            System.err.println("ให้ตรวจสอบการกำหนด route");
-//        }
+        try {
+            FXRouter.goTo("emp_payDebt");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า emp_payDebt ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
 
     //ส่งผลรายงาน

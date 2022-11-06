@@ -45,6 +45,7 @@ public class EmpInvoiceController {
     //----------------------------------------------------------------------------
     @FXML
     public void initialize(){
+        clearLabel();
         empLoginAccount = (Employee) FXRouter.getData();
         showEmpLoginData(empLoginAccount);
 
@@ -54,6 +55,15 @@ public class EmpInvoiceController {
         loanAgreementList = database.readDatabase(query);
         showListView();
         handleInvoiceSelected();
+    }
+
+    private void clearLabel() {
+        firstnameLabel.setText("");
+        lastnameLabel.setText("");
+        dateLabel.setText("");
+        balanceLabel.setText("");
+        loan_customerIdLabel.setText("");
+        statusLabel.setText("");
     }
 
     private void handleInvoiceSelected() {
