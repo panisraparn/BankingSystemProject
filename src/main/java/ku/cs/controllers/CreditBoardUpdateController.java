@@ -48,6 +48,7 @@ public class CreditBoardUpdateController {
     @FXML
     public void initialize(){
 
+        clearLabel();
         //รับ loginAccount
         empLoginAccount = (Employee)FXRouter.getData();
         showEmpLoginData(empLoginAccount);
@@ -62,6 +63,17 @@ public class CreditBoardUpdateController {
         handleSelectedListView();
     }
 
+    private void clearLabel() {
+        customerIdLabel.setText("");
+        nameLabel.setText("");
+        lastnameLabel.setText("");
+        idLabel.setText("");
+        dtbDateLabel.setText("");
+        status1Label.setText("");
+        status2Label.setText("");
+        status3Label.setText("");
+        status4Label.setText("");
+    }
 
 
     private void showListView() {
