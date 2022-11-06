@@ -36,4 +36,16 @@ public class InvoiceDBTest {
         invoiceTemp = database1.readRecord(q1);
         System.out.println(invoiceTemp.toCsv());
     }
+
+    @Test
+    void date(){
+                //set วันที่ออก invoice
+        String dayInvoice = String.valueOf(LocalDate.now().getDayOfMonth());
+        String monthInvoice = String.valueOf(LocalDate.now().getMonthValue());
+        String yearInvoice = String.valueOf(LocalDate.now().getYear());
+
+        System.out.println("49: "+ dayInvoice);
+        System.out.println(monthInvoice);
+        System.out.println(yearInvoice);
+    }
 }

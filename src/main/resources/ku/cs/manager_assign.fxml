@@ -81,7 +81,7 @@
             <Image url="@../../image/Government_Savings_bank.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="282.0" layoutY="11.0" text="ระบบส่งผลรายงาน" textFill="WHITE">
+      <Label layoutX="282.0" layoutY="11.0" text="ระบบมอบหมาย" textFill="WHITE">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
