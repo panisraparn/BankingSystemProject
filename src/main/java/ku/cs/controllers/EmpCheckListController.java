@@ -12,12 +12,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import ku.cs.FXRouter;
-import ku.cs.servicesDB.Customer_DBConnect;
-import ku.cs.servicesDB.DatabaseConnection;
-import ku.cs.servicesDB.MySQLConnection;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.view.JasperViewer;
 
 public class EmpCheckListController {
 
