@@ -20,7 +20,7 @@
                   <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="46.0" layoutY="18.0" prefHeight="509.0" prefWidth="710.0" style="-fx-background-color: #ffe6ea;">
+            <AnchorPane layoutX="46.0" layoutY="18.0" prefHeight="509.0" prefWidth="710.0" style="-fx-background-color: #ffe6ea; -fx-border-color: #ED008C;">
                <children>
                   <Label layoutX="395.0" layoutY="20.0" text="รูปแบบเงินกู้">
                      <font>

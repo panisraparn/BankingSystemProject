@@ -21,7 +21,7 @@
                   <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>
             </ImageView>
-            <TextField fx:id="findCtmCidTextField" layoutX="455.0" layoutY="14.0" prefHeight="30.0" prefWidth="264.0" promptText="กรอกเลขบัตรประจำตัวประชาชน" style="-fx-background-color: #00000;" />
+            <TextField fx:id="findCtmCidTextField" layoutX="455.0" layoutY="14.0" prefHeight="30.0" prefWidth="264.0" promptText="กรอกเลขบัตรประจำตัวประชาชน" style="-fx-background-color: #ffffff;" />
             <Button layoutX="726.0" layoutY="12.0" mnemonicParsing="false" onAction="#findCustomerButton" prefHeight="27.0" prefWidth="60.0" text="ค้นหา">
                <font>
                   <Font size="16.0" />
@@ -67,12 +67,12 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <Label fx:id="showFirstnameLabel" layoutX="68.0" layoutY="43.0" text="Firstname">
+                  <Label fx:id="showFirstnameLabel" layoutX="67.0" layoutY="39.0" prefHeight="36.0" prefWidth="78.0" text="Firstname">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showLastnameLabel" layoutX="431.0" layoutY="43.0" text="Lastname">
+                  <Label fx:id="showLastnameLabel" layoutX="431.0" layoutY="39.0" prefHeight="36.0" prefWidth="76.0" text="Lastname">
                      <font>
                         <Font size="18.0" />
                      </font>

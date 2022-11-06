@@ -25,7 +25,7 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <AnchorPane layoutX="51.0" layoutY="65.0" prefHeight="458.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
+            <AnchorPane layoutX="51.0" layoutY="65.0" prefHeight="458.0" prefWidth="700.0" style="-fx-background-color: #ffe6ea; -fx-border-color: #ED008C;">
                <children>
                   <ListView fx:id="waitToTrackDownDebtsListView" layoutX="28.0" layoutY="39.0" prefHeight="381.0" prefWidth="288.0" />
                   <Button layoutX="564.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleCheckInfoButton" prefHeight="38.0" prefWidth="111.0" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="ตรวจสอบ" textFill="#fbfdf4">
@@ -40,22 +40,22 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <Label layoutX="339.0" layoutY="28.0" text="No.">
+                  <Label layoutX="332.0" layoutY="56.0" text="No.">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="invoiceIdLabel" layoutX="385.0" layoutY="29.0" text="invoice_id">
+                  <Label fx:id="invoiceIdLabel" layoutX="378.0" layoutY="57.0" text="invoice_id">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="340.0" layoutY="73.0" text="ชื่อ:">
+                  <Label layoutX="333.0" layoutY="101.0" text="ชื่อ:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="firstnameLabel" layoutX="385.0" layoutY="74.0" prefHeight="27.0" prefWidth="149.0" text="Firstname">
+                  <Label fx:id="firstnameLabel" layoutX="378.0" layoutY="102.0" prefHeight="27.0" prefWidth="149.0" text="Firstname">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -70,7 +70,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LastnameLabel" layoutX="534.0" layoutY="74.0" prefHeight="27.0" prefWidth="149.0" text="Lastname">
+                  <Label fx:id="LastnameLabel" layoutX="527.0" layoutY="102.0" prefHeight="27.0" prefWidth="149.0" text="Lastname">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -85,12 +85,12 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="340.0" layoutY="126.0" prefHeight="30.0" prefWidth="253.0" text="เลขบัตรประจำตัวประชาชน">
+                  <Label layoutX="334.0" layoutY="150.0" prefHeight="30.0" prefWidth="253.0" text="เลขบัตรประจำตัวประชาชน">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Ctm_cidLabel" layoutX="340.0" layoutY="174.0" prefHeight="27.0" prefWidth="311.0" text="Ctm_cid">
+                  <Label fx:id="Ctm_cidLabel" layoutX="330.0" layoutY="188.0" prefHeight="27.0" prefWidth="311.0" text="Ctm_cid">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -110,7 +110,17 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="127.0" layoutY="9.0" text="ใบแจ้งหนี้">
+                  <Label layoutX="133.0" layoutY="19.0" text="เลขที่ใบแจ้งหนี้">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="227.0" layoutY="428.0" onMouseClicked="#clickShowAllInvoice" prefHeight="17.0" prefWidth="89.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="เเสดงทุกรายชื่อ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="337.0" layoutY="4.0" text="ใบแจ้งหนี้">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -123,11 +133,6 @@
                   <Image url="@../../image/search.png" />
                </image>
             </ImageView>
-            <Label layoutX="356.0" layoutY="23.0" onMouseClicked="#clickShowAllInvoice" prefHeight="17.0" prefWidth="89.0" style="-fx-background-color: #ffffff;" text="เเสดงทุกรายชื่อ">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
          </children>
       </AnchorPane>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">

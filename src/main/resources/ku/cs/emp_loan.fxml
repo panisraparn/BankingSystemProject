@@ -19,7 +19,7 @@
                   <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="80.0" layoutY="60.0" prefHeight="420.0" prefWidth="649.0" style="-fx-background-color: #ffe6ea;" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="60.0">
+            <AnchorPane layoutX="80.0" layoutY="60.0" prefHeight="420.0" prefWidth="649.0" style="-fx-background-color: #ffe6ea; -fx-border-color: #ED008C;" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="60.0">
                <children>
                   <ListView fx:id="borrowerListView" layoutX="14.0" layoutY="57.0" prefHeight="340.0" prefWidth="285.0" style="-fx-background-color: #ffe6ea; -fx-border-color: #000000;" />
                   <Label layoutX="26.0" layoutY="22.0" prefHeight="27.0" prefWidth="262.0" text="เลขที่เอกสารบันทึกรายได้ที่ได้รับการอนุมัติ">

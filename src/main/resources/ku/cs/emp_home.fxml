@@ -11,7 +11,7 @@
    <children>
       <AnchorPane layoutY="78.0" prefHeight="541.0" prefWidth="802.0" style="-fx-background-color: #ffe6ea;">
          <children>
-            <ImageView fitHeight="550.0" fitWidth="802.0" layoutY="3.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="552.0" fitWidth="827.0" layoutY="2.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>

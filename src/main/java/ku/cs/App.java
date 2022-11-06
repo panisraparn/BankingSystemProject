@@ -17,7 +17,7 @@ public class App extends Application {
 //    public static final String CURRENCY = "$";
     @Override
     public void start(Stage stage) throws IOException {
-        FXRouter.bind(this, stage, "Loan System",800, 600);
+        FXRouter.bind(this, stage, "Loan System",800, 615);
         configRoute();
         FXRouter.goTo("login");
     }
