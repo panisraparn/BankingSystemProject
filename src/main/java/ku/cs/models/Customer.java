@@ -53,17 +53,6 @@ public class Customer {
     }
 
 
-    //check firstname ซ้ำ
-    public boolean isDuplicateFirstname(String ctm_firstname) {
-        return this.ctm_firstname.equals(ctm_firstname);
-    }
-
-    //check lastname ซ้ำ
-    public boolean isDuplicateLastname(String ctm_lastname) {
-        return this.ctm_lastname.equals(ctm_lastname);
-    }
-
-
     //set รูป(imagePath) กรณีที่ user กดปุ่ม อัพโหลดรูป
     public void setCtmImagePath(String imagePath) {
         this.ctm_img = imagePath;
@@ -77,37 +66,6 @@ public class Customer {
         this.ctm_cid = ctm_cid;
     }
 
-    public void setCtm_firstname(String ctm_firstname) {
-        this.ctm_firstname = ctm_firstname;
-    }
-
-    public void setCtm_lastname(String ctm_lastname) {
-        this.ctm_lastname = ctm_lastname;
-    }
-
-    public void setCtm_img(String ctm_img) {
-        this.ctm_img = ctm_img;
-    }
-
-    public void setCtm_sex(String ctm_sex) {
-        this.ctm_sex = ctm_sex;
-    }
-
-    public void setCtm_tel(String ctm_tel) {
-        this.ctm_tel = ctm_tel;
-    }
-
-    public void setCtm_address(String ctm_address) {
-        this.ctm_address = ctm_address;
-    }
-
-    public void setCtm_workplace(String ctm_workplace) {
-        this.ctm_workplace = ctm_workplace;
-    }
-
-    public void setCtm_bankAccount(String ctm_bankAccount) {
-        this.ctm_bankAccount = ctm_bankAccount;
-    }
 
     public String getCtm_Id() {
         return ctm_Id;

@@ -63,21 +63,7 @@ public class LoanAgreement {
         this.loan_customerId = loan_customerId;
     }
 
-    public void setLoan_firstname(String loan_firstname) {
-        this.loan_firstname = loan_firstname;
-    }
 
-    public void setLoan_lastname(String loan_lastname) {
-        this.loan_lastname = loan_lastname;
-    }
-
-    public void setLoan_type(String loan_type) {
-        this.loan_type = loan_type;
-    }
-
-    public void setLoan_term(int loan_term) {
-        this.loan_term = loan_term;
-    }
 
     public String setLoan_date() {
         long millis=System.currentTimeMillis();
@@ -87,29 +73,12 @@ public class LoanAgreement {
         return loan_date;
     }
 
-    public void setLoan_balance(int loan_balance) {
-        this.loan_balance = loan_balance;
-    }
-
-    public void setLoan_amount(int loan_amount) {
-        this.loan_amount = loan_amount;
-    }
-
-    public void setLoan_witness1(String loan_witness1) {
-        this.loan_witness1 = loan_witness1;
-    }
-
-    public void setLoan_witness2(String loan_witness2) {
-        this.loan_witness2 = loan_witness2;
-    }
 
     public void setLoan_Emp1(String loan_Emp1) {
         this.loan_Emp1 = loan_Emp1;
     }
 
-    public void setLoan_Emp2(String loan_Emp2) {
-        this.loan_Emp2 = loan_Emp2;
-    }
+
 
     //Getter
 

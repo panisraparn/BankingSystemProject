@@ -10,10 +10,10 @@ public class EmployeeList {
         employees = new ArrayList<>();
     }
 
-    //เพิ่ม emp
-    public void addEmployee(Employee employee){
-        employees.add(employee);
-    }
+//    //เพิ่ม emp
+//    public void addEmployee(Employee employee){
+//        employees.add(employee);
+//    }
 
     public String toCsv(){
         String result = "";

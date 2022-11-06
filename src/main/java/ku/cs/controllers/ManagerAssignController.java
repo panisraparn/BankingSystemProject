@@ -199,9 +199,9 @@ public class ManagerAssignController {
 
         if(result.get() == ButtonType.OK){
             try {
-                FXRouter.goTo("emp_home");
+                FXRouter.goTo("manager_home");
             } catch (IOException e) {
-                System.err.println("ไปที่หน้า menu ไม่ได้");
+                System.err.println("ไปที่หน้า manager_home ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
         }

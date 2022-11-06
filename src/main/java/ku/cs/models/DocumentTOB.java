@@ -52,25 +52,7 @@ public class DocumentTOB {
         return dtb_id;
     }
 
-    public boolean isInteger(String str)
-    {
-        if (str == null || str.length() == 0) return false;
 
-        for (int i = 0; i < str.length(); i++) {
-            if(!Character.isDigit(str.charAt(i))) {  // not condition
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-
-
-    //setter
-    public void setDtb_id(String dtb_id) {
-        this.dtb_id = dtb_id;
-    }
 
     public void setDtb_customerId(String dtb_customerId) {
         this.dtb_customerId = dtb_customerId;
@@ -99,9 +81,7 @@ public class DocumentTOB {
         dtb_date = String.valueOf(date);
     }
 
-    public void setDtb_status(String dtb_status) {
-        this.dtb_status = dtb_status;
-    }
+
 
 
     //getter
@@ -141,7 +121,4 @@ public class DocumentTOB {
         return dtb_id + "," + dtb_customerId + "," + dtb_d1 + "," + dtb_d2 + "," + dtb_d3 + "," + dtb_d4 + "," +dtb_date + "," + dtb_status;
     }
 
-    public boolean checkId(String id) {
-        return this.dtb_id.equals(id);
-    }
 }

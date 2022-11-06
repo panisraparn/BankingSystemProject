@@ -188,6 +188,7 @@ public class RegisterController {
                 // ไม่ซ้ำ else (ไม่เจอ)
 
                 if (tempCustomerForCheckCtm_cid == null){
+
                     // ใช้ Db
                     Database<Customer, CustomerList> database2 = new Customer_DBConnect();
                     ctmInsertToDB = new Customer(ctm_idStr,idNumberStr,firstnameStr,lastnameStr,ctmForSetImageView.getCtm_img(),sexCheckBoxStr,phoneNumStr,addressStr,workplaceStr,bankAccNumStr);

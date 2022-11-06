@@ -26,41 +26,6 @@ public class Receipt {
     }
 
 
-    //setter
-
-    public void setRec_id(String rec_id) {
-        this.rec_id = rec_id;
-    }
-
-    public void setRec_customerId(String rec_customerId) {
-        this.rec_customerId = rec_customerId;
-    }
-
-    public void setRec_date(String rec_date) {
-        this.rec_date = rec_date;
-    }
-
-    public void setRec_month(String rec_month) {
-        this.rec_month = rec_month;
-    }
-
-    public void setRec_year(String rec_year) {
-        this.rec_year = rec_year;
-    }
-
-    public void setRec_payAmt(int rec_payAmt) {
-        this.rec_payAmt = rec_payAmt;
-    }
-
-    public void setRec_balanceLoan(int rec_balanceLoan) {
-        this.rec_balanceLoan = rec_balanceLoan;
-    }
-
-    public void setRec_invoiceId(String rec_invoiceId) {
-        this.rec_invoiceId = rec_invoiceId;
-    }
-
-
 
     //getter
 
