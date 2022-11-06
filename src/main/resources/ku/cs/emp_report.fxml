@@ -43,12 +43,12 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="386.0" layoutY="344.0" text="สถานะ:">
+                  <Label layoutX="375.0" layoutY="344.0" text="สถานะ:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Invoice_statusLabel" layoutX="458.0" layoutY="345.0" text="Invoice_status">
+                  <Label fx:id="invoice_statusLabel" layoutX="458.0" layoutY="345.0" text="Invoice_status">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -74,22 +74,22 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Emp_nameLabel" layoutX="431.0" layoutY="252.0" prefHeight="27.0" prefWidth="200.0" text="Emp_name">
+                  <Label fx:id="emp_nameLabel" layoutX="431.0" layoutY="252.0" prefHeight="27.0" prefWidth="200.0" text="Emp_name">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="380.0" layoutY="251.0" text="ชื่อ:">
+                  <Label layoutX="374.0" layoutY="251.0" text="ชื่อ:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="379.0" layoutY="294.0" text="รหัสพนักงาน:">
+                  <Label layoutX="372.0" layoutY="294.0" text="รหัสพนักงาน:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Emp_idLabel" layoutX="517.0" layoutY="295.0" prefHeight="27.0" prefWidth="149.0" text="Emp_id">
+                  <Label fx:id="emp_idLabel" layoutX="517.0" layoutY="295.0" prefHeight="27.0" prefWidth="149.0" text="Emp_id">
                      <font>
                         <Font size="18.0" />
                      </font>

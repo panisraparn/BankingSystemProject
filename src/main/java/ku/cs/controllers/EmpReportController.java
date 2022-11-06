@@ -1,5 +1,6 @@
 package ku.cs.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -18,8 +19,10 @@ public class EmpReportController {
     @FXML private Label firstnameLabel;
     @FXML private Label lastnameLabel;
     @FXML private Label ctmIdLabel;
-    @FXML private Label Invoice_statusLabel;
+    @FXML private Label invoice_statusLabel;
     @FXML private Label dateLabel;
+    @FXML private Label emp_nameLabel;
+    @FXML private Label emp_idLabel;
     @FXML private ListView<String> reportOfDebtorListView;
 
     //ListView
@@ -32,7 +35,7 @@ public class EmpReportController {
         clearLabel();
         //อ่าน database ของ invoice
         Database<Invoice, InvoiceList> database = new Invoice_DBConnect();
-        String allInvoiceQuery = " Select * FROM invoice WHERE Invoice_status = '1' || Invoice_status = '2' || Invoice_status = '0' || Invoice_status = '3'  ";
+        String allInvoiceQuery = " Select * FROM invoice   ";
         reportOfDebtorList = database.readDatabase(allInvoiceQuery);
 
         showListView();
@@ -40,6 +43,15 @@ public class EmpReportController {
     }
 
     private void handleInvoiceSelected() {
+        ObservableList = FXCollections.observableArrayList();
+        for(int i = reportOfDebtorList.countInvoiceElement()-1; i>=0; i--)
+        {
+            Invoice invoice = reportOfDebtorList.getInvoiceRecord(i);
+//          ObservableList.add("No."+doc.getDtb_id()+" CustomerId : "+doc.getDtb_customerId()+"  Date : "+doc.getDtb_date());
+
+            ObservableList.add(invoice.getInvoice_id());
+        }
+        reportOfDebtorListView.setItems(ObservableList);
     }
 
     private void showListView() {
@@ -49,8 +61,11 @@ public class EmpReportController {
         firstnameLabel.setText("");
         lastnameLabel.setText("");
         ctmIdLabel.setText("");
-        Invoice_statusLabel.setText("");
+        invoice_statusLabel.setText("");
         dateLabel.setText("");
+        emp_nameLabel.setText("");
+        emp_idLabel.setText("");
+
     }
 
     @FXML
