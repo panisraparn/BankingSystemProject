@@ -22,7 +22,7 @@ import net.sf.jasperreports.view.JasperViewer;
 public class EmpCheckListController {
 
     @FXML
-    void clickBackToLogin(MouseEvent event) {
+    void clickBackToEmp_home(MouseEvent event) {
         try {
             FXRouter.goTo("emp_home");
         } catch (IOException e) {

@@ -33,7 +33,7 @@
                </font>
             </Button>
          </children></AnchorPane>
-      <Label layoutX="780.0" layoutY="6.0" onMouseClicked="#clickBackToLogin" style="-fx-background-color: #ffe6ea;" text="X">
+      <Label layoutX="780.0" layoutY="6.0" onMouseClicked="#clickBackToEmp_home" style="-fx-background-color: #ffe6ea;" text="X">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
