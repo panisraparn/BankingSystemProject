@@ -29,7 +29,6 @@ public class App extends Application {
         FXRouter.when("creditboard_update",packageStr+"creditboard_update.fxml");
         FXRouter.when("creditboard_update2",packageStr+"creditboard_update2.fxml");
 
-
         FXRouter.when("emp_checklist",packageStr+"emp_checklist.fxml");
         FXRouter.when("emp_debt",packageStr+"emp_debt.fxml");
         FXRouter.when("emp_debt_2",packageStr+"emp_debt_2.fxml");
@@ -45,11 +44,12 @@ public class App extends Application {
         FXRouter.when("emp_report", packageStr+"emp_report.fxml");
 
 
-
         FXRouter.when("login", packageStr+"login.fxml");
 
 
+        FXRouter.when("manager_assign",packageStr+"manager_assign.fxml");
         FXRouter.when("manager_home",packageStr+"manager_home.fxml");
+
 
 
         FXRouter.when("menu",packageStr+"menu.fxml");
