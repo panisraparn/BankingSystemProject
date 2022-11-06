@@ -19,10 +19,10 @@
                   <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="110.0" layoutY="47.0" prefHeight="420.0" prefWidth="649.0" style="-fx-background-color: #ffe6ea;">
+            <AnchorPane layoutX="110.0" layoutY="47.0" prefHeight="420.0" prefWidth="649.0" style="-fx-background-color: #ffe6ea; -fx-border-color: #ED008C;">
                <children>
                   <ListView fx:id="waitForApproveListView" layoutX="14.0" layoutY="57.0" prefHeight="340.0" prefWidth="239.0" style="-fx-background-color: #ffe6ea; -fx-border-color: #000000;" />
-                  <Label layoutX="22.0" layoutY="21.0" text="รายชื่อที่รอการอนุมัติเงินกู้">
+                  <Label layoutX="206.0" layoutY="5.0" text="รายชื่อที่รอการอนุมัติเงินกู้">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -125,6 +125,11 @@
                         </DropShadow>
                      </effect>
                   </Button>
+                  <Label layoutX="57.0" layoutY="35.0" text="เลขที่รายการประกอบการกู้ยืม">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <Label fx:id="empNameLabel" alignment="CENTER_RIGHT" layoutX="555.0" layoutY="14.0" prefHeight="21.0" prefWidth="227.0" text="empName">
@@ -138,7 +143,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="290.0" layoutY="6.0" text="ระบบอนุมัติเงินกู้" textFill="#ffe6ea">
+      <Label layoutX="290.0" layoutY="6.0" text="ระบบอนุมัติเงินกู้" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>

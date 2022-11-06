@@ -38,7 +38,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="314.0" layoutY="99.0" prefHeight="482.0" prefWidth="428.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30; -fx-border-radius: 30;">
+      <AnchorPane layoutX="314.0" layoutY="99.0" prefHeight="482.0" prefWidth="428.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #ED008C;">
          <children>
             <Label layoutX="13.0" layoutY="38.0" prefHeight="28.0" prefWidth="91.0" text="ชื่อ:" textFill="#4d4242">
                <font>

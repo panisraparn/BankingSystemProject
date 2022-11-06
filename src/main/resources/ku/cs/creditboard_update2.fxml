@@ -19,7 +19,7 @@
                   <Image url="@../../image/Vector-Smart-Object-Mobile-2-360x240-1-1.jpg" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="110.0" layoutY="47.0" prefHeight="420.0" prefWidth="649.0" style="-fx-background-color: #ffe6ea;">
+            <AnchorPane layoutX="110.0" layoutY="47.0" prefHeight="420.0" prefWidth="649.0" style="-fx-background-color: #ffe6ea; -fx-border-color: #ED008C;">
                <children>
                   <Label layoutX="188.0" layoutY="14.0" text="รายชื่อรอการอนุมัติเอกสารเงินกู้">
                      <font>
@@ -121,7 +121,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="284.0" layoutY="6.0" text="ระบบอนุมัติเงินกู้" textFill="#ffe6ea">
+      <Label layoutX="284.0" layoutY="6.0" text="ระบบอนุมัติเงินกู้" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
