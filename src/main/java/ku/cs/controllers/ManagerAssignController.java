@@ -46,8 +46,6 @@ public class ManagerAssignController {
     @FXML
     public void initialize(){
         clearLabel();
-        
-
         //อ่าน database ของ loan Agreement
         Database<LoanAgreement, LoanAgreementList> database = new LoanAgreement_DBConnect();
         String query = " Select * From LoanAgreement Where Loan_balance != 0";
@@ -104,8 +102,6 @@ public class ManagerAssignController {
 
         emp_nameLabel.setText(employee.getEmp_name());
 
-
-
     }
 
     private void clearLabel() {
@@ -143,8 +139,6 @@ public class ManagerAssignController {
                 System.err.println("ไปที่หน้า manager_home ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
-
-
         }
     }
 
