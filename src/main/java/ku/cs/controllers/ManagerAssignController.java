@@ -182,7 +182,29 @@ public class ManagerAssignController {
             }
 
         }
+    }
 
+    @FXML
+    void handleBackButton(ActionEvent event) {
+        //ต้องการกลับไป Menu ใช่ไหม
+        //if ใช--> clear text field
+        // else ไม่ใช่
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm");
+        alert.setContentText("ต้องการยกเลิกใช่หรือไม่?");
+        //capture the dialog result of ok or cancel
+        Optional<ButtonType> result = alert.showAndWait();
+
+
+        if(result.get() == ButtonType.OK){
+            try {
+                FXRouter.goTo("emp_home");
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า menu ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
     }
 
 

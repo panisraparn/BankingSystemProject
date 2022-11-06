@@ -106,6 +106,18 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
+                  <Button layoutX="451.0" layoutY="357.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="46.0" prefWidth="99.0" style="-fx-background-color: #545454; -fx-background-radius: 20;" text="ยกเลิก" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria" size="24.0" />
+                     </font>
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color red="0.3294117748737335" green="0.3294117748737335" blue="0.3294117748737335" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
                </children>
             </AnchorPane>
          </children>
