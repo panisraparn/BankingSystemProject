@@ -82,7 +82,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <Label fx:id="empNameLabel" alignment="CENTER_RIGHT" layoutX="558.0" layoutY="14.0" prefHeight="21.0" prefWidth="227.0" text="empName">
+            <Label fx:id="empNameLabel" alignment="CENTER_RIGHT" layoutX="503.0" layoutY="14.0" prefHeight="21.0" prefWidth="227.0" text="empName">
                <font>
                   <Font size="15.0" />
                </font>

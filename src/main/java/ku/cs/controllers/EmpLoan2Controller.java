@@ -169,7 +169,7 @@ public class EmpLoan2Controller {
 
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Error!!");
+                    alert.setTitle("Success");
                     alert.setHeaderText(null);
                     alert.setContentText("ระบบบันทึกข้อมูลลูกค้าสำเร็จ");
                     alert.showAndWait();
@@ -185,7 +185,7 @@ public class EmpLoan2Controller {
 
             }else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Error!!");
+                alert.setTitle("Already Done");
                 alert.setHeaderText(null);
                 alert.setContentText("ระบบมีข้อมูลกู้ยืมของลูกค้ารายนี้แล้ว");
                 alert.showAndWait();

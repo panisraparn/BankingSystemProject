@@ -128,7 +128,7 @@ public class EmpInvoice2Controller {
             database.insertDatabase(invoiceInsertRecord);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Error!!");
+            alert.setTitle("Success");
             alert.setHeaderText(null);
             alert.setContentText("บันทึกสำเร็จ");
             alert.showAndWait();

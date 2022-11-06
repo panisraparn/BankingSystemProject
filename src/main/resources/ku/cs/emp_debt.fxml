@@ -127,7 +127,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <TextField fx:id="findCtmCidTextField" layoutX="455.0" layoutY="17.0" prefHeight="30.0" prefWidth="264.0" promptText="กรอกเลขบัตรประจำตัวประชาชน" style="-fx-background-color: #00000;" />
+            <TextField fx:id="findCtmCidTextField" layoutX="455.0" layoutY="17.0" prefHeight="30.0" prefWidth="264.0" promptText="กรอกเลขบัตรประจำตัวประชาชน" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
             <ImageView fitHeight="35.0" fitWidth="27.0" layoutX="692.0" layoutY="19.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/search.png" />

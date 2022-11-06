@@ -142,7 +142,7 @@ public class EmpPayDebt2Controller {
         database3.updateDatabase(invoiceById);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Error!!");
+        alert.setTitle("Success");
         alert.setHeaderText(null);
         alert.setContentText("ระบบบันทึกข้อมูลลูกค้าสำเร็จ");
         alert.showAndWait();

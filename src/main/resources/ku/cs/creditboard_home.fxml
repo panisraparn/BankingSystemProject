@@ -28,7 +28,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="271.0" layoutY="7.0" text="CREDIT BOARD" textFill="#ffe6ea">
+      <Label layoutX="343.0" layoutY="7.0" text="หน้าแรก" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>

@@ -22,7 +22,7 @@
             </ImageView>
             <AnchorPane layoutX="45.0" layoutY="66.0" prefHeight="410.0" prefWidth="714.0" style="-fx-background-color: #ffe6ea; -fx-border-color: #ED008C;">
                <children>
-                  <Button layoutX="598.0" layoutY="357.0" mnemonicParsing="false" onAction="#recordButton" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="บันทึก" textFill="#fbfdf4">
+                  <Button layoutX="451.0" layoutY="357.0" mnemonicParsing="false" onAction="#recordButton" style="-fx-background-color: #C84C4C; -fx-background-radius: 20;" text="บันทึก" textFill="#fbfdf4">
                      <font>
                         <Font name="Cambria" size="24.0" />
                      </font>
@@ -34,27 +34,27 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <Label layoutX="255.0" layoutY="92.0" text="รหัสลูกค้า:">
+                  <Label layoutX="250.0" layoutY="102.0" text="รหัสลูกค้า:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="256.0" layoutY="42.0" text="ชื่อ:">
+                  <Label layoutX="251.0" layoutY="52.0" text="ชื่อ:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="firstnameLabel" layoutX="309.0" layoutY="45.0" prefHeight="27.0" prefWidth="125.0" text="Firstname">
+                  <Label fx:id="firstnameLabel" layoutX="304.0" layoutY="55.0" prefHeight="27.0" prefWidth="134.0" text="Firstname">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lastnameLabel" layoutX="466.0" layoutY="45.0" prefHeight="27.0" prefWidth="125.0" text="Lastname">
+                  <Label fx:id="lastnameLabel" layoutX="461.0" layoutY="55.0" prefHeight="27.0" prefWidth="134.0" text="Lastname">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="ctmIdLabel" layoutX="359.0" layoutY="95.0" text="Ctm_id">
+                  <Label fx:id="ctmIdLabel" layoutX="354.0" layoutY="105.0" text="Ctm_id">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -65,48 +65,48 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="256.0" layoutY="145.0" text="พนักงานที่ติดตามหนี้">
+                  <Label layoutX="251.0" layoutY="155.0" text="พนักงานที่ติดตามหนี้">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="emp_nameLabel" layoutX="301.0" layoutY="187.0" prefHeight="27.0" prefWidth="200.0" text="Emp_name">
+                  <Label fx:id="emp_nameLabel" layoutX="296.0" layoutY="197.0" prefHeight="27.0" prefWidth="200.0" text="Emp_name">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="256.0" layoutY="185.0" text="ชื่อ:">
+                  <Label layoutX="251.0" layoutY="195.0" text="ชื่อ:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="256.0" layoutY="233.0" prefHeight="30.0" prefWidth="282.0" text="รหัสพนักงานดูแลสัญญาคนใหม่:">
+                  <Label layoutX="251.0" layoutY="243.0" prefHeight="30.0" prefWidth="282.0" text="รหัสพนักงานดูแลสัญญาคนใหม่:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="emp_idLabel" layoutX="523.0" layoutY="187.0" prefHeight="27.0" prefWidth="149.0" text="Emp_id">
+                  <Label fx:id="emp_idLabel" layoutX="518.0" layoutY="197.0" prefHeight="27.0" prefWidth="149.0" text="Emp_id">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="501.0" layoutY="145.0" text="รหัสพนักงาน:">
+                  <Label layoutX="496.0" layoutY="155.0" text="รหัสพนักงาน:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="emp_IdTextField" layoutX="266.0" layoutY="276.0" prefHeight="25.0" prefWidth="189.0" />
-                  <Label fx:id="emp_nameLabel1" layoutX="491.0" layoutY="275.0" prefHeight="27.0" prefWidth="200.0" text="Emp_name">
+                  <TextField fx:id="emp_IdTextField" layoutX="261.0" layoutY="286.0" prefHeight="25.0" prefWidth="189.0" />
+                  <Label fx:id="emp_nameLabel1" layoutX="486.0" layoutY="285.0" prefHeight="27.0" prefWidth="200.0" text="Emp_name">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button layoutX="270.0" layoutY="313.0" mnemonicParsing="false" onAction="#findEmployeeButton" prefHeight="27.0" prefWidth="60.0" text="ค้นหา">
+                  <Button layoutX="265.0" layoutY="323.0" mnemonicParsing="false" onAction="#findEmployeeButton" prefHeight="27.0" prefWidth="60.0" text="ค้นหา">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button layoutX="451.0" layoutY="357.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="46.0" prefWidth="99.0" style="-fx-background-color: #545454; -fx-background-radius: 20;" text="ยกเลิก" textFill="WHITE">
+                  <Button layoutX="598.0" layoutY="357.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="46.0" prefWidth="99.0" style="-fx-background-color: #545454; -fx-background-radius: 20;" text="ยกเลิก" textFill="WHITE">
                      <font>
                         <Font name="Cambria" size="24.0" />
                      </font>

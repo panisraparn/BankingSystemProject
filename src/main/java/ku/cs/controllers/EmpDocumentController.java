@@ -97,7 +97,7 @@ public class EmpDocumentController {
 
                 }else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Error!!");
+                    alert.setTitle("Already Done");
                     alert.setHeaderText(null);
                     alert.setContentText("ลูกค้ารายนี้เคยบันทึกเอกสารประกอบการกู้ยืมแล้ว");
                     alert.showAndWait();
