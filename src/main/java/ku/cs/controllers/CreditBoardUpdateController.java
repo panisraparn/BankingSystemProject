@@ -16,6 +16,7 @@ import ku.cs.servicesDB.Database;
 import ku.cs.servicesDB.DocumentTOB_DBConnect;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class CreditBoardUpdateController {
     @FXML private ListView<String> waitForApproveListView;
@@ -123,7 +124,19 @@ public class CreditBoardUpdateController {
         nameLabel.setText(customer.getCtm_firstname());
         lastnameLabel.setText(customer.getCtm_lastname());
         idLabel.setText(dtb_id);
-        dtbDateLabel.setText(docCtmId.getDtb_date());
+
+        // Parses the date
+        LocalDate dt = LocalDate.parse(docCtmId.getDtb_date());
+
+        // Prints the day number
+        String date = String.valueOf(dt.getDayOfMonth());
+        String month= String.valueOf(dt.getMonthValue());
+        String year = String.valueOf(dt.getYear());
+
+
+
+        String setDocDate = date + "-" + month + "-" + year ;
+        dtbDateLabel.setText(setDocDate);
 
 
         if(docCtmId.getDtb_d1().equals("")){

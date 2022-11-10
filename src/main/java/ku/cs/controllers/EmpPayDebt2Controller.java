@@ -55,12 +55,17 @@ public class EmpPayDebt2Controller {
         //
         Invoice_statusLabel.setText("จ่ายแล้ว");
 
-        String dateInvoice = invoiceBill.getInvoice_year() + "-" +invoiceBill.getInvoice_month() + "-" + invoiceBill.getInvoice_date();
+        String dateInvoice = invoiceBill.getInvoice_date() + "-" +invoiceBill.getInvoice_month() + "-" + invoiceBill.getInvoice_year();
         invoice_dateLabel.setText(dateInvoice);
 
         //receipt generate date LocalDateNow
-        String date = String.valueOf(LocalDate.now());
-        Recipt_dateLabel.setText(date);
+        //set date Label
+        String dmyLabel = String.valueOf(LocalDate.now());
+        LocalDate dt = LocalDate.parse(dmyLabel);
+        String dateNowLabel = String.valueOf(dt.getDayOfMonth());
+        String monthNowLabel = String.valueOf(dt.getMonthValue());
+        String yearNowLabel = String.valueOf(dt.getYear());
+        Recipt_dateLabel.setText(dateNowLabel+"-"+monthNowLabel+"-"+yearNowLabel);
 
         Invoice_DebtLabel.setText(String.valueOf(invoiceBill.getInvoice_ctmDebt()));
 

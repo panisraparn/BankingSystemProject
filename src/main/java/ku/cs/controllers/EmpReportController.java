@@ -100,7 +100,7 @@ public class EmpReportController {
         String monthInvoice = invoiceTemp.getInvoice_month();
         String yearInvoice = invoiceTemp.getInvoice_year();
 
-        String dateOfInvoice = yearInvoice + "-" + monthInvoice + "-" + dayInvoice;
+        String dateOfInvoice = dayInvoice + "-" + monthInvoice + "-" + yearInvoice;
 
         dateInvoiceLabel.setText(dateOfInvoice);
 
@@ -127,7 +127,13 @@ public class EmpReportController {
         }
 
         //set Date
-        dateLabel.setText(String.valueOf(LocalDate.now()));
+        //set date Label
+        String dmyLabel = String.valueOf(LocalDate.now());
+        LocalDate dt = LocalDate.parse(dmyLabel);
+        String dateNowLabel = String.valueOf(dt.getDayOfMonth());
+        String monthNowLabel = String.valueOf(dt.getMonthValue());
+        String yearNowLabel = String.valueOf(dt.getYear());
+        dateLabel.setText(dateNowLabel+"-"+monthNowLabel+"-"+yearNowLabel);
 
         //อ่านสัญญาหาพนักงานสอง ที่ customerId ตรงกับ invoiceCustomerId
         Database<LoanAgreement, LoanAgreementList>  database1 = new LoanAgreement_DBConnect();

@@ -98,7 +98,13 @@ public class EmpInvoiceController {
         String yearNow = String.format("%04d",LocalDate.now().getYear());
 
         //set date Label
-        dateLabel.setText(String.valueOf(LocalDate.now()));
+        String dmyLabel = String.valueOf(LocalDate.now());
+        LocalDate dt = LocalDate.parse(dmyLabel);
+        String dateNowLabel = String.valueOf(dt.getDayOfMonth());
+        String monthNowLabel = String.valueOf(dt.getMonthValue());
+        String yearNowLabel = String.valueOf(dt.getYear());
+        dateLabel.setText(dateNowLabel+"-"+monthNowLabel+"-"+yearNowLabel);
+
 
         //year month
         Invoice invoiceTemp = new Invoice("-","-","-","-","-",0,"-","-", "-", "-");

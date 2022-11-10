@@ -57,7 +57,13 @@ public class EmpInvoice2Controller {
         loanAgreement = database1.readRecord(q1);
         Loan_balanceLabel.setText(String.valueOf(loanAgreement.getLoan_balance()));
 
-        dateLabel.setText(String.valueOf(LocalDate.now()));
+        //set date Label
+        String dmyLabel = String.valueOf(LocalDate.now());
+        LocalDate dt = LocalDate.parse(dmyLabel);
+        String dateNowLabel = String.valueOf(dt.getDayOfMonth());
+        String monthNowLabel = String.valueOf(dt.getMonthValue());
+        String yearNowLabel = String.valueOf(dt.getYear());
+        dateLabel.setText(dateNowLabel+"-"+monthNowLabel+"-"+yearNowLabel);
 
     }
 

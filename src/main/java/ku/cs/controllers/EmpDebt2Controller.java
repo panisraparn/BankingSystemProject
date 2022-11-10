@@ -75,7 +75,7 @@ public class EmpDebt2Controller {
         String month = invoiceTemp.getInvoice_month();
         String year = invoiceTemp.getInvoice_year();
 
-        String date = year+"-"+month+"-"+day;
+        String date = day+"-"+month+"-"+year;
 
         dateLabel.setText(date);
 

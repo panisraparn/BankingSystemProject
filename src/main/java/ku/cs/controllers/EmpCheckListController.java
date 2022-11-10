@@ -37,8 +37,7 @@ public class EmpCheckListController {
     @FXML private Label dateLabel;
     @FXML private Label invoice_statusLabel;
 
-    @FXML private Label emp_nameLabel;
-    @FXML private Label emp_idLabel;
+
 
     @FXML private TextField findCtmCidTextField;
 
@@ -142,7 +141,7 @@ public class EmpCheckListController {
         String month = invoice.getInvoice_month();
         String year = invoice.getInvoice_year();
 
-        String date = year+"-"+month+"-"+day;
+        String date = day+"-"+month+"-"+year;
 
         dateLabel.setText(date);
 
